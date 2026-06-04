@@ -97,7 +97,8 @@
     <div class="bg-[#1976d2] text-white py-2.5 px-4 z-50 relative shadow-sm w-full border-b border-[#1565c0]">
         <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-center gap-2 md:gap-4 text-[10px] md:text-xs font-bold tracking-wide">
             <span class="flex items-center gap-2 uppercase">
-                <i class="fa-solid fa-tags transform -scale-x-100"></i> PROMO SPESIAL SELASA: DISKON 20% KHUSUS WEB!
+                <i class="fa-solid fa-tags transform -scale-x-100"></i>
+                <span id="promo-text"></span>
             </span>
             <span class="opacity-40 hidden md:inline font-light">|</span>
             <div class="bg-[#1565c0] px-3 py-1 rounded shadow-inner text-[#ffd700] flex items-center">
@@ -334,25 +335,29 @@
                                             <i class="fa-solid fa-chevron-right text-[10px]"></i>
                                         </button>
 
-                                        <button onclick="filterCategory('meja-rak-stainless')" id="cat-meja-rak-stainless"
+                                        <button onclick="filterCategory('table')" id="cat-table"
                                             class="w-full flex items-center justify-between text-left text-xs font-bold px-3 py-2 rounded-xl transition-all text-slate-500 hover:text-[#00bcd4] hover:bg-slate-50 dark:hover:bg-slate-800/50">
                                             <span>Meja & Rak Stainless</span>
                                             <i class="fa-solid fa-chevron-right text-[10px] opacity-40"></i>
                                         </button>
 
-                                        <button onclick="filterCategory('kabinet-stainless')" id="cat-kabinet-stainless"
+                                        <button onclick="filterCategory('kabinet')" id="cat-kabinet"
                                             class="w-full flex items-center justify-between text-left text-xs font-bold px-3 py-2 rounded-xl transition-all text-slate-500 hover:text-[#00bcd4] hover:bg-slate-50 dark:hover:bg-slate-800/50">
                                             <span>Kabinet Stainless</span>
                                             <i class="fa-solid fa-chevron-right text-[10px] opacity-40"></i>
                                         </button>
-
-                                        <button onclick="filterCategory('sink-cuci-piring')" id="cat-sink-cuci-piring"
+                                        <button onclick="filterCategory('rak')" id="cat-rak"
+                                            class="w-full flex items-center justify-between text-left text-xs font-bold px-3 py-2 rounded-xl transition-all text-slate-500 hover:text-[#00bcd4] hover:bg-slate-50 dark:hover:bg-slate-800/50">
+                                            <span>Rak & Storage</span>
+                                            <i class="fa-solid fa-chevron-right text-[10px] opacity-40"></i>
+                                        </button>
+                                        <button onclick="filterCategory('sink')" id="cat-sink"
                                             class="w-full flex items-center justify-between text-left text-xs font-bold px-3 py-2 rounded-xl transition-all text-slate-500 hover:text-[#00bcd4] hover:bg-slate-50 dark:hover:bg-slate-800/50">
                                             <span>Sink & Cuci Piring</span>
                                             <i class="fa-solid fa-chevron-right text-[10px] opacity-40"></i>
                                         </button>
 
-                                        <button onclick="filterCategory('bar-beverage-station')" id="cat-bar-beverage-station"
+                                        <button onclick="filterCategory('beverage')" id="cat-beverage"
                                             class="w-full flex items-center justify-between text-left text-xs font-bold px-3 py-2 rounded-xl transition-all text-slate-500 hover:text-[#00bcd4] hover:bg-slate-50 dark:hover:bg-slate-800/50">
                                             <span>Bar & Beverage Station</span>
                                             <i class="fa-solid fa-chevron-right text-[10px] opacity-40"></i>
@@ -563,7 +568,7 @@
                 <ul class="space-y-3 text-[13px] text-slate-400 font-medium">
                     <li class="flex items-center gap-3"><i class="fa-solid fa-phone text-[#00bcd4]"></i> <a href="tel:+6282111506069" class="hover:text-[#00bcd4] transition-colors">+62 821-1150-6069</a></li>
                     <li class="flex items-center gap-3"><i class="fa-solid fa-phone text-[#00bcd4]"></i> <a href="tel:+628159691422" class="hover:text-[#00bcd4] transition-colors">+62 815-9691-422</a></li>
-                
+                    <li class="flex items-center gap-3"><i class="fa-solid fa-envelope text-[#00bcd4]"></i> <a href="mailto:cs@tokokitchen.store" class="hover:text-[#00bcd4] transition-colors">cs@tokokitchen.store</a></li>
                 </ul>
             </div>
         </div>
@@ -637,16 +642,18 @@
         </div>
     </div>
 
+
+    
     <script>
         // Database SELURUH PRODUK SESUAI DENGAN PERMINTAAN USER
         // Database SELURUH PRODUK SESUAI DENGAN PERMINTAAN USER
-        
-  const productsData = [
+                  
+           const productsData = [
     // ==========================================
     // KATEGORI: 1. MEJA & RAK STAINLESS
     // ==========================================
     {
-        id: 1, name: "Working Table with Cross Bar Pipe", brand: "HKAWKOFB", category: "1. MEJA & RAK STAINLESS", tempRange: "Suhu Ruang", description: "Adjustable feet, Knock down, Thick pipe",
+        id: 1, name: "Working Table with Cross Bar Pipe", brand: "HKAWKOFB", category: "table", tempRange: "Suhu Ruang", description: "Adjustable feet, Knock down, Thick pipe",
         variants: [
             { model: "HKAWKOFB-400", kapasitas: "-", daya: "-", dimensi: "P 400 x L 750 x T 850 mm", harga: 1600000, image: "https://placehold.co/400x400/1e293b/00bcd4?text=HKAWKOFB-400" },
             { model: "HKAWKOFB-600", kapasitas: "-", daya: "-", dimensi: "P 600 x L 750 x T 850 mm", harga: 1800000, image: "https://placehold.co/400x400/1e293b/00bcd4?text=HKAWKOFB-600" },
@@ -660,7 +667,7 @@
         ]
     },
     {
-        id: 2, name: "Working Table with 1 Under Shelf", brand: "HKAWK", category: "1. MEJA & RAK STAINLESS", tempRange: "Suhu Ruang", description: "Adjustable feet, Knock down, Thick pipe",
+        id: 2, name: "Working Table with 1 Under Shelf", brand: "HKAWK", category: "table", tempRange: "Suhu Ruang", description: "Adjustable feet, Knock down, Thick pipe",
         variants: [
             { model: "HKAWK-400", kapasitas: "-", daya: "-", dimensi: "P 400 x L 750 x T 850 mm", harga: 1700000, image: "https://placehold.co/400x400/1e293b/00bcd4?text=HKAWK-400" },
             { model: "HKAWK-600", kapasitas: "-", daya: "-", dimensi: "P 600 x L 750 x T 850 mm", harga: 2100000, image: "https://placehold.co/400x400/1e293b/00bcd4?text=HKAWK-600" },
@@ -674,7 +681,7 @@
         ]
     },
     {
-        id: 3, name: "Working Table with 2 Under Shelves", brand: "HKAWK2US", category: "1. MEJA & RAK STAINLESS", tempRange: "Suhu Ruang", description: "Adjustable feet, Knock down, Thick pipe",
+        id: 3, name: "Working Table with 2 Under Shelves", brand: "HKAWK2US", category: "table", tempRange: "Suhu Ruang", description: "Adjustable feet, Knock down, Thick pipe",
         variants: [
             { model: "HKAWK2US-400", kapasitas: "-", daya: "-", dimensi: "P 400 x L 750 x T 850 mm", harga: 2000000, image: "https://placehold.co/400x400/1e293b/00bcd4?text=HKAWK2US-400" },
             { model: "HKAWK2US-600", kapasitas: "-", daya: "-", dimensi: "P 600 x L 750 x T 850 mm", harga: 2600000, image: "https://placehold.co/400x400/1e293b/00bcd4?text=HKAWK2US-600" },
@@ -688,7 +695,7 @@
         ]
     },
     {
-        id: 4, name: "Working Table with Backsplash", brand: "HKAWK-BS", category: "1. MEJA & RAK STAINLESS", tempRange: "Suhu Ruang", description: "Adjustable feet, Knock down, Thick pipe",
+        id: 4, name: "Working Table with Backsplash", brand: "HKAWK-BS", category: "table", tempRange: "Suhu Ruang", description: "Adjustable feet, Knock down, Thick pipe",
         variants: [
             { model: "HKAWK-BS-400", kapasitas: "-", daya: "-", dimensi: "P 400 x L 750 x T 850+100 mm", harga: 1700000, image: "https://placehold.co/400x400/1e293b/00bcd4?text=HKAWK-BS-400" },
             { model: "HKAWK-BS-600", kapasitas: "-", daya: "-", dimensi: "P 600 x L 750 x T 850+100 mm", harga: 1900000, image: "https://placehold.co/400x400/1e293b/00bcd4?text=HKAWK-BS-600" },
@@ -702,7 +709,7 @@
         ]
     },
     {
-        id: 5, name: "Backsplash Table with Scrap Hole", brand: "HKAWK-SH-BS", category: "1. MEJA & RAK STAINLESS", tempRange: "Suhu Ruang", description: "Adjustable feet, Knock down, Thick pipe",
+        id: 5, name: "Backsplash Table with Scrap Hole", brand: "HKAWK-SH-BS", category: "table", tempRange: "Suhu Ruang", description: "Adjustable feet, Knock down, Thick pipe",
         variants: [
             { model: "HKAWK-SH-BS-400", kapasitas: "-", daya: "-", dimensi: "P 400 x L 750 x T 850+100 mm", harga: 1800000, image: "https://placehold.co/400x400/1e293b/00bcd4?text=SH-BS-400" },
             { model: "HKAWK-SH-BS-600", kapasitas: "-", daya: "-", dimensi: "P 600 x L 750 x T 850+100 mm", harga: 2000000, image: "https://placehold.co/400x400/1e293b/00bcd4?text=SH-BS-600" },
@@ -716,7 +723,7 @@
         ]
     },
     {
-        id: 6, name: "Working Table with Drawers", brand: "HKAWK3D", category: "1. MEJA & RAK STAINLESS", tempRange: "Suhu Ruang", description: "Adjustable feet, Knock down, Thick pipe",
+        id: 6, name: "Working Table with Drawers", brand: "HKAWK3D", category: "table", tempRange: "Suhu Ruang", description: "Adjustable feet, Knock down, Thick pipe",
         variants: [
             { model: "HKAWK3D-800", kapasitas: "-", daya: "-", dimensi: "P 800 x L 750 x T 850 mm", harga: 4600000, image: "https://placehold.co/400x400/1e293b/00bcd4?text=HKAWK3D-800" },
             { model: "HKAWK3D-1000", kapasitas: "-", daya: "-", dimensi: "P 1000 x L 750 x T 850 mm", harga: 5300000, image: "https://placehold.co/400x400/1e293b/00bcd4?text=HKAWK3D-1000" },
@@ -728,7 +735,7 @@
         ]
     },
     {
-        id: 7, name: "Backsplash Table with 2 Shelves", brand: "HKAWK2US-BS", category: "1. MEJA & RAK STAINLESS", tempRange: "Suhu Ruang", description: "Adjustable feet, Knock down, Thick pipe",
+        id: 7, name: "Backsplash Table with 2 Shelves", brand: "HKAWK2US-BS", category: "table", tempRange: "Suhu Ruang", description: "Adjustable feet, Knock down, Thick pipe",
         variants: [
             { model: "HKAWK2US-BS-400", kapasitas: "-", daya: "-", dimensi: "P 400 x L 750 x T 850+100 mm", harga: 2100000, image: "https://placehold.co/400x400/1e293b/00bcd4?text=2US-BS-400" },
             { model: "HKAWK2US-BS-600", kapasitas: "-", daya: "-", dimensi: "P 600 x L 750 x T 850+100 mm", harga: 2700000, image: "https://placehold.co/400x400/1e293b/00bcd4?text=2US-BS-600" },
@@ -746,7 +753,7 @@
     // KATEGORI: 2. KABINET STAINLESS
     // ==========================================
     {
-        id: 8, name: "Open Cabinet Middle Shelf", brand: "HKAOC-MSH", category: "2. KABINET STAINLESS", tempRange: "Suhu Ruang", description: "Adjustable feet, Knock down",
+        id: 8, name: "Open Cabinet Middle Shelf", brand: "HKAOC-MSH", category: "kabinet", tempRange: "Suhu Ruang", description: "Adjustable feet, Knock down",
         variants: [
             { model: "HKAOC-MSH-400", kapasitas: "-", daya: "-", dimensi: "P 400 x L 750 x T 850 mm", harga: 3800000, image: "https://placehold.co/400x400/1e293b/00bcd4?text=OC-MSH-400" },
             { model: "HKAOC-MSH-600", kapasitas: "-", daya: "-", dimensi: "P 600 x L 750 x T 850 mm", harga: 4800000, image: "https://placehold.co/400x400/1e293b/00bcd4?text=OC-MSH-600" },
@@ -760,7 +767,7 @@
         ]
     },
     {
-        id: 9, name: "Cabinet Sliding Door", brand: "HKACSL-MSH", category: "2. KABINET STAINLESS", tempRange: "Suhu Ruang", description: "Adjustable feet, Knock down",
+        id: 9, name: "Cabinet Sliding Door", brand: "HKACSL-MSH", category: "kabinet", tempRange: "Suhu Ruang", description: "Adjustable feet, Knock down",
         variants: [
             { model: "HKACSL-MSH-400", kapasitas: "-", daya: "-", dimensi: "P 400 x L 750 x T 850 mm", harga: 4800000, image: "https://placehold.co/400x400/1e293b/00bcd4?text=CSL-MSH-400" },
             { model: "HKACSL-MSH-600", kapasitas: "-", daya: "-", dimensi: "P 600 x L 750 x T 850 mm", harga: 5600000, image: "https://placehold.co/400x400/1e293b/00bcd4?text=CSL-MSH-600" },
@@ -774,7 +781,7 @@
         ]
     },
     {
-        id: 10, name: "Cabinet Swing Door", brand: "HKACSW-MSH", category: "2. KABINET STAINLESS", tempRange: "Suhu Ruang", description: "Adjustable feet, Knock down",
+        id: 10, name: "Cabinet Swing Door", brand: "HKACSW-MSH", category: "kabinet", tempRange: "Suhu Ruang", description: "Adjustable feet, Knock down",
         variants: [
             { model: "HKACSW-MSH-400", kapasitas: "-", daya: "-", dimensi: "P 400 x L 750 x T 850 mm", harga: 4900000, image: "https://placehold.co/400x400/1e293b/00bcd4?text=CSW-MSH-400" },
             { model: "HKACSW-MSH-600", kapasitas: "-", daya: "-", dimensi: "P 600 x L 750 x T 850 mm", harga: 5700000, image: "https://placehold.co/400x400/1e293b/00bcd4?text=CSW-MSH-600" },
@@ -788,7 +795,7 @@
         ]
     },
     {
-        id: 11, name: "Cabinet Preparation Table", brand: "HKACBS", category: "2. KABINET STAINLESS", tempRange: "Suhu Ruang", description: "Adjustable feet, Knock down",
+        id: 11, name: "Cabinet Preparation Table", brand: "HKACBS", category: "kabinet", tempRange: "Suhu Ruang", description: "Adjustable feet, Knock down",
         variants: [
             { model: "HKACBS-400", kapasitas: "-", daya: "-", dimensi: "P 400 x L 750 x T 850 mm", harga: 4900000, image: "https://placehold.co/400x400/1e293b/00bcd4?text=CBS-400" },
             { model: "HKACBS-600", kapasitas: "-", daya: "-", dimensi: "P 600 x L 750 x T 850 mm", harga: 5700000, image: "https://placehold.co/400x400/1e293b/00bcd4?text=CBS-600" },
@@ -802,7 +809,7 @@
         ]
     },
     {
-        id: 12, name: "Hanging Cabinet", brand: "HKAWHC", category: "2. KABINET STAINLESS", tempRange: "Suhu Ruang", description: "Wall Mounted, Hygienic Surface",
+        id: 12, name: "Hanging Cabinet", brand: "HKAWHC", category: "kabinet", tempRange: "Suhu Ruang", description: "Wall Mounted, Hygienic Surface",
         variants: [
             { model: "HKAWHC-400", kapasitas: "-", daya: "-", dimensi: "P 400 x L 400 x T 600 mm", harga: 3500000, image: "https://placehold.co/400x400/1e293b/00bcd4?text=WHC-400" },
             { model: "HKAWHC-600", kapasitas: "-", daya: "-", dimensi: "P 600 x L 400 x T 600 mm", harga: 4000000, image: "https://placehold.co/400x400/1e293b/00bcd4?text=WHC-600" },
@@ -820,7 +827,7 @@
     // KATEGORI: 3. RAK & STORAGE STAINLESS
     // ==========================================
     {
-        id: 13, name: "Single Over Shelf", brand: "HKAOS", category: "3. RAK & STORAGE STAINLESS", tempRange: "Suhu Ruang", description: "Hygienic Surface, Thick pipe",
+        id: 13, name: "Single Over Shelf", brand: "HKAOS", category: "rak", tempRange: "Suhu Ruang", description: "Hygienic Surface, Thick pipe",
         variants: [
             { model: "HKAOS-800", kapasitas: "-", daya: "-", dimensi: "P 800 x L 300 x T 750 mm", harga: 1100000, image: "https://placehold.co/400x400/1e293b/00bcd4?text=HKAOS-800" },
             { model: "HKAOS-1000", kapasitas: "-", daya: "-", dimensi: "P 1000 x L 300 x T 750 mm", harga: 1200000, image: "https://placehold.co/400x400/1e293b/00bcd4?text=HKAOS-1000" },
@@ -831,7 +838,7 @@
         ]
     },
     {
-        id: 14, name: "Double Over Shelf", brand: "HKAO2S", category: "3. RAK & STORAGE STAINLESS", tempRange: "Suhu Ruang", description: "Hygienic Surface, Thick pipe",
+        id: 14, name: "Double Over Shelf", brand: "HKAO2S", category: "rak", tempRange: "Suhu Ruang", description: "Hygienic Surface, Thick pipe",
         variants: [
             { model: "HKAO2S-800", kapasitas: "-", daya: "-", dimensi: "P 800 x L 300 x T 750 mm", harga: 1500000, image: "https://placehold.co/400x400/1e293b/00bcd4?text=HKAO2S-800" },
             { model: "HKAO2S-1000", kapasitas: "-", daya: "-", dimensi: "P 1000 x L 300 x T 750 mm", harga: 1700000, image: "https://placehold.co/400x400/1e293b/00bcd4?text=HKAO2S-1000" },
@@ -842,7 +849,7 @@
         ]
     },
     {
-        id: 15, name: "Hanging Shelf", brand: "HKAWS", category: "3. RAK & STORAGE STAINLESS", tempRange: "Suhu Ruang", description: "Wall Mounted, Hygienic Surface",
+        id: 15, name: "Hanging Shelf", brand: "HKAWS", category: "rak", tempRange: "Suhu Ruang", description: "Wall Mounted, Hygienic Surface",
         variants: [
             { model: "HKAWS-800", kapasitas: "-", daya: "-", dimensi: "P 800 x L 300 x T 250 mm", harga: 800000, image: "https://placehold.co/400x400/1e293b/00bcd4?text=HKAWS-800" },
             { model: "HKAWS-1000", kapasitas: "-", daya: "-", dimensi: "P 1000 x L 300 x T 250 mm", harga: 1000000, image: "https://placehold.co/400x400/1e293b/00bcd4?text=HKAWS-1000" },
@@ -853,13 +860,13 @@
         ]
     },
     {
-        id: 16, name: "Hanging Pipe Shelf", brand: "HKARP", category: "3. RAK & STORAGE STAINLESS", tempRange: "Suhu Ruang", description: "Wall Mounted, Thick pipe",
+        id: 16, name: "Hanging Pipe Shelf", brand: "HKARP", category: "rak", tempRange: "Suhu Ruang", description: "Wall Mounted, Thick pipe",
         variants: [
             { model: "HKARP-1000", kapasitas: "-", daya: "-", dimensi: "P 1000 x L 300 x T 250 mm", harga: 1000000, image: "https://placehold.co/400x400/1e293b/00bcd4?text=HKARP-1000" }
         ]
     },
     {
-        id: 17, name: "Punch Storage Rack 4 Tiers", brand: "HKAPFD", category: "3. RAK & STORAGE STAINLESS", tempRange: "Suhu Ruang", description: "Adjustable feet, Knock down, Hygienic Surface",
+        id: 17, name: "Punch Storage Rack 4 Tiers", brand: "HKAPFD", category: "rak", tempRange: "Suhu Ruang", description: "Adjustable feet, Knock down, Hygienic Surface",
         variants: [
             { model: "HKAPFD-1000", kapasitas: "-", daya: "-", dimensi: "P 1000 x L 500 x T 1550 mm", harga: 3400000, image: "https://placehold.co/400x400/1e293b/00bcd4?text=HKAPFD-1000" },
             { model: "HKAPFD-1150", kapasitas: "-", daya: "-", dimensi: "P 1150 x L 500 x T 1550 mm", harga: 4000000, image: "https://placehold.co/400x400/1e293b/00bcd4?text=HKAPFD-1150" },
@@ -867,7 +874,7 @@
         ]
     },
     {
-        id: 18, name: "Solid Storage Rack Shelf", brand: "HKASRD", category: "3. RAK & STORAGE STAINLESS", tempRange: "Suhu Ruang", description: "Adjustable feet, Knock down, Hygienic Surface",
+        id: 18, name: "Solid Storage Rack Shelf", brand: "HKASRD", category: "rak", tempRange: "Suhu Ruang", description: "Adjustable feet, Knock down, Hygienic Surface",
         variants: [
             { model: "HKASRD-1000", kapasitas: "-", daya: "-", dimensi: "P 1000 x L 500 x T 1550 mm", harga: 3200000, image: "https://placehold.co/400x400/1e293b/00bcd4?text=HKASRD-1000" },
             { model: "HKASRD-1150", kapasitas: "-", daya: "-", dimensi: "P 1150 x L 500 x T 1550 mm", harga: 3800000, image: "https://placehold.co/400x400/1e293b/00bcd4?text=HKASRD-1150" },
@@ -875,7 +882,7 @@
         ]
     },
     {
-        id: 19, name: "Sneeze Guard", brand: "HKASGD", category: "3. RAK & STORAGE STAINLESS", tempRange: "Suhu Ruang", description: "Durable S/s, Food Protection, Clear Visibility",
+        id: 19, name: "Sneeze Guard", brand: "HKASGD", category: "rak", tempRange: "Suhu Ruang", description: "Durable S/s, Food Protection, Clear Visibility",
         variants: [
             { model: "HKASGD-1000-400", kapasitas: "-", daya: "-", dimensi: "P 1000 x L 400/600 x T 400 mm", harga: 4500000, image: "https://placehold.co/400x400/1e293b/00bcd4?text=HKASGD-400" },
             { model: "HKASGD-1000-750", kapasitas: "-", daya: "-", dimensi: "P 1000 x L 400/600 x T 750 mm", harga: 5500000, image: "https://placehold.co/400x400/1e293b/00bcd4?text=HKASGD-750" }
@@ -886,7 +893,7 @@
     // KATEGORI: 4. SINK & CUCI PIRING
     // ==========================================
     {
-        id: 20, name: "Single Bowl Sink", brand: "HKABSIK", category: "4. SINK & CUCI PIRING", tempRange: "Suhu Ruang", description: "Adjustable feet, Knock down, Thick pipe",
+        id: 20, name: "Single Bowl Sink", brand: "HKABSIK", category: "sink", tempRange: "Suhu Ruang", description: "Adjustable feet, Knock down, Thick pipe",
         variants: [
             { model: "HKABSIK-600", kapasitas: "-", daya: "-", dimensi: "P 600 x L 750 x T 850 mm", harga: 3400000, image: "https://placehold.co/400x400/1e293b/38bdf8?text=HKABSIK-600" },
             { model: "HKABSIK-800", kapasitas: "-", daya: "-", dimensi: "P 800 x L 750 x T 850 mm", harga: 3600000, image: "https://placehold.co/400x400/1e293b/38bdf8?text=HKABSIK-800" },
@@ -899,7 +906,7 @@
         ]
     },
     {
-        id: 21, name: "Double Bowl Sink", brand: "HKABS2K", category: "4. SINK & CUCI PIRING", tempRange: "Suhu Ruang", description: "Adjustable feet, Knock down, Thick pipe",
+        id: 21, name: "Double Bowl Sink", brand: "HKABS2K", category: "sink", tempRange: "Suhu Ruang", description: "Adjustable feet, Knock down, Thick pipe",
         variants: [
             { model: "HKABS2K-1200", kapasitas: "-", daya: "-", dimensi: "P 1200 x L 750 x T 850 mm", harga: 6200000, image: "https://placehold.co/400x400/1e293b/38bdf8?text=HKABS2K-1200" },
             { model: "HKABS2K-1500", kapasitas: "-", daya: "-", dimensi: "P 1500 x L 750 x T 850 mm", harga: 6400000, image: "https://placehold.co/400x400/1e293b/38bdf8?text=HKABS2K-1500" },
@@ -909,7 +916,7 @@
         ]
     },
     {
-        id: 22, name: "Triple Bowl Sink", brand: "HKABS3K", category: "4. SINK & CUCI PIRING", tempRange: "Suhu Ruang", description: "Adjustable feet, Knock down, Thick pipe",
+        id: 22, name: "Triple Bowl Sink", brand: "HKABS3K", category: "sink", tempRange: "Suhu Ruang", description: "Adjustable feet, Knock down, Thick pipe",
         variants: [
             { model: "HKABS3K-1800", kapasitas: "-", daya: "-", dimensi: "P 1800 x L 750 x T 850 mm", harga: 8500000, image: "https://placehold.co/400x400/1e293b/38bdf8?text=HKABS3K-1800" },
             { model: "HKABS3K-2000", kapasitas: "-", daya: "-", dimensi: "P 2000 x L 750 x T 850 mm", harga: 9000000, image: "https://placehold.co/400x400/1e293b/38bdf8?text=HKABS3K-2000" },
@@ -917,7 +924,7 @@
         ]
     },
     {
-        id: 23, name: "Hand Washing Sink", brand: "HKAHWS", category: "4. SINK & CUCI PIRING", tempRange: "Suhu Ruang", description: "Castor, Pedal control, Water tap",
+        id: 23, name: "Hand Washing Sink", brand: "HKAHWS", category: "sink", tempRange: "Suhu Ruang", description: "Castor, Pedal control, Water tap",
         variants: [
             { model: "HKAHWS-750", kapasitas: "-", daya: "-", dimensi: "P 750 x L 750 x T 850 mm", harga: 6800000, image: "https://placehold.co/400x400/1e293b/38bdf8?text=HKAHWS-750" },
             { model: "HKAHWS-1200", kapasitas: "-", daya: "-", dimensi: "P 1200 x L 750 x T 850 mm", harga: 10500000, image: "https://placehold.co/400x400/1e293b/38bdf8?text=HKAHWS-1200" },
@@ -925,7 +932,7 @@
         ]
     },
     {
-        id: 24, name: "Grease Trap", brand: "HKAGTR", category: "4. SINK & CUCI PIRING", tempRange: "Suhu Ruang", description: "Durable S, Efficient Drain, Large Capacity",
+        id: 24, name: "Grease Trap", brand: "HKAGTR", category: "sink", tempRange: "Suhu Ruang", description: "Durable S, Efficient Drain, Large Capacity",
         variants: [
             { model: "HKAGTR-400", kapasitas: "-", daya: "-", dimensi: "P 400 x L 300 x T 250 mm", harga: 1400000, image: "https://placehold.co/400x400/1e293b/38bdf8?text=HKAGTR-400" },
             { model: "HKAGTR-500", kapasitas: "-", daya: "-", dimensi: "P 500 x L 400 x T 250 mm", harga: 1500000, image: "https://placehold.co/400x400/1e293b/38bdf8?text=HKAGTR-500" },
@@ -934,17 +941,17 @@
         ]
     },
     {
-        id: 25, name: "Gutter", brand: "HKAGT", category: "4. SINK & CUCI PIRING", tempRange: "Suhu Ruang", description: "Sistem pembuangan lantai stainless steel",
+        id: 25, name: "Gutter", brand: "HKAGT", category: "sink", tempRange: "Suhu Ruang", description: "Sistem pembuangan lantai stainless steel",
         variants: [
             { model: "HKAGT-1000", kapasitas: "-", daya: "-", dimensi: "P 1000 x L 300 x T 25 mm", harga: 1400000, image: "https://placehold.co/400x400/1e293b/38bdf8?text=HKAGT-1000" }
         ]
     },
 
     // ==========================================
-    // KATEGORI: 5. BAR & BEVERAGE STATION
+    // KATEGORI: BAR & BEVERAGE STATION
     // ==========================================
     {
-        id: 26, name: "Cocktail Station", brand: "HKACOS", category: "5. BAR & BEVERAGE STATION", tempRange: "Suhu Ruang", description: "Adjustable feet, Knock down, Thick pipe",
+        id: 26, name: "Cocktail Station", brand: "HKACOS", category: "BAR & BEVERAGE STATION", tempRange: "Suhu Ruang", description: "Adjustable feet, Knock down, Thick pipe",
         variants: [
             { model: "HKACOS-1000", kapasitas: "-", daya: "-", dimensi: "P 1000 x L 600/720 x T 850 mm", harga: 6800000, image: "https://placehold.co/400x400/1e293b/0ea5e9?text=HKACOS-1000" },
             { model: "HKACOS-1200", kapasitas: "-", daya: "-", dimensi: "P 1200 x L 600/720 x T 850 mm", harga: 7700000, image: "https://placehold.co/400x400/1e293b/0ea5e9?text=HKACOS-1200" },
@@ -952,7 +959,7 @@
         ]
     },
     {
-        id: 27, name: "Ice Bin", brand: "HKAIBN", category: "5. BAR & BEVERAGE STATION", tempRange: "Suhu Ruang", description: "Durable S/s, Good Insulation, Easy Drain",
+        id: 27, name: "Ice Bin", brand: "HKAIBN", category: "BAR & BEVERAGE STATION", tempRange: "Suhu Ruang", description: "Durable S/s, Good Insulation, Easy Drain",
         variants: [
             { model: "HKAIBN-500", kapasitas: "-", daya: "-", dimensi: "P 500 x L 700 x T 850 mm", harga: 6800000, image: "https://placehold.co/400x400/1e293b/0ea5e9?text=HKAIBN-500" },
             { model: "HKAIBN-600", kapasitas: "-", daya: "-", dimensi: "P 600 x L 700 x T 850 mm", harga: 7500000, image: "https://placehold.co/400x400/1e293b/0ea5e9?text=HKAIBN-600" },
@@ -965,13 +972,13 @@
     // KATEGORI: 6. KOMPOR & GRILL
     // ==========================================
     {
-        id: 28, name: "Teppanyaki Cabinet", brand: "HKA-TROSV", category: "6. KOMPOR & GRILL", tempRange: "Suhu Api", description: "Gas Low Pressure, Adjustable feet, Integrated backsplash, Durable Stainless Steel",
+        id: 28, name: "Teppanyaki Cabinet", brand: "HKA-TROSV", category: "KOMPOR & GRILL", tempRange: "Suhu Api", description: "Gas Low Pressure, Adjustable feet, Integrated backsplash, Durable Stainless Steel",
         variants: [
             { model: "HKA-TROSV", kapasitas: "-", daya: "Gas Low Press", dimensi: "P 1000 x L 700 x T 850 mm", harga: 15125000, image: "https://placehold.co/400x400/1e293b/ef4444?text=HKA-TROSV" }
         ]
     },
     {
-        id: 29, name: "Gas Stock Pot Range", brand: "HKA-SP", category: "6. KOMPOR & GRILL", tempRange: "Suhu Api", description: "Gas Low Pressure, Heavy duty construction",
+        id: 29, name: "Gas Stock Pot Range", brand: "HKA-SP", category: "KOMPOR & GRILL", tempRange: "Suhu Api", description: "Gas Low Pressure, Heavy duty construction",
         variants: [
             { model: "HKA-SP", kapasitas: "-", daya: "Gas Low Press", dimensi: "P 500 x L 500 x T 500 mm", harga: 3500000, image: "https://placehold.co/400x400/1e293b/ef4444?text=HKA-SP" },
             { model: "HKA-SP40", kapasitas: "-", daya: "Gas Low Press", dimensi: "P 500 x L 600 x T 400 mm", harga: 3800000, image: "https://placehold.co/400x400/1e293b/ef4444?text=HKA-SP40" },
@@ -979,7 +986,7 @@
         ]
     },
     {
-        id: 30, name: "Gas Kwali Range Series (Low / High Pressure)", brand: "HKAKW", category: "6. KOMPOR & GRILL", tempRange: "Suhu Api", description: "Adjustable feet, Heat Fire Distribute, Stable Wok Support",
+        id: 30, name: "Gas Kwali Range Series (Low / High Pressure)", brand: "HKAKW", category: "KOMPOR & GRILL", tempRange: "Suhu Api", description: "Adjustable feet, Heat Fire Distribute, Stable Wok Support",
         variants: [
             { model: "HKAKW-BL-1BR (With blower + 1 burner)", kapasitas: "-", daya: "Low Press", dimensi: "P 800 x L 900 x T 800+400 mm", harga: 14000000, image: "https://placehold.co/400x400/1e293b/ef4444?text=HKAKW-BL-1BR" },
             { model: "HKAKW-BL-2BR (With blower + 2 burner)", kapasitas: "-", daya: "Low Press", dimensi: "P 1500 x L 900 x T 800+400 mm", harga: 28000000, image: "https://placehold.co/400x400/1e293b/ef4444?text=HKAKW-BL-2BR" },
@@ -988,7 +995,7 @@
         ]
     },
     {
-        id: 31, name: "Stove Open Cabinet", brand: "HKAOC-S", category: "6. KOMPOR & GRILL", tempRange: "Suhu Api", description: "Gas High Pressure, Stable flame",
+        id: 31, name: "Stove Open Cabinet", brand: "HKAOC-S", category: "KOMPOR & GRILL", tempRange: "Suhu Api", description: "Gas High Pressure, Stable flame",
         variants: [
             { model: "HKAOC-S-2B (2 Burner)", kapasitas: "-", daya: "Gas High Press", dimensi: "P 450 x L 750 x T 850+150 mm", harga: 9000000, image: "https://placehold.co/400x400/1e293b/ef4444?text=HKAOC-S-2B" },
             { model: "HKAOC-S-4B (4 Burner)", kapasitas: "-", daya: "Gas High Press", dimensi: "P 700 x L 750 x T 850+150 mm", harga: 14000000, image: "https://placehold.co/400x400/1e293b/ef4444?text=HKAOC-S-4B" },
@@ -996,7 +1003,7 @@
         ]
     },
     {
-        id: 32, name: "Stove Burner Series", brand: "HKA-S", category: "6. KOMPOR & GRILL", tempRange: "Suhu Api", description: "Gas High Pressure, Dudukan kompor stainless steel terbuka",
+        id: 32, name: "Stove Burner Series", brand: "HKA-S", category: "KOMPOR & GRILL", tempRange: "Suhu Api", description: "Gas High Pressure, Dudukan kompor stainless steel terbuka",
         variants: [
             { model: "HKA-S-2B (2 Burner)", kapasitas: "-", daya: "Gas High Press", dimensi: "P 450 x L 750 x T 350+100 mm", harga: 4500000, image: "https://placehold.co/400x400/1e293b/ef4444?text=HKA-S-2B" },
             { model: "HKA-S-4B (4 Burner)", kapasitas: "-", daya: "Gas High Press", dimensi: "P 700 x L 750 x T 350+100 mm", harga: 8500000, image: "https://placehold.co/400x400/1e293b/ef4444?text=HKA-S-4B" },
@@ -1004,14 +1011,14 @@
         ]
     },
     {
-        id: 33, name: "Grill and Griddle", brand: "HKAG-FG", category: "6. KOMPOR & GRILL", tempRange: "Suhu Api", description: "Gas Low Pressure, Gas Grill Shelf + Flat Griddle",
+        id: 33, name: "Grill and Griddle", brand: "HKAG-FG", category: "KOMPOR & GRILL", tempRange: "Suhu Api", description: "Gas Low Pressure, Gas Grill Shelf + Flat Griddle",
         variants: [
             { model: "HKAG-FG", kapasitas: "-", daya: "Gas Low Press", dimensi: "P 800 x L 750 x T 850+100 mm", harga: 12000000, image: "https://placehold.co/400x400/1e293b/ef4444?text=HKAG-FG" },
             { model: "HKAG-FGS", kapasitas: "-", daya: "Gas Low Press", dimensi: "P 1200 x L 750 x T 350+100 mm", harga: 18000000, image: "https://placehold.co/400x400/1e293b/ef4444?text=HKAG-FGS" }
         ]
     },
     {
-        id: 34, name: "Gas Standing Open Burner Grill Shelf", brand: "HKAG-UGS", category: "6. KOMPOR & GRILL", tempRange: "Suhu Api", description: "Gas Low Pressure, Pemanggang komersial berdiri",
+        id: 34, name: "Gas Standing Open Burner Grill Shelf", brand: "HKAG-UGS", category: "KOMPOR & GRILL", tempRange: "Suhu Api", description: "Gas Low Pressure, Pemanggang komersial berdiri",
         variants: [
             { model: "2 Burner", kapasitas: "-", daya: "Gas Low Press", dimensi: "P 400 x L 750 x T 850+150 mm", harga: 6050000, image: "https://placehold.co/400x400/1e293b/ef4444?text=UGS-2B" },
             { model: "4 Burner", kapasitas: "-", daya: "Gas Low Press", dimensi: "P 700 x L 750 x T 850+150 mm", harga: 11500000, image: "https://placehold.co/400x400/1e293b/ef4444?text=UGS-4B" },
@@ -1019,25 +1026,25 @@
         ]
     },
     {
-        id: 35, name: "Gas Lava Stone Grill", brand: "HKAGLV", category: "6. KOMPOR & GRILL", tempRange: "Suhu Api", description: "Gas Low Pressure, Pemanggang batu lava meja",
+        id: 35, name: "Gas Lava Stone Grill", brand: "HKAGLV", category: "KOMPOR & GRILL", tempRange: "Suhu Api", description: "Gas Low Pressure, Pemanggang batu lava meja",
         variants: [
             { model: "HKAGLV", kapasitas: "-", daya: "Gas Low Press", dimensi: "P 400 x L 700 x T 410 mm", harga: 8500000, image: "https://placehold.co/400x400/1e293b/ef4444?text=HKAGLV" }
         ]
     },
     {
-        id: 36, name: "Standing Combi Flat, Lava Stone Grill", brand: "HKAG-HB", category: "6. KOMPOR & GRILL", tempRange: "Suhu Api", description: "Gas Low Pressure, Kombinasi wajan datar & pemanggang batu lava",
+        id: 36, name: "Standing Combi Flat, Lava Stone Grill", brand: "HKAG-HB", category: "KOMPOR & GRILL", tempRange: "Suhu Api", description: "Gas Low Pressure, Kombinasi wajan datar & pemanggang batu lava",
         variants: [
             { model: "HKACHB-COMBI", kapasitas: "-", daya: "Gas Low Press", dimensi: "P 600 x L 700 x T 850+100 mm", harga: 12000000, image: "https://placehold.co/400x400/1e293b/ef4444?text=HKACHB-COMBI" }
         ]
     },
     {
-        id: 37, name: "Flat Griddle", brand: "HKAG-FLAT", category: "6. KOMPOR & GRILL", tempRange: "Suhu Api", description: "Gas Low Pressure, Wajan pemanggang datar",
+        id: 37, name: "Flat Griddle", brand: "HKAG-FLAT", category: "KOMPOR & GRILL", tempRange: "Suhu Api", description: "Gas Low Pressure, Wajan pemanggang datar",
         variants: [
             { model: "HKACHB-FLAT", kapasitas: "-", daya: "Gas Low Press", dimensi: "P 600 x L 700 x T 850+100 mm", harga: 9500000, image: "https://placehold.co/400x400/1e293b/ef4444?text=HKACHB-FLAT" }
         ]
     },
     {
-        id: 38, name: "Flat Griddle Open Cabinet", brand: "HKAGFOCB", category: "6. KOMPOR & GRILL", tempRange: "Suhu Api", description: "Gas Low Pressure, Wajan datar dengan kabinet terbuka di bawah",
+        id: 38, name: "Flat Griddle Open Cabinet", brand: "HKAGFOCB", category: "KOMPOR & GRILL", tempRange: "Suhu Api", description: "Gas Low Pressure, Wajan datar dengan kabinet terbuka di bawah",
         variants: [
             { model: "HKAGFOCB", kapasitas: "-", daya: "Gas Low Press", dimensi: "P 600 x L 700 x T 850 mm", harga: 12000000, image: "https://placehold.co/400x400/1e293b/ef4444?text=HKAGFOCB" }
         ]
@@ -1047,35 +1054,35 @@
     // KATEGORI: 7. FRYER & COOKER
     // ==========================================
     {
-        id: 39, name: "Gas Deep Fryer 20 L with Thermostat", brand: "HKAG-FR", category: "7. FRYER & COOKER", tempRange: "Suhu Api", description: "Gas Low Pressure, Penggorengan bak tunggal/ganda kapasitas besar",
+        id: 39, name: "Gas Deep Fryer 20 L with Thermostat", brand: "HKAG-FR", category: "FRYER & COOKER", tempRange: "Suhu Api", description: "Gas Low Pressure, Penggorengan bak tunggal/ganda kapasitas besar",
         variants: [
             { model: "HKAG-FR-SINGLE", kapasitas: "20 L", daya: "Gas Low Press", dimensi: "P 400 x L 750 x T 850+100 mm", harga: 12000000, image: "https://placehold.co/400x400/1e293b/ef4444?text=HKAG-FR-SINGLE" },
             { model: "HKAG-FR-DOUBLE", kapasitas: "40 L", daya: "Gas Low Press", dimensi: "P 800 x L 750 x T 850+100 mm", harga: 21000000, image: "https://placehold.co/400x400/1e293b/ef4444?text=HKAG-FR-DOUBLE" }
         ]
     },
     {
-        id: 40, name: "Deep Fryer + Flat Griddle", brand: "HKAG-FR-FG", category: "7. FRYER & COOKER", tempRange: "Suhu Api", description: "Gas Low Pressure, Kombinasi penggorengan & wajan datar",
+        id: 40, name: "Deep Fryer + Flat Griddle", brand: "HKAG-FR-FG", category: "FRYER & COOKER", tempRange: "Suhu Api", description: "Gas Low Pressure, Kombinasi penggorengan & wajan datar",
         variants: [
             { model: "HKAG-FR-FG-600", kapasitas: "-", daya: "Gas Low Press", dimensi: "P 600 x L 750 x T 850+100 mm", harga: 12000000, image: "https://placehold.co/400x400/1e293b/ef4444?text=FR-FG-600" },
             { model: "HKAG-FR-FG-800", kapasitas: "-", daya: "Gas Low Press", dimensi: "P 800 x L 750 x T 850+100 mm", harga: 14000000, image: "https://placehold.co/400x400/1e293b/ef4444?text=FR-FG-800" }
         ]
     },
     {
-        id: 41, name: "Gas Noodle Cooker", brand: "HKA-GN", category: "7. FRYER & COOKER", tempRange: "Suhu Api", description: "Gas Low Pressure, Alat memasak mi multi lubang",
+        id: 41, name: "Gas Noodle Cooker", brand: "HKA-GN", category: "FRYER & COOKER", tempRange: "Suhu Api", description: "Gas Low Pressure, Alat memasak mi multi lubang",
         variants: [
             { model: "HKA-GN-400", kapasitas: "-", daya: "Gas Low Press", dimensi: "P 400 x L 750 x T 850+100 mm", harga: 10500000, image: "https://placehold.co/400x400/1e293b/ef4444?text=HKA-GN-400" },
             { model: "HKA-GN-800", kapasitas: "-", daya: "Gas Low Press", dimensi: "P 800 x L 750 x T 850+100 mm", harga: 12000000, image: "https://placehold.co/400x400/1e293b/ef4444?text=HKA-GN-800" }
         ]
     },
     {
-        id: 42, name: "Rice Steamer", brand: "HKA-RS", category: "7. FRYER & COOKER", tempRange: "Suhu Api", description: "Gas Low Pressure, Lemari pengukus nasi kapasitas besar",
+        id: 42, name: "Rice Steamer", brand: "HKA-RS", category: "FRYER & COOKER", tempRange: "Suhu Api", description: "Gas Low Pressure, Lemari pengukus nasi kapasitas besar",
         variants: [
             { model: "HKA-CD-12 TRAY", kapasitas: "12 Tray", daya: "Gas Low Press", dimensi: "P 700 x L 650 x T 1600 mm", harga: 11500000, image: "https://placehold.co/400x400/1e293b/ef4444?text=HKA-CD-12" },
             { model: "HKA-CD-24 TRAY", kapasitas: "24 Tray", daya: "Gas Low Press", dimensi: "P 1400 x L 650 x T 1600 mm", harga: 21500000, image: "https://placehold.co/400x400/1e293b/ef4444?text=HKA-CD-24" }
         ]
     },
     {
-        id: 43, name: "Dimsum Steamer", brand: "HKA-DS", category: "7. FRYER & COOKER", tempRange: "Suhu Api", description: "Gas High Pressure, Pengukus dimsum komersial",
+        id: 43, name: "Dimsum Steamer", brand: "HKA-DS", category: "FRYER & COOKER", tempRange: "Suhu Api", description: "Gas High Pressure, Pengukus dimsum komersial",
         variants: [
             { model: "HKA-DS", kapasitas: "-", daya: "Gas High Press", dimensi: "P 1050 x L 900 x T 800+400 mm", harga: 18500000, image: "https://placehold.co/400x400/1e293b/ef4444?text=HKA-DS" }
         ]
@@ -1085,27 +1092,27 @@
     // KATEGORI: 8. PEMANAS & BAIN MARIE
     // ==========================================
     {
-        id: 44, name: "Heated Cabinet", brand: "HKAFWT", category: "8. PEMANAS & BAIN MARIE", tempRange: "30~+85°C", description: "Temp. 30~+85°C, Tegangan 220V/1P/50Hz, Adjustable feet, Integrated backsplash, Durable Stainless Steel, Large Capacity, Heat Distribute, Food Grade",
+        id: 44, name: "Heated Cabinet", brand: "HKAFWT", category: "PEMANAS & BAIN MARIE", tempRange: "30~+85°C", description: "Temp. 30~+85°C, Tegangan 220V/1P/50Hz, Adjustable feet, Integrated backsplash, Durable Stainless Steel, Large Capacity, Heat Distribute, Food Grade",
         variants: [
             { model: "HKAFWT-800", kapasitas: "-", daya: "220V", dimensi: "P 800 x L 750 x T 1800 mm", harga: 23000000, image: "https://placehold.co/400x400/451a03/f97316?text=HKAFWT-800" }
         ]
     },
     {
-        id: 45, name: "Warmer Trolley", brand: "HKA-TPB", category: "8. PEMANAS & BAIN MARIE", tempRange: "30~+85°C", description: "Temp. 30-+85°C, Tegangan 220V/1P/50Hz, Castor, Large Capacity, Heat Distribute, Food Grade",
+        id: 45, name: "Warmer Trolley", brand: "HKA-TPB", category: "PEMANAS & BAIN MARIE", tempRange: "30~+85°C", description: "Temp. 30-+85°C, Tegangan 220V/1P/50Hz, Castor, Large Capacity, Heat Distribute, Food Grade",
         variants: [
             { model: "HKA-TPB-900", kapasitas: "-", daya: "220V", dimensi: "P 900 x L 600 x T 1400+80 mm", harga: 7600000, image: "https://placehold.co/400x400/451a03/f97316?text=HKA-TPB-900" },
             { model: "HKA-TPB-1300", kapasitas: "-", daya: "220V", dimensi: "P 1300 x L 600 x T 1200+80 mm", harga: 10800000, image: "https://placehold.co/400x400/451a03/f97316?text=HKA-TPB-1300" }
         ]
     },
     {
-        id: 46, name: "Banquet Cabinet Series", brand: "HKA-YH/YHO", category: "8. PEMANAS & BAIN MARIE", tempRange: "30~+85°C", description: "Cabinet penghangat berkapasitas besar, Tegangan 220V/1P/50Hz",
+        id: 46, name: "Banquet Cabinet Series", brand: "HKA-YH/YHO", category: "PEMANAS & BAIN MARIE", tempRange: "30~+85°C", description: "Cabinet penghangat berkapasitas besar, Tegangan 220V/1P/50Hz",
         variants: [
             { model: "HKA-YH-DBW", kapasitas: "510L, 11 TRAY", daya: "1.8 KW", dimensi: "P 730/790 x L 950 x T 1860 mm", harga: 23000000, image: "https://placehold.co/400x400/451a03/f97316?text=HKA-YH-DBW" },
             { model: "HKA-YHO-DBW", kapasitas: "1100L, 22 TRAY", daya: "2.6 KW", dimensi: "P 1400/1500 x L 950 x T 1860 mm", harga: 38000000, image: "https://placehold.co/400x400/451a03/f97316?text=HKA-YHO-DBW" }
         ]
     },
     {
-        id: 47, name: "Bain Marie with Shelf", brand: "HKA-TPB", category: "8. PEMANAS & BAIN MARIE", tempRange: "30~+85°C", description: "Adjustable Feet, Large Capacity, Heat Distribute, Food Grade, Tegangan 220V/1P/50Hz",
+        id: 47, name: "Bain Marie with Shelf", brand: "HKA-TPB", category: "PEMANAS & BAIN MARIE", tempRange: "30~+85°C", description: "Adjustable Feet, Large Capacity, Heat Distribute, Food Grade, Tegangan 220V/1P/50Hz",
         variants: [
             { model: "HKA-TPB-800", kapasitas: "-", daya: "220V", dimensi: "P 800 x L 750 x T 850 mm", harga: 7500000, image: "https://placehold.co/400x400/451a03/f97316?text=HKA-TPB-800" },
             { model: "HKA-TPB-1000", kapasitas: "-", daya: "220V", dimensi: "P 1000 x L 750 x T 850 mm", harga: 8900000, image: "https://placehold.co/400x400/451a03/f97316?text=HKA-TPB-1000" },
@@ -1116,7 +1123,7 @@
         ]
     },
     {
-        id: 48, name: "Bain Marie Cabinet", brand: "HKA-TPB-CAB", category: "8. PEMANAS & BAIN MARIE", tempRange: "30~+85°C", description: "Castor, Large Capacity, Heat Distribute, Food Grade, Tegangan 220V/1P/50Hz",
+        id: 48, name: "Bain Marie Cabinet", brand: "HKA-TPB-CAB", category: "PEMANAS & BAIN MARIE", tempRange: "30~+85°C", description: "Castor, Large Capacity, Heat Distribute, Food Grade, Tegangan 220V/1P/50Hz",
         variants: [
             { model: "HKA-TPB-CAB-800", kapasitas: "-", daya: "220V", dimensi: "P 800 x L 750 x T 850 mm", harga: 10800000, image: "https://placehold.co/400x400/451a03/f97316?text=TPB-CAB-800" },
             { model: "HKA-TPB-CAB-1000", kapasitas: "-", daya: "220V", dimensi: "P 1000 x L 750 x T 850 mm", harga: 12000000, image: "https://placehold.co/400x400/451a03/f97316?text=TPB-CAB-1000" },
@@ -1127,7 +1134,7 @@
         ]
     },
     {
-        id: 49, name: "Warmer Cabinet", brand: "HKAPWC", category: "8. PEMANAS & BAIN MARIE", tempRange: "30~+85°C", description: "Temp. 30~+85°C, Castor, Large Capacity, Heat Distribute, Food Grade, Tegangan 220V/1P/50Hz",
+        id: 49, name: "Warmer Cabinet", brand: "HKAPWC", category: "PEMANAS & BAIN MARIE", tempRange: "30~+85°C", description: "Temp. 30~+85°C, Castor, Large Capacity, Heat Distribute, Food Grade, Tegangan 220V/1P/50Hz",
         variants: [
             { model: "HKAPWC-WARMER", kapasitas: "-", daya: "220V", dimensi: "P 1400 x L 700 x T 850 mm", harga: 16000000, image: "https://placehold.co/400x400/451a03/f97316?text=HKAPWC-WARMER" }
         ]
@@ -1137,21 +1144,21 @@
     // KATEGORI: 9. MIXER & OVEN
     // ==========================================
     {
-        id: 50, name: "Planetary Mixer (Gear Turning)", brand: "FM Series", category: "9. MIXER & OVEN", tempRange: "Suhu Ruang / Oven", description: "Mesin pengaduk adonan multi fungsi",
+        id: 50, name: "Planetary Mixer (Gear Turning)", brand: "FM Series", category: "MIXER & OVEN", tempRange: "Suhu Ruang / Oven", description: "Mesin pengaduk adonan multi fungsi",
         variants: [
             { model: "FM 20", kapasitas: "20 L", daya: "-", dimensi: "P 450 x L 390 x T 810 mm", harga: 10500000, image: "https://placehold.co/400x400/4a044e/d946ef?text=FM-20" },
             { model: "FM 30", kapasitas: "30 L", daya: "-", dimensi: "P 450 x L 430 x T 880 mm", harga: 13500000, image: "https://placehold.co/400x400/4a044e/d946ef?text=FM-30" }
         ]
     },
     {
-        id: 51, name: "Spiral Mixer", brand: "DM Series", category: "9. MIXER & OVEN", tempRange: "Suhu Ruang / Oven", description: "Mesin pengaduk adonan roti kental heavy duty",
+        id: 51, name: "Spiral Mixer", brand: "DM Series", category: "MIXER & OVEN", tempRange: "Suhu Ruang / Oven", description: "Mesin pengaduk adonan roti kental heavy duty",
         variants: [
             { model: "DM 20", kapasitas: "20 L", daya: "-", dimensi: "P 670 x L 390 x T 810 mm", harga: 12000000, image: "https://placehold.co/400x400/4a044e/d946ef?text=DM-20" },
             { model: "DM 30", kapasitas: "30 L", daya: "-", dimensi: "P 710 x L 430 x T 810 mm", harga: 13200000, image: "https://placehold.co/400x400/4a044e/d946ef?text=DM-30" }
         ]
     },
     {
-        id: 52, name: "Gas Baking Oven (Low Pressure)", brand: "GO Series", category: "9. MIXER & OVEN", tempRange: "Suhu Ruang / Oven", description: "Oven pemanggang roti/kue bertenaga gas komersial",
+        id: 52, name: "Gas Baking Oven (Low Pressure)", brand: "GO Series", category: "MIXER & OVEN", tempRange: "Suhu Ruang / Oven", description: "Oven pemanggang roti/kue bertenaga gas komersial",
         variants: [
             { model: "GO 02 (1 deck)", kapasitas: "2 Tray", daya: "Gas Low Press", dimensi: "P 1320 x L 870 x T 640 mm", harga: 11000000, image: "https://placehold.co/400x400/4a044e/d946ef?text=GO-02" },
             { model: "GO 04 (2 deck)", kapasitas: "4 Tray", daya: "Gas Low Press", dimensi: "P 1320 x L 870 x T 1250 mm", harga: 21000000, image: "https://placehold.co/400x400/4a044e/d946ef?text=GO-04" },
@@ -1163,25 +1170,25 @@
     // KATEGORI: 10. MESIN CUCI PIRING
     // ==========================================
     {
-        id: 53, name: "Under Counter Dishwasher", brand: "HKAHTT2", category: "10. MESIN CUCI PIRING", tempRange: "Hot Wash", description: "Double-Layer Outer Cabinet, High-Efficiency 360° Rotary Cleaning, Ultra-Fast Quick Wash Cycles, Water & Cost Savings, With 2 Basket+Dispenser, Electrical Heating (3 Phase), Daya: 9.6kW/380V, Kapasitas: 50 rack/hour",
+        id: 53, name: "Under Counter Dishwasher", brand: "HKAHTT2", category: "MESIN CUCI PIRING", tempRange: "Hot Wash", description: "Double-Layer Outer Cabinet, High-Efficiency 360° Rotary Cleaning, Ultra-Fast Quick Wash Cycles, Water & Cost Savings, With 2 Basket+Dispenser, Electrical Heating (3 Phase), Daya: 9.6kW/380V, Kapasitas: 50 rack/hour",
         variants: [
             { model: "HKAHTT2", kapasitas: "50 rack/hour", daya: "9.6kW/380V", dimensi: "P 600 x L 600 x T 800 mm", harga: 30000000, image: "https://placehold.co/400x400/292524/14b8a6?text=HKAHTT2" }
         ]
     },
     {
-        id: 54, name: "Hood Type Commercial Dishwasher", brand: "HKAPWC", category: "10. MESIN CUCI PIRING", tempRange: "Hot Wash", description: "Washing System: High-pressure system designed for maximum cleanliness, Performance: Fast washing cycle to accommodate high work volumes, Efficiency: Designed for efficient water and energy consumption, Build Quality: Constructed with a food-grade stainless steel 304 body, easy to operate, with 2 Basket+Dispenser, Electric heating (3 Phase), Daya: 15.6 kW/380V",
+        id: 54, name: "Hood Type Commercial Dishwasher", brand: "HKAPWC", category: "MESIN CUCI PIRING", tempRange: "Hot Wash", description: "Washing System: High-pressure system designed for maximum cleanliness, Performance: Fast washing cycle to accommodate high work volumes, Efficiency: Designed for efficient water and energy consumption, Build Quality: Constructed with a food-grade stainless steel 304 body, easy to operate, with 2 Basket+Dispenser, Electric heating (3 Phase), Daya: 15.6 kW/380V",
         variants: [
             { model: "HKAHT-L18 (atau HT-T2)", kapasitas: "-", daya: "15.6 kW/380V", dimensi: "P 690 x L 780 x T 1475 mm", harga: 45000000, image: "https://placehold.co/400x400/292524/14b8a6?text=HKAHT-L18" }
         ]
     },
     {
-        id: 55, name: "Conveyor Type Dishwasher", brand: "HT-L18", category: "10. MESIN CUCI PIRING", tempRange: "Hot Wash", description: "Water Consumption: 260~300 L/hour, Electric heating (3 Phase), Dual-Zone Thermal Sanitation, Powerful Dual-Pump System, Built-In Booster, Max Passing Height: 420 mm, Lebar Maksimal: 505 mm, Daya: 38 kW/380V, Kapasitas: 200 rack/hour",
+        id: 55, name: "Conveyor Type Dishwasher", brand: "HT-L18", category: "MESIN CUCI PIRING", tempRange: "Hot Wash", description: "Water Consumption: 260~300 L/hour, Electric heating (3 Phase), Dual-Zone Thermal Sanitation, Powerful Dual-Pump System, Built-In Booster, Max Passing Height: 420 mm, Lebar Maksimal: 505 mm, Daya: 38 kW/380V, Kapasitas: 200 rack/hour",
         variants: [
             { model: "HT-L18", kapasitas: "200 rack/hour", daya: "38 kW/380V", dimensi: "P 1100 x L 750 x T 1650 mm", harga: 120000000, image: "https://placehold.co/400x400/292524/14b8a6?text=HT-L18" }
         ]
     },
     {
-        id: 56, name: "Pengering Ompreng (Food Pan Dryer)", brand: "HKAPO", category: "10. MESIN CUCI PIRING", tempRange: "Hot Wash", description: "Kabinet pengering rak stainless steel, Tegangan: 220V/1P/50Hz",
+        id: 56, name: "Pengering Ompreng (Food Pan Dryer)", brand: "HKAPO", category: "MESIN CUCI PIRING", tempRange: "Hot Wash", description: "Kabinet pengering rak stainless steel, Tegangan: 220V/1P/50Hz",
         variants: [
             { model: "HKAPO-4T", kapasitas: "4 Tray", daya: "220V", dimensi: "P 700 x L 650 x T 1600 mm", harga: 12500000, image: "https://placehold.co/400x400/292524/14b8a6?text=HKAPO-4T" },
             { model: "HKAPO-8T", kapasitas: "8 Tray", daya: "220V", dimensi: "P 1400 x L 650 x T 1600 mm", harga: 24000000, image: "https://placehold.co/400x400/292524/14b8a6?text=HKAPO-8T" }
@@ -1192,19 +1199,19 @@
     // KATEGORI: 11. PREPARASI
     // ==========================================
     {
-        id: 57, name: "Fruit & Vegetable Cutter", brand: "HKAQC250A", category: "11. PREPARASI", tempRange: "Suhu Ruang", description: "Made from high-quality food-grade stainless steel, Circular design for stable flow, Smooth surface, Kapasitas: 200Kg/hour, Daya: 750W/220V",
+        id: 57, name: "Fruit & Vegetable Cutter", brand: "HKAQC250A", category: "PREPARASI", tempRange: "Suhu Ruang", description: "Made from high-quality food-grade stainless steel, Circular design for stable flow, Smooth surface, Kapasitas: 200Kg/hour, Daya: 750W/220V",
         variants: [
             { model: "HKAQC250A", kapasitas: "200Kg/hour", daya: "750W/220V", dimensi: "P 410 x L 270 x T 530 mm", harga: 12000000, image: "https://placehold.co/400x400/1e293b/00bcd4?text=HKAQC250A" }
         ]
     },
     {
-        id: 58, name: "Meat Mincer", brand: "MM12", category: "11. PREPARASI", tempRange: "Suhu Ruang", description: "Mesin giling daging professional, Kapasitas: 180 Kg/jam, Daya: 800W/220V",
+        id: 58, name: "Meat Mincer", brand: "MM12", category: "PREPARASI", tempRange: "Suhu Ruang", description: "Mesin giling daging professional, Kapasitas: 180 Kg/jam, Daya: 800W/220V",
         variants: [
             { model: "MM12", kapasitas: "180 Kg/jam", daya: "800W/220V", dimensi: "P 410 x L 270 x T 440 mm", harga: 5700000, image: "https://placehold.co/400x400/1e293b/00bcd4?text=MM12" }
         ]
     },
     {
-        id: 59, name: "Salad Counter", brand: "HKASLD", category: "11. PREPARASI", tempRange: "Suhu Ruang", description: "Temp. +2~+8°C, Voltage 220V/1P/50HZ, With cooling system, Fresh display, Durable stainless steel, Stable cooling system to keep ingredients fresh longer, Compatible with standard food pans",
+        id: 59, name: "Salad Counter", brand: "HKASLD", category: "PREPARASI", tempRange: "Suhu Ruang", description: "Temp. +2~+8°C, Voltage 220V/1P/50HZ, With cooling system, Fresh display, Durable stainless steel, Stable cooling system to keep ingredients fresh longer, Compatible with standard food pans",
         variants: [
             { model: "HKASLD-3000", kapasitas: "-", daya: "220V", dimensi: "P 3000 x L 1000 x T 800+700 mm", harga: 63000000, image: "https://placehold.co/400x400/1e293b/00bcd4?text=HKASLD-3000" }
         ]
@@ -1214,19 +1221,19 @@
     // KATEGORI: 12. TROLLEY & TRANSPORT
     // ==========================================
     {
-        id: 60, name: "Pan Trolley", brand: "HKABTR", category: "12. TROLLEY & TRANSPORT", tempRange: "Suhu Ruang", description: "Castor, Knock down, Thick pipe",
+        id: 60, name: "Pan Trolley", brand: "HKABTR", category: "TROLLEY & TRANSPORT", tempRange: "Suhu Ruang", description: "Castor, Knock down, Thick pipe",
         variants: [
             { model: "HKABTR-1600", kapasitas: "-", daya: "-", dimensi: "P 600 x L 400 x T 1600 mm", harga: 2800000, image: "https://placehold.co/400x400/1e293b/00bcd4?text=HKABTR-1600" }
         ]
     },
     {
-        id: 61, name: "Groceries Trolley", brand: "HKAGTR", category: "12. TROLLEY & TRANSPORT", tempRange: "Suhu Ruang", description: "Trolley barang/sembako",
+        id: 61, name: "Groceries Trolley", brand: "HKAGTR", category: "TROLLEY & TRANSPORT", tempRange: "Suhu Ruang", description: "Trolley barang/sembako",
         variants: [
             { model: "HKAGTR-TROLLEY", kapasitas: "-", daya: "-", dimensi: "P 1000 x L 400/600 x T 400 mm", harga: 4500000, image: "https://placehold.co/400x400/1e293b/00bcd4?text=HKAGTR-TROLLEY" }
         ]
     },
     {
-        id: 62, name: "Food Serving Trolley", brand: "HKATR", category: "12. TROLLEY & TRANSPORT", tempRange: "Suhu Ruang", description: "Castor, Knock down",
+        id: 62, name: "Food Serving Trolley", brand: "HKATR", category: "TROLLEY & TRANSPORT", tempRange: "Suhu Ruang", description: "Castor, Knock down",
         variants: [
             { model: "HKATR-2S (2 SHELVES)", kapasitas: "-", daya: "-", dimensi: "P 700 x L 500 x T 1000 mm", harga: 2500000, image: "https://placehold.co/400x400/1e293b/00bcd4?text=HKATR-2S" },
             { model: "HKATR-3S (3 SHELVES)", kapasitas: "-", daya: "-", dimensi: "P 900 x L 500 x T 1000 mm", harga: 2900000, image: "https://placehold.co/400x400/1e293b/00bcd4?text=HKATR-3S" }
@@ -1237,7 +1244,7 @@
     // KATEGORI: 13. VENTILASI DAPUR
     // ==========================================
     {
-        id: 63, name: "Exhaust Hood", brand: "EXHAUST HOOD", category: "13. VENTILASI DAPUR", tempRange: "Suhu Ruang", description: "Exhaust hood untuk dapur komersial",
+        id: 63, name: "Exhaust Hood", brand: "EXHAUST HOOD", category: "VENTILASI DAPUR", tempRange: "Suhu Ruang", description: "Exhaust hood untuk dapur komersial",
         variants: [
             { model: "ISLAND", kapasitas: "-", daya: "-", dimensi: "P 1000 x L 2000 x T 300/500 mm", harga: 8000000, image: "https://placehold.co/400x400/1e293b/00bcd4?text=HOOD-ISLAND" },
             { model: "WALL TYPE", kapasitas: "-", daya: "-", dimensi: "P 1000 x L 900 x T 500 mm", harga: 4000000, image: "https://placehold.co/400x400/1e293b/00bcd4?text=HOOD-WALL" },
@@ -1249,7 +1256,7 @@
     // KATEGORI: 14. UPRIGHT CHILLER
     // ==========================================
     {
-        id: 64, name: "Upright Chiller", brand: "HKA-QC Series", category: "14. UPRIGHT CHILLER", tempRange: "+2°C s.d +8°C", description: "Temp. +2~+8°C, Lemari pendingin vertikal stainless steel, Import, Daya: 220V",
+        id: 64, name: "Upright Chiller", brand: "HKA-QC Series", category: "UPRIGHT CHILLER", tempRange: "+2°C s.d +8°C", description: "Temp. +2~+8°C, Lemari pendingin vertikal stainless steel, Import, Daya: 220V",
         variants: [
             { model: "QC-0.5-L2F", kapasitas: "500 L", daya: "360W", dimensi: "P 600 x L 730 x T 1955 mm", harga: 20000000, image: "https://placehold.co/400x400/1f2937/0ea5e9?text=QC-0.5" },
             { model: "QC-1.0-L4F", kapasitas: "1000 L", daya: "490W", dimensi: "P 1200 x L 730 x T 1955 mm", harga: 25500000, image: "https://placehold.co/400x400/1f2937/0ea5e9?text=QC-1.0" },
@@ -1257,7 +1264,7 @@
         ]
     },
     {
-        id: 65, name: "Glass Door Up Right Chiller", brand: "NTGO Series", category: "14. UPRIGHT CHILLER", tempRange: "+2°C s.d +8°C", description: "Temp.: +2~+8°C, Pintu kaca vertikal standing, Import, Daya: 220V",
+        id: 65, name: "Glass Door Up Right Chiller", brand: "NTGO Series", category: "UPRIGHT CHILLER", tempRange: "+2°C s.d +8°C", description: "Temp.: +2~+8°C, Pintu kaca vertikal standing, Import, Daya: 220V",
         variants: [
             { model: "NTGO-0.5-L2F (2 DOOR)", kapasitas: "500 L", daya: "490W", dimensi: "P 600 x L 730 x T 1955 mm", harga: 24500000, image: "https://placehold.co/400x400/1f2937/0ea5e9?text=NTGO-0.5" },
             { model: "NTGO-1.0-L4F (4 DOOR)", kapasitas: "1000 L", daya: "590W", dimensi: "P 1200 x L 730 x T 1955 mm", harga: 31000000, image: "https://placehold.co/400x400/1f2937/0ea5e9?text=NTGO-1.0" }
@@ -1268,7 +1275,7 @@
     // KATEGORI: 15. UPRIGHT FREEZER
     // ==========================================
     {
-        id: 66, name: "Upright Freezer", brand: "HKA-QD Series", category: "15. UPRIGHT FREEZER", tempRange: "-18°C s.d -20°C", description: "Temp. -18~-20°C, Lemari pembeku vertikal stainless steel, Import, Daya: 220V",
+        id: 66, name: "Upright Freezer", brand: "HKA-QD Series", category: "UPRIGHT FREEZER", tempRange: "-18°C s.d -20°C", description: "Temp. -18~-20°C, Lemari pembeku vertikal stainless steel, Import, Daya: 220V",
         variants: [
             { model: "QD-0.5-L2F", kapasitas: "500 L", daya: "400W", dimensi: "P 600 x L 730 x T 1955 mm", harga: 23200000, image: "https://placehold.co/400x400/111827/38bdf8?text=QD-0.5" },
             { model: "QD-1.0-L2F", kapasitas: "1000 L", daya: "800W", dimensi: "P 1200 x L 730 x T 1955 mm", harga: 28000000, image: "https://placehold.co/400x400/111827/38bdf8?text=QD-1.0" },
@@ -1280,7 +1287,7 @@
     // KATEGORI: 16. UNDER COUNTER
     // ==========================================
     {
-        id: 67, name: "Glass Door Stainless Steel Under Counter Chiller", brand: "NTGO Series", category: "16. UNDER COUNTER", tempRange: "+2°C s.d +8°C", description: "Temp. Chiller: +2~+8°C, Lebar Kaki/Unit 75 cm, Import, Daya: 220V",
+        id: 67, name: "Glass Door Stainless Steel Under Counter Chiller", brand: "NTGO Series", category: "UNDER COUNTER", tempRange: "+2°C s.d +8°C", description: "Temp. Chiller: +2~+8°C, Lebar Kaki/Unit 75 cm, Import, Daya: 220V",
         variants: [
             { model: "NTGO-12-2L", kapasitas: "310 L", daya: "350W", dimensi: "P 1200 x L 750 x T 850 mm", harga: 18000000, image: "https://placehold.co/400x400/111827/00bcd4?text=NTGO-12" },
             { model: "NTGO-15-2L", kapasitas: "360 L", daya: "420W", dimensi: "P 1500 x L 750 x T 850 mm", harga: 20000000, image: "https://placehold.co/400x400/111827/00bcd4?text=NTGO-15" },
@@ -1288,14 +1295,14 @@
         ]
     },
     {
-        id: 68, name: "Under Counter Chiller + Drawer", brand: "EC-LGD Series", category: "16. UNDER COUNTER", tempRange: "+2°C s.d +8°C", description: "Temp.: +2~+8°C, Model laci stainless, Lebar Unit 75 cm, Import, Daya: 220V",
+        id: 68, name: "Under Counter Chiller + Drawer", brand: "EC-LGD Series", category: "UNDER COUNTER", tempRange: "+2°C s.d +8°C", description: "Temp.: +2~+8°C, Model laci stainless, Lebar Unit 75 cm, Import, Daya: 220V",
         variants: [
             { model: "EC-15-2LGD (6 drawer)", kapasitas: "350 L", daya: "460W", dimensi: "P 1500 x L 750 x T 850 mm", harga: 35800000, image: "https://placehold.co/400x400/111827/00bcd4?text=EC-15-LGD" },
             { model: "EC-18-2LGD (9 drawer)", kapasitas: "450 L", daya: "480W", dimensi: "P 1800 x L 750 x T 850 mm", harga: 46000000, image: "https://placehold.co/400x400/111827/00bcd4?text=EC-18-LGD" }
         ]
     },
     {
-        id: 69, name: "Under Counter Chiller (Lebar 60 cm)", brand: "HKA-ELL Series", category: "16. UNDER COUNTER", tempRange: "+2°C s.d +8°C", description: "Temp. +2~+8°C, Meja pendingin meja dapur stainless ramping, Daya: 220V",
+        id: 69, name: "Under Counter Chiller (Lebar 60 cm)", brand: "HKA-ELL Series", category: "UNDER COUNTER", tempRange: "+2°C s.d +8°C", description: "Temp. +2~+8°C, Meja pendingin meja dapur stainless ramping, Daya: 220V",
         variants: [
             { model: "EL-12-2L", kapasitas: "250 L", daya: "450W", dimensi: "P 1200 x L 600 x T 850 mm", harga: 17500000, image: "https://placehold.co/400x400/111827/00bcd4?text=EL-12-2L" },
             { model: "EL-15-2L", kapasitas: "310 L", daya: "470W", dimensi: "P 1500 x L 600 x T 850 mm", harga: 18500000, image: "https://placehold.co/400x400/111827/00bcd4?text=EL-15-2L" },
@@ -1303,7 +1310,7 @@
         ]
     },
     {
-        id: 70, name: "Under Counter Chiller (Lebar 75 cm)", brand: "HKA-ECL Series", category: "16. UNDER COUNTER", tempRange: "+2°C s.d +8°C", description: "Temp. +2~+8°C, Meja pendingin ukuran standard, Daya: 220V",
+        id: 70, name: "Under Counter Chiller (Lebar 75 cm)", brand: "HKA-ECL Series", category: "UNDER COUNTER", tempRange: "+2°C s.d +8°C", description: "Temp. +2~+8°C, Meja pendingin ukuran standard, Daya: 220V",
         variants: [
             { model: "EC-12-2L", kapasitas: "310 L", daya: "450W", dimensi: "P 1200 x L 750 x T 850 mm", harga: 17200000, image: "https://placehold.co/400x400/111827/00bcd4?text=EC-12-2L" },
             { model: "EC-15-2L", kapasitas: "360 L", daya: "470W", dimensi: "P 1500 x L 750 x T 850 mm", harga: 18500000, image: "https://placehold.co/400x400/111827/00bcd4?text=EC-15-2L" },
@@ -1311,7 +1318,7 @@
         ]
     },
     {
-        id: 71, name: "Under Counter Freezer (Lebar 75 cm)", brand: "HKA-EDL Series", category: "16. UNDER COUNTER", tempRange: "-18°C s.d -20°C", description: "Temp. -18°C, Meja pembeku dpur stainless, Daya: 220V",
+        id: 71, name: "Under Counter Freezer (Lebar 75 cm)", brand: "HKA-EDL Series", category: "UNDER COUNTER", tempRange: "-18°C s.d -20°C", description: "Temp. -18°C, Meja pembeku dpur stainless, Daya: 220V",
         variants: [
             { model: "ED-12-2L", kapasitas: "310 L", daya: "540W", dimensi: "P 1200 x L 750 x T 850 mm", harga: 18500000, image: "https://placehold.co/400x400/111827/00bcd4?text=ED-12-2L" },
             { model: "ED-15-2L", kapasitas: "360 L", daya: "670W", dimensi: "P 1500 x L 750 x T 850 mm", harga: 20000000, image: "https://placehold.co/400x400/111827/00bcd4?text=ED-15-2L" },
@@ -1323,7 +1330,7 @@
     // KATEGORI: 17. SHOWCASE COOLER
     // ==========================================
     {
-        id: 72, name: "Display Cooler / Showcase", brand: "FRESCA Series", category: "17. SHOWCASE COOLER", tempRange: "+2°C s.d +8°C", description: "Temp. +2~+8°C, Lemari kaca pendingin minuman vertical, Daya: 220V",
+        id: 72, name: "Display Cooler / Showcase", brand: "FRESCA Series", category: "SHOWCASE COOLER", tempRange: "+2°C s.d +8°C", description: "Temp. +2~+8°C, Lemari kaca pendingin minuman vertical, Daya: 220V",
         variants: [
             { model: "FRESCA 195 CS", kapasitas: "195 L", daya: "170W", dimensi: "P 530 x L 510 x T 1135 mm", harga: 4500000, image: "https://placehold.co/400x400/1e1b4b/38bdf8?text=FRESCA-195" },
             { model: "FRESCA 225 CS", kapasitas: "225 L", daya: "185W", dimensi: "P 530 x L 510 x T 1547 mm", harga: 4900000, image: "https://placehold.co/400x400/1e1b4b/38bdf8?text=FRESCA-225" },
@@ -1331,7 +1338,7 @@
         ]
     },
     {
-        id: 73, name: "Display Cooler Series (Premium Swing Door)", brand: "HKAPWC", category: "17. SHOWCASE COOLER", tempRange: "+2°C s.d +8°C", description: "Temp. +2~+8°C, Pintu Kaca Premium Swing, Import, Daya: 220V",
+        id: 73, name: "Display Cooler Series (Premium Swing Door)", brand: "HKAPWC", category: "SHOWCASE COOLER", tempRange: "+2°C s.d +8°C", description: "Temp. +2~+8°C, Pintu Kaca Premium Swing, Import, Daya: 220V",
         variants: [
             { model: "DC-110", kapasitas: "420 L", daya: "450W", dimensi: "P 600 x L 620 x T 1910 mm", harga: 7900000, image: "https://placehold.co/400x400/1e1b4b/38bdf8?text=DC-110" },
             { model: "DC-120", kapasitas: "835 L", daya: "600W", dimensi: "P 1200 x L 620 x T 1910 mm", harga: 15700000, image: "https://placehold.co/400x400/1e1b4b/38bdf8?text=DC-120" },
@@ -1339,7 +1346,7 @@
         ]
     },
     {
-        id: 74, name: "Display Cooler Alternate", brand: "HKA Display Cooler", category: "17. SHOWCASE COOLER", tempRange: "+2°C s.d +8°C", description: "Temp. +2~+8°C, Dimensi tinggi berbeda tipis (T 1920 mm), Import, Daya: 220V",
+        id: 74, name: "Display Cooler Alternate", brand: "HKA Display Cooler", category: "SHOWCASE COOLER", tempRange: "+2°C s.d +8°C", description: "Temp. +2~+8°C, Dimensi tinggi berbeda tipis (T 1920 mm), Import, Daya: 220V",
         variants: [
             { model: "DC-Alt-600", kapasitas: "420 L", daya: "450W", dimensi: "P 600 x L 620 x T 1920 mm", harga: 8800000, image: "https://placehold.co/400x400/1e1b4b/38bdf8?text=DC-Alt-600" },
             { model: "DC-Alt-1200", kapasitas: "835 L", daya: "600W", dimensi: "P 1200 x L 620 x T 1920 mm", harga: 12500000, image: "https://placehold.co/400x400/1e1b4b/38bdf8?text=DC-Alt-1200" },
@@ -1347,7 +1354,7 @@
         ]
     },
     {
-        id: 75, name: "Cake Showcase RLB Series", brand: "HKARLB", category: "17. SHOWCASE COOLER", tempRange: "+2°C s.d +8°C", description: "Temp. +2~+8°C, High-quality stainless steel body, Stable and uniform cooling, Hygienic interior, User-friendly temperature control, Daya: 220V",
+        id: 75, name: "Cake Showcase RLB Series", brand: "HKARLB", category: "SHOWCASE COOLER", tempRange: "+2°C s.d +8°C", description: "Temp. +2~+8°C, High-quality stainless steel body, Stable and uniform cooling, Hygienic interior, User-friendly temperature control, Daya: 220V",
         variants: [
             { model: "RLB-900", kapasitas: "360 L", daya: "487W", dimensi: "P 900 x L 680 x T 1200 mm", harga: 30000000, image: "https://placehold.co/400x400/1e1b4b/38bdf8?text=RLB-900" },
             { model: "RLB-1200", kapasitas: "462 L", daya: "668W", dimensi: "P 1200 x L 680 x T 1200 mm", harga: 33000000, image: "https://placehold.co/400x400/1e1b4b/38bdf8?text=RLB-1200" },
@@ -1359,7 +1366,7 @@
     // KATEGORI: 18. CHEST FREEZER
     // ==========================================
     {
-        id: 76, name: "Sliding Curve Glass Freezer", brand: "HKA-FLV Series", category: "18. CHEST FREEZER", tempRange: "-10°C s.d -20°C", description: "Temp. -10~-20°C, Low Watt, Pintu Kaca Lengkung Geser, Made in Indonesia, Daya: 220V",
+        id: 76, name: "Sliding Curve Glass Freezer", brand: "HKA-FLV Series", category: "CHEST FREEZER", tempRange: "-10°C s.d -20°C", description: "Temp. -10~-20°C, Low Watt, Pintu Kaca Lengkung Geser, Made in Indonesia, Daya: 220V",
         variants: [
             { model: "F-120SD LV", kapasitas: "120 L", daya: "110W", dimensi: "P 611 x L 539 x T 873 mm", harga: 3650000, image: "https://placehold.co/400x400/0f172a/db2777?text=F-120SD" },
             { model: "F-210SD LV", kapasitas: "210 L", daya: "140W", dimensi: "P 925 x L 539 x T 873 mm", harga: 4400000, image: "https://placehold.co/400x400/0f172a/db2777?text=F-210SD" },
@@ -1367,7 +1374,7 @@
         ]
     },
     {
-        id: 77, name: "Chest Freezer (Suhu Beku)", brand: "FRESCA Series", category: "18. CHEST FREEZER", tempRange: "-10°C s.d -20°C", description: "Temp. -10~-20°C (Standard Chest Freezer), Made in Indonesia, Daya: 220V",
+        id: 77, name: "Chest Freezer (Suhu Beku)", brand: "FRESCA Series", category: "CHEST FREEZER", tempRange: "-10°C s.d -20°C", description: "Temp. -10~-20°C (Standard Chest Freezer), Made in Indonesia, Daya: 220V",
         variants: [
             { model: "F-200 LV", kapasitas: "200 L", daya: "90W", dimensi: "P 925 x L 539 x T 873 mm", harga: 3450000, image: "https://placehold.co/400x400/0f172a/db2777?text=F-200" },
             { model: "F-300 LV", kapasitas: "300 L", daya: "140W", dimensi: "P 1105 x L 539 x T 873 mm", harga: 4100000, image: "https://placehold.co/400x400/0f172a/db2777?text=F-300" },
@@ -1375,7 +1382,7 @@
         ]
     },
     {
-        id: 78, name: "Sliding Flat Glass Freezer", brand: "HKA-F Series", category: "18. CHEST FREEZER", tempRange: "-10°C s.d -20°C", description: "Temp. -10~-20°C, Freezer kaca datar geser, Import, Daya: 220V",
+        id: 78, name: "Sliding Flat Glass Freezer", brand: "HKA-F Series", category: "CHEST FREEZER", tempRange: "-10°C s.d -20°C", description: "Temp. -10~-20°C, Freezer kaca datar geser, Import, Daya: 220V",
         variants: [
             { model: "HKA-F-Flat-1200", kapasitas: "434 L", daya: "165W", dimensi: "P 1200 x L 670 x T 880 mm", harga: 6800000, image: "https://placehold.co/400x400/0f172a/db2777?text=F-Flat-1200" },
             { model: "HKA-F-Flat-1400", kapasitas: "519 L", daya: "260W", dimensi: "P 1400 x L 670 x T 880 mm", harga: 7200000, image: "https://placehold.co/400x400/0f172a/db2777?text=F-Flat-1400" },
@@ -1384,7 +1391,7 @@
         ]
     },
     {
-        id: 79, name: "Chest Freezer (Solid Top)", brand: "HKA-F Series", category: "18. CHEST FREEZER", tempRange: "-10°C s.d -20°C", description: "Temp. -10~-20°C, Pembeku tutup S/S / putih kokoh, Import, Daya: 220V",
+        id: 79, name: "Chest Freezer (Solid Top)", brand: "HKA-F Series", category: "CHEST FREEZER", tempRange: "-10°C s.d -20°C", description: "Temp. -10~-20°C, Pembeku tutup S/S / putih kokoh, Import, Daya: 220V",
         variants: [
             { model: "HKA-F-Solid-1200", kapasitas: "420 L", daya: "165W", dimensi: "P 1200 x L 780 x T 880 mm", harga: 6450000, image: "https://placehold.co/400x400/0f172a/db2777?text=F-Solid-1200" },
             { model: "HKA-F-Solid-1500", kapasitas: "490 L", daya: "260W", dimensi: "P 1500 x L 780 x T 880 mm", harga: 7150000, image: "https://placehold.co/400x400/0f172a/db2777?text=F-Solid-1500" },
@@ -1397,7 +1404,7 @@
     // KATEGORI: 19. BLAST CHILLER
     // ==========================================
     {
-        id: 80, name: "Blast Chiller & Shock Freezer", brand: "ALISA Series", category: "19. BLAST CHILLER", tempRange: "-18°C s.d -39°C", description: "Kisaran temperatur -18 ~ -39°C, unit pendingin cepat impor",
+        id: 80, name: "Blast Chiller & Shock Freezer", brand: "ALISA Series", category: "BLAST CHILLER", tempRange: "-18°C s.d -39°C", description: "Kisaran temperatur -18 ~ -39°C, unit pendingin cepat impor",
         variants: [
             { model: "ALISA 3", kapasitas: "3 tray", daya: "1300W/1P", dimensi: "P 820 x L 900 x T 930 mm", harga: 49000000, image: "https://placehold.co/400x400/0f172a/00bcd4?text=ALISA+3" },
             { model: "ALISA 5", kapasitas: "5 tray", daya: "1600W/3P", dimensi: "P 820 x L 900 x T 1030 mm", harga: 53000000, image: "https://placehold.co/400x400/0f172a/00bcd4?text=ALISA+5" },
@@ -1598,11 +1605,10 @@
 
         function handleSorting(val) { currentSort = val; renderCatalog(); }
 
-        function filterCategory(category) {
-            currentCategory = category;
-            renderProducts(); // Ini yang nampilin barangnya
-        } 
-
+        function filterCategory(cat) { 
+            currentFilter = cat; 
+            renderCatalog();
+             
             // Sync visual active class for Desktop Sidebar
             document.querySelectorAll('#sidebar-categories button').forEach(btn => {
                 const icon = btn.querySelector('i');
@@ -1638,19 +1644,39 @@
             document.getElementById(`price-new-card-${productId}`).textContent = formatRupiah(discPrice);
         }
 
-        function renderCatalog() {
-            const grid = document.getElementById('product-grid');
-            if (!grid) return;
-            grid.innerHTML = '';
+        //Buat memunculkan banyak kategori dalam satu filter kategori
 
-            let filtered = productsData.filter(p => {
-                const matchesTab = (currentFilter === 'all' || p.category === currentFilter);
-                const query = currentSearchQuery.toLowerCase();
-                const matchesSearch = p.name.toLowerCase().includes(query) || 
-                                      p.brand.toLowerCase().includes(query) ||
-                                      p.variants.some(v => v.model.toLowerCase().includes(query));
-                return matchesTab && matchesSearch;
-            });
+        const categoryGroups = {
+            rak: ['rak', 'kabinet'],
+            sink: ['sink', 'dishwasher'],
+            kompor: ['grill', 'kompor'],
+            mixer: ['oven', 'mixer']
+        };
+
+                function renderCatalog() {
+                    const grid = document.getElementById('product-grid');
+                    if (!grid) return;
+                    grid.innerHTML = '';
+
+                    let filtered = productsData.filter(p => {
+
+            const categories = categoryGroups[currentFilter] || [currentFilter];
+
+            const matchesTab =
+                currentFilter === 'all' ||
+                categories.includes(p.category);
+
+            const query = currentSearchQuery.toLowerCase();
+
+            const matchesSearch =
+                p.name.toLowerCase().includes(query) ||
+                p.brand.toLowerCase().includes(query) ||
+                p.variants.some(v => v.model.toLowerCase().includes(query));
+
+            return matchesTab && matchesSearch;
+        });
+
+            
 
             if (currentSort === 'asc') {
                 filtered.sort((a, b) => (a.variants[0].harga * 0.8) - (b.variants[0].harga * 0.8));
@@ -1885,6 +1911,22 @@
             window.open(`https://wa.me/6282111506069?text=${encodeURIComponent(orderText)}`, '_blank');
             cart = []; updateCartCount(); switchView('home'); showToast("Order terkirim ke WhatsApp!");
         }
+
+
+        // Promo ganti hari otomatis
+        const hari = [
+            "MINGGU",
+            "SENIN",
+            "SELASA",
+            "RABU",
+            "KAMIS",
+            "JUMAT",
+            "SABTU"
+        ];
+
+        document.getElementById("promo-text").textContent =
+            `PROMO SPESIAL ${hari[new Date().getDay()]}: DISKON 20% KHUSUS WEB!`;
+
 
         // Timer promo otomatis
         setInterval(() => {
