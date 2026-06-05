@@ -3,7 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TokoKitchen Store - Pusat Peralatan Dapur Pendingin Premium</title>
+    <title>TokoKitchen Store | Jual Peralatan Dapur Komersial, Stainless, Chiller & Freezer</title>
+    <meta name="description" content="TokoKitchen Store menyediakan peralatan dapur komersial untuk Horeka, restoran, hotel, catering, chiller, freezer, stainless table, sink, oven, mixer, dan kompor industri.">
+    <meta name="keywords" content="peralatan dapur komersial, kitchen equipment, horeca equipment, chiller komersial, freezer komersial, meja stainless, sink stainless, oven bakery, mixer roti, kompor restoran, bain marie, dishwasher komersial, TokoKitchen">
+    <meta name="author" content="TokoKitchen Store">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="googlebot" content="index, follow">
+    <meta name="theme-color" content="#00bcd4">
+    <meta name="format-detection" content="telephone=yes">
+    <link rel="canonical" href="https://tokokitchen.store/">
+
+    <!-- Open Graph / Facebook / WhatsApp Preview -->
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="id_ID">
+    <meta property="og:site_name" content="TokoKitchen Store">
+    <meta property="og:title" content="TokoKitchen Store | Peralatan Dapur Komersial Horeka">
+    <meta property="og:description" content="Belanja peralatan dapur komersial untuk restoran, hotel, cafe, bakery, catering, chiller, freezer, stainless table, sink, kompor, oven, dan mixer.">
+    <meta property="og:url" content="https://tokokitchen.store/">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1590794056226-77ee3d416075?q=80&w=1200&auto=format&fit=crop">
+    <meta property="og:image:alt" content="Peralatan dapur komersial TokoKitchen Store">
+
+    <!-- Twitter / X Preview -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="TokoKitchen Store | Peralatan Dapur Komersial Horeka">
+    <meta name="twitter:description" content="Peralatan dapur komersial untuk restoran, hotel, cafe, bakery, catering, chiller, freezer, stainless table, sink, kompor, oven, dan mixer.">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1590794056226-77ee3d416075?q=80&w=1200&auto=format&fit=crop">
+
+    <!-- Structured Data dasar, data produk lengkap dibuat otomatis dari productsData lewat JavaScript -->
+    <script type="application/ld+json" id="seo-store-schema">
+    {
+      "@context": "https://schema.org",
+      "@type": "Store",
+      "name": "TokoKitchen Store",
+      "url": "https://tokokitchen.store/",
+      "description": "TokoKitchen Store menyediakan peralatan dapur komersial untuk Horeka, restoran, hotel, cafe, bakery, dan catering.",
+      "email": "cs@tokokitchen.store",
+      "telephone": ["+6282111506069", "+628159691422"],
+      "priceRange": "Rp",
+      "areaServed": "Indonesia",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "08:30",
+          "closes": "17:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "08:30",
+          "closes": "14:00"
+        }
+      ],
+      "sameAs": []
+    }
+    </script>
     
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -89,6 +143,32 @@
         .thermal-track {
             background: linear-gradient(to right, #2563eb, #06b6d4, #10b981, #f59e0b, #ef4444, #7f1d1d);
         }
+
+
+        /* Small UI fixes */
+        select {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background-image: none !important;
+        }
+        select::-ms-expand { display: none; }
+        #clear-search-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #clear-search-btn.hidden {
+            display: none !important;
+        }
+        .safe-ellipsis {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .modal-content-box {
+            overscroll-behavior: contain;
+        }
     </style>
 </head>
 <body class="bg-[#f4f6f9] dark:bg-slate-950 text-slate-800 dark:text-slate-100 font-sans transition-colors duration-300">
@@ -127,11 +207,13 @@
                 </div>
                 
                 <!-- Search Input Always Visible -->
-                <div class="flex flex-1 max-w-2xl relative mx-2 sm:mx-4">
-                    <input type="text" id="search-input" onkeyup="handleSearch(this.value)" placeholder="Cari mesin, kulkas, tipe..." class="w-full pl-9 pr-8 py-2 md:py-2.5 rounded-full bg-[#f8fafc] dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:border-[#00bcd4] outline-none text-xs md:text-sm text-slate-700 dark:text-slate-200 transition-all">
-                    <i class="fa-solid fa-magnifying-glass absolute left-3 md:left-4 top-2.5 md:top-3.5 text-slate-400 text-xs md:text-sm"></i>
-                    <button id="clear-search-btn" onclick="clearSearch()" class="hidden absolute right-3 md:right-4 top-2.5 md:top-3.5 text-slate-400 hover:text-red-500 transition-colors">
-                        <i class="fa-solid fa-xmark text-xs md:text-sm"></i>
+                <div class="flex flex-1 max-w-2xl relative mx-2 sm:mx-4 h-11">
+                    <input type="text" id="search-input" onkeyup="handleSearch(this.value)" placeholder="Cari mesin, kulkas, tipe..." class="w-full h-11 pl-10 pr-12 rounded-full bg-[#f8fafc] dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:border-[#00bcd4] outline-none text-xs md:text-sm text-slate-700 dark:text-slate-200 transition-all leading-none">
+                    <span class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400">
+                        <i class="fa-solid fa-magnifying-glass text-xs md:text-sm"></i>
+                    </span>
+                    <button type="button" id="clear-search-btn" onclick="clearSearch()" aria-label="Hapus pencarian" class="hidden absolute inset-y-0 right-1.5 w-9 h-full text-slate-400 hover:text-red-500 transition-colors rounded-full">
+                        <i class="fa-solid fa-xmark text-xs md:text-sm leading-none"></i>
                     </button>
                 </div>
 
@@ -165,7 +247,7 @@
                 <div id="carousel-wrapper" class="w-full h-full flex transition-transform duration-700 ease-in-out" style="transform: translateX(0%);">
                     <!-- Slide 1 -->
                     <div class="w-full h-full shrink-0 relative">
-                        <img src="https://images.unsplash.com/photo-1590794056226-77ee3d416075?q=80&w=1920&auto=format&fit=crop" class="w-full h-full object-cover filter brightness-75 dark:brightness-50" alt="Slide 1">
+                        <img src="https://images.unsplash.com/photo-1590794056226-77ee3d416075?q=80&w=1920&auto=format&fit=crop" class="w-full h-full object-cover filter brightness-75 dark:brightness-50" alt="Peralatan dapur komersial premium untuk Horeka">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent p-6 md:p-12 flex flex-col justify-end">
                             <span class="bg-[#00bcd4] text-white font-black text-[9px] px-2 py-0.5 rounded uppercase w-max tracking-wider mb-2">PROMO UTAMA</span>
                             <h2 class="text-xl md:text-4xl font-black text-white leading-tight">Premium Kitchen Equipment Marketplace</h2>
@@ -174,7 +256,7 @@
                     </div>
                     <!-- Slide 2 -->
                     <div class="w-full h-full shrink-0 relative">
-                        <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?q=80&w=1920&auto=format&fit=crop" class="w-full h-full object-cover filter brightness-75 dark:brightness-50" alt="Slide 2">
+                        <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?q=80&w=1920&auto=format&fit=crop" class="w-full h-full object-cover filter brightness-75 dark:brightness-50" alt="Heavy duty kitchen equipment stainless steel untuk restoran">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent p-6 md:p-12 flex flex-col justify-end">
                             <span class="bg-red-600 text-white font-black text-[9px] px-2 py-0.5 rounded uppercase w-max tracking-wider mb-2">HEAVY-DUTY SERIES</span>
                             <h2 class="text-xl md:text-4xl font-black text-white leading-tight">Performa Tangguh di Dapur Ekstrem</h2>
@@ -183,7 +265,7 @@
                     </div>
                     <!-- Slide 3 -->
                     <div class="w-full h-full shrink-0 relative">
-                        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1920&auto=format&fit=crop" class="w-full h-full object-cover filter brightness-75 dark:brightness-50" alt="Slide 3">
+                        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1920&auto=format&fit=crop" class="w-full h-full object-cover filter brightness-75 dark:brightness-50" alt="Cold storage, chiller, dan freezer komersial untuk bisnis Horeka">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent p-6 md:p-12 flex flex-col justify-end">
                             <span class="bg-emerald-500 text-white font-black text-[9px] px-2 py-0.5 rounded uppercase w-max tracking-wider mb-2">ZONA COLD STORAGE</span>
                             <h2 class="text-xl md:text-4xl font-black text-white leading-tight">Investasi Jangka Panjang Horeka</h2>
@@ -277,19 +359,25 @@
                 <span class="block text-[10px] font-bold text-slate-400 mb-2 uppercase tracking-wider">KATEGORI PILIHAN</span>
                 <div class="flex overflow-x-auto gap-2 no-scrollbar pb-1">
                     <button onclick="filterCategory('all')" id="mobile-cat-all" class="shrink-0 px-4 py-2 rounded-full text-xs font-bold transition-all bg-[#00bcd4] text-white shadow-sm">Semua Lini Unit</button>
-                    <button onclick="filterCategory('table')" id="mobile-cat-table" class="shrink-0 px-4 py-2 rounded-full text-xs font-semibold transition-all bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200/60 dark:border-slate-700">Meja & Rak Stainless</button>
+                    <button onclick="filterCategory('table')" id="mobile-cat-table" class="shrink-0 px-4 py-2 rounded-full text-xs font-semibold transition-all bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200/60 dark:border-slate-700">Meja Stainless</button>
+                    <button onclick="filterCategory('kabinet')" id="mobile-cat-kabinet" class="shrink-0 px-4 py-2 rounded-full text-xs font-semibold transition-all bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200/60 dark:border-slate-700">Kabinet Stainless</button>
+                    <button onclick="filterCategory('rak-storage')" id="mobile-cat-rak-storage" class="shrink-0 px-4 py-2 rounded-full text-xs font-semibold transition-all bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200/60 dark:border-slate-700">Rak & Storage</button>
                     <button onclick="filterCategory('sink')" id="mobile-cat-sink" class="shrink-0 px-4 py-2 rounded-full text-xs font-semibold transition-all bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200/60 dark:border-slate-700">Sink & Cuci Piring</button>
-                    <button onclick="filterCategory('cooking')" id="mobile-cat-cooking" class="shrink-0 px-4 py-2 rounded-full text-xs font-semibold transition-all bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200/60 dark:border-slate-700">Kompor & Grill</button>
-                    <button onclick="filterCategory('warmer')" id="mobile-cat-warmer" class="shrink-0 px-4 py-2 rounded-full text-xs font-semibold transition-all bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200/60 dark:border-slate-700">Pemanas & Bain Marie</button>
-                    <button onclick="filterCategory('bakery')" id="mobile-cat-bakery" class="shrink-0 px-4 py-2 rounded-full text-xs font-semibold transition-all bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200/60 dark:border-slate-700">Mixer & Oven</button>
-                    <button onclick="filterCategory('dishwasher')" id="mobile-cat-dishwasher" class="shrink-0 px-4 py-2 rounded-full text-xs font-semibold transition-all bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200/60 dark:border-slate-700">Mesin Cuci Piring</button>
-                    <button onclick="filterCategory('prep')" id="mobile-cat-prep" class="shrink-0 px-4 py-2 rounded-full text-xs font-semibold transition-all bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200/60 dark:border-slate-700">Mesin Preparasi</button>
+                    <button onclick="filterCategory('beverage')" id="mobile-cat-beverage" class="shrink-0 px-4 py-2 rounded-full text-xs font-semibold transition-all bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200/60 dark:border-slate-700">Bar & Beverage Station</button>
+                    <button onclick="filterCategory('kompor-grill')" id="mobile-cat-kompor-grill" class="shrink-0 px-4 py-2 rounded-full text-xs font-semibold transition-all bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200/60 dark:border-slate-700">Kompor & Grill</button>
+                    <button onclick="filterCategory('fryer-cooker')" id="mobile-cat-fryer-cooker" class="shrink-0 px-4 py-2 rounded-full text-xs font-semibold transition-all bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200/60 dark:border-slate-700">Fryer & Cooker</button>
+                    <button onclick="filterCategory('pemanas-bain-marie')" id="mobile-cat-pemanas-bain-marie" class="shrink-0 px-4 py-2 rounded-full text-xs font-semibold transition-all bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200/60 dark:border-slate-700">Pemanas & Bain Marie</button>
+                    <button onclick="filterCategory('mixer-oven')" id="mobile-cat-mixer-oven" class="shrink-0 px-4 py-2 rounded-full text-xs font-semibold transition-all bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200/60 dark:border-slate-700">Mixer & Oven</button>
+                    <button onclick="filterCategory('mesin-cuci-piring')" id="mobile-cat-mesin-cuci-piring" class="shrink-0 px-4 py-2 rounded-full text-xs font-semibold transition-all bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200/60 dark:border-slate-700">Mesin Cuci Piring</button>
+                    <button onclick="filterCategory('preparasi')" id="mobile-cat-preparasi" class="shrink-0 px-4 py-2 rounded-full text-xs font-semibold transition-all bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200/60 dark:border-slate-700">Preparasi</button>
+                    <button onclick="filterCategory('trolley-transport')" id="mobile-cat-trolley-transport" class="shrink-0 px-4 py-2 rounded-full text-xs font-semibold transition-all bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200/60 dark:border-slate-700">Trolley & Transport</button>
+                    <button onclick="filterCategory('ventilasi-dapur')" id="mobile-cat-ventilasi-dapur" class="shrink-0 px-4 py-2 rounded-full text-xs font-semibold transition-all bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200/60 dark:border-slate-700">Ventilasi Dapur</button>
                     <button onclick="filterCategory('upright-chiller')" id="mobile-cat-upright-chiller" class="shrink-0 px-4 py-2 rounded-full text-xs font-semibold transition-all bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200/60 dark:border-slate-700">Upright Chiller</button>
                     <button onclick="filterCategory('upright-freezer')" id="mobile-cat-upright-freezer" class="shrink-0 px-4 py-2 rounded-full text-xs font-semibold transition-all bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200/60 dark:border-slate-700">Upright Freezer</button>
-                    <button onclick="filterCategory('undercounter')" id="mobile-cat-undercounter" class="shrink-0 px-4 py-2 rounded-full text-xs font-semibold transition-all bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200/60 dark:border-slate-700">Under Counter</button>
-                    <button onclick="filterCategory('showcase')" id="mobile-cat-showcase" class="shrink-0 px-4 py-2 rounded-full text-xs font-semibold transition-all bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200/60 dark:border-slate-700">Showcase Cooler</button>
-                    <button onclick="filterCategory('freezer')" id="mobile-cat-freezer" class="shrink-0 px-4 py-2 rounded-full text-xs font-semibold transition-all bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200/60 dark:border-slate-700">Chest Freezer</button>
-                    <button onclick="filterCategory('blast')" id="mobile-cat-blast" class="shrink-0 px-4 py-2 rounded-full text-xs font-semibold transition-all bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200/60 dark:border-slate-700">Blast Chiller</button>
+                    <button onclick="filterCategory('under-counter')" id="mobile-cat-under-counter" class="shrink-0 px-4 py-2 rounded-full text-xs font-semibold transition-all bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200/60 dark:border-slate-700">Under Counter</button>
+                    <button onclick="filterCategory('showcase-cooler')" id="mobile-cat-showcase-cooler" class="shrink-0 px-4 py-2 rounded-full text-xs font-semibold transition-all bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200/60 dark:border-slate-700">Showcase Cooler</button>
+                    <button onclick="filterCategory('chest-freezer')" id="mobile-cat-chest-freezer" class="shrink-0 px-4 py-2 rounded-full text-xs font-semibold transition-all bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200/60 dark:border-slate-700">Chest Freezer</button>
+                    <button onclick="filterCategory('blast-chiller')" id="mobile-cat-blast-chiller" class="shrink-0 px-4 py-2 rounded-full text-xs font-semibold transition-all bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200/60 dark:border-slate-700">Blast Chiller</button>
                 </div>
             </section>
 
@@ -326,122 +414,28 @@
 
                             <div class="space-y-3">
                                 <h4 class="text-[10px] font-extrabold text-slate-400 uppercase tracking-widest">KATEGORI UNIT</h4>
-                                <div class="space-y-1" id="sidebar-categories">
-                                    <!-- Sidebar buttons filled dynamically via JS or hardcoded -->
-                                    <div class="space-y-1" id="sidebar-categories">
-                                        <button onclick="filterCategory('all')" id="cat-all"
-                                            class="w-full flex items-center justify-between text-left text-xs font-bold px-3 py-2 rounded-xl transition-all text-[#00bcd4] bg-[#00bcd4]/10">
-                                            <span>Semua Lini Unit</span>
-                                            <i class="fa-solid fa-chevron-right text-[10px]"></i>
-                                        </button>
-
-                                        <button onclick="filterCategory('table')" id="cat-table"
-                                            class="w-full flex items-center justify-between text-left text-xs font-bold px-3 py-2 rounded-xl transition-all text-slate-500 hover:text-[#00bcd4] hover:bg-slate-50 dark:hover:bg-slate-800/50">
-                                            <span>Meja & Rak Stainless</span>
-                                            <i class="fa-solid fa-chevron-right text-[10px] opacity-40"></i>
-                                        </button>
-
-                                        <button onclick="filterCategory('kabinet')" id="cat-kabinet"
-                                            class="w-full flex items-center justify-between text-left text-xs font-bold px-3 py-2 rounded-xl transition-all text-slate-500 hover:text-[#00bcd4] hover:bg-slate-50 dark:hover:bg-slate-800/50">
-                                            <span>Kabinet Stainless</span>
-                                            <i class="fa-solid fa-chevron-right text-[10px] opacity-40"></i>
-                                        </button>
-                                        <button onclick="filterCategory('rak')" id="cat-rak"
-                                            class="w-full flex items-center justify-between text-left text-xs font-bold px-3 py-2 rounded-xl transition-all text-slate-500 hover:text-[#00bcd4] hover:bg-slate-50 dark:hover:bg-slate-800/50">
-                                            <span>Rak & Storage</span>
-                                            <i class="fa-solid fa-chevron-right text-[10px] opacity-40"></i>
-                                        </button>
-                                        <button onclick="filterCategory('sink')" id="cat-sink"
-                                            class="w-full flex items-center justify-between text-left text-xs font-bold px-3 py-2 rounded-xl transition-all text-slate-500 hover:text-[#00bcd4] hover:bg-slate-50 dark:hover:bg-slate-800/50">
-                                            <span>Sink & Cuci Piring</span>
-                                            <i class="fa-solid fa-chevron-right text-[10px] opacity-40"></i>
-                                        </button>
-
-                                        <button onclick="filterCategory('beverage')" id="cat-beverage"
-                                            class="w-full flex items-center justify-between text-left text-xs font-bold px-3 py-2 rounded-xl transition-all text-slate-500 hover:text-[#00bcd4] hover:bg-slate-50 dark:hover:bg-slate-800/50">
-                                            <span>Bar & Beverage Station</span>
-                                            <i class="fa-solid fa-chevron-right text-[10px] opacity-40"></i>
-                                        </button>
-
-                                        <button onclick="filterCategory('kompor-grill')" id="cat-kompor-grill"
-                                            class="w-full flex items-center justify-between text-left text-xs font-bold px-3 py-2 rounded-xl transition-all text-slate-500 hover:text-[#00bcd4] hover:bg-slate-50 dark:hover:bg-slate-800/50">
-                                            <span>Kompor & Grill</span>
-                                            <i class="fa-solid fa-chevron-right text-[10px] opacity-40"></i>
-                                        </button>
-
-                                        <button onclick="filterCategory('pemanas-bain-marie')" id="cat-pemanas-bain-marie"
-                                            class="w-full flex items-center justify-between text-left text-xs font-bold px-3 py-2 rounded-xl transition-all text-slate-500 hover:text-[#00bcd4] hover:bg-slate-50 dark:hover:bg-slate-800/50">
-                                            <span>Pemanas & Bain Marie</span>
-                                            <i class="fa-solid fa-chevron-right text-[10px] opacity-40"></i>
-                                        </button>
-
-                                        <button onclick="filterCategory('mixer-oven')" id="cat-mixer-oven"
-                                            class="w-full flex items-center justify-between text-left text-xs font-bold px-3 py-2 rounded-xl transition-all text-slate-500 hover:text-[#00bcd4] hover:bg-slate-50 dark:hover:bg-slate-800/50">
-                                            <span>Mixer & Oven</span>
-                                            <i class="fa-solid fa-chevron-right text-[10px] opacity-40"></i>
-                                        </button>
-
-                                        <button onclick="filterCategory('mesin-cuci-piring')" id="cat-mesin-cuci-piring"
-                                            class="w-full flex items-center justify-between text-left text-xs font-bold px-3 py-2 rounded-xl transition-all text-slate-500 hover:text-[#00bcd4] hover:bg-slate-50 dark:hover:bg-slate-800/50">
-                                            <span>Mesin Cuci Piring</span>
-                                            <i class="fa-solid fa-chevron-right text-[10px] opacity-40"></i>
-                                        </button>
-
-                                        <button onclick="filterCategory('preparasi')" id="cat-preparasi"
-                                            class="w-full flex items-center justify-between text-left text-xs font-bold px-3 py-2 rounded-xl transition-all text-slate-500 hover:text-[#00bcd4] hover:bg-slate-50 dark:hover:bg-slate-800/50">
-                                            <span>Preparasi</span>
-                                            <i class="fa-solid fa-chevron-right text-[10px] opacity-40"></i>
-                                        </button>
-
-                                        <button onclick="filterCategory('trolley-transport')" id="cat-trolley-transport"
-                                            class="w-full flex items-center justify-between text-left text-xs font-bold px-3 py-2 rounded-xl transition-all text-slate-500 hover:text-[#00bcd4] hover:bg-slate-50 dark:hover:bg-slate-800/50">
-                                            <span>Trolley & Transport</span>
-                                            <i class="fa-solid fa-chevron-right text-[10px] opacity-40"></i>
-                                        </button>
-
-                                        <button onclick="filterCategory('ventilasi-dapur')" id="cat-ventilasi-dapur"
-                                            class="w-full flex items-center justify-between text-left text-xs font-bold px-3 py-2 rounded-xl transition-all text-slate-500 hover:text-[#00bcd4] hover:bg-slate-50 dark:hover:bg-slate-800/50">
-                                            <span>Ventilasi Dapur</span>
-                                            <i class="fa-solid fa-chevron-right text-[10px] opacity-40"></i>
-                                        </button>
-
-                                        <button onclick="filterCategory('upright-chiller')" id="cat-upright-chiller"
-                                            class="w-full flex items-center justify-between text-left text-xs font-bold px-3 py-2 rounded-xl transition-all text-slate-500 hover:text-[#00bcd4] hover:bg-slate-50 dark:hover:bg-slate-800/50">
-                                            <span>Upright Chiller</span>
-                                            <i class="fa-solid fa-chevron-right text-[10px] opacity-40"></i>
-                                        </button>
-
-                                        <button onclick="filterCategory('upright-freezer')" id="cat-upright-freezer"
-                                            class="w-full flex items-center justify-between text-left text-xs font-bold px-3 py-2 rounded-xl transition-all text-slate-500 hover:text-[#00bcd4] hover:bg-slate-50 dark:hover:bg-slate-800/50">
-                                            <span>Upright Freezer</span>
-                                            <i class="fa-solid fa-chevron-right text-[10px] opacity-40"></i>
-                                        </button>
-
-                                        <button onclick="filterCategory('under-counter')" id="cat-under-counter"
-                                            class="w-full flex items-center justify-between text-left text-xs font-bold px-3 py-2 rounded-xl transition-all text-slate-500 hover:text-[#00bcd4] hover:bg-slate-50 dark:hover:bg-slate-800/50">
-                                            <span>Under Counter</span>
-                                            <i class="fa-solid fa-chevron-right text-[10px] opacity-40"></i>
-                                        </button>
-
-                                        <button onclick="filterCategory('showcase-cooler')" id="cat-showcase-cooler"
-                                            class="w-full flex items-center justify-between text-left text-xs font-bold px-3 py-2 rounded-xl transition-all text-slate-500 hover:text-[#00bcd4] hover:bg-slate-50 dark:hover:bg-slate-800/50">
-                                            <span>Showcase Cooler</span>
-                                            <i class="fa-solid fa-chevron-right text-[10px] opacity-40"></i>
-                                        </button>
-
-                                        <button onclick="filterCategory('chest-freezer')" id="cat-chest-freezer"
-                                            class="w-full flex items-center justify-between text-left text-xs font-bold px-3 py-2 rounded-xl transition-all text-slate-500 hover:text-[#00bcd4] hover:bg-slate-50 dark:hover:bg-slate-800/50">
-                                            <span>Chest Freezer</span>
-                                            <i class="fa-solid fa-chevron-right text-[10px] opacity-40"></i>
-                                        </button>
-
-                                        <button onclick="filterCategory('blast-chiller')" id="cat-blast-chiller"
-                                            class="w-full flex items-center justify-between text-left text-xs font-bold px-3 py-2 rounded-xl transition-all text-slate-500 hover:text-[#00bcd4] hover:bg-slate-50 dark:hover:bg-slate-800/50">
-                                            <span>Blast Chiller</span>
-                                            <i class="fa-solid fa-chevron-right text-[10px] opacity-40"></i>
-                                        </button>
-
-                                    </div>
+                                                                <div class="space-y-1" id="sidebar-categories">
+                                    <button onclick="filterCategory('all')" id="cat-all" class="w-full flex items-center justify-between text-left text-xs font-bold px-3 py-2 rounded-xl transition-all text-[#00bcd4] bg-[#00bcd4]/10"><span>Semua Lini Unit</span><i class="fa-solid fa-chevron-right text-[10px]"></i></button>
+                                    <button onclick="filterCategory('table')" id="cat-table" class="w-full flex items-center justify-between text-left text-xs font-bold px-3 py-2 rounded-xl transition-all text-slate-500 hover:text-[#00bcd4] hover:bg-slate-50 dark:hover:bg-slate-800/50"><span>Meja Stainless</span><i class="fa-solid fa-chevron-right text-[10px] opacity-40"></i></button>
+                                    <button onclick="filterCategory('kabinet')" id="cat-kabinet" class="w-full flex items-center justify-between text-left text-xs font-bold px-3 py-2 rounded-xl transition-all text-slate-500 hover:text-[#00bcd4] hover:bg-slate-50 dark:hover:bg-slate-800/50"><span>Kabinet Stainless</span><i class="fa-solid fa-chevron-right text-[10px] opacity-40"></i></button>
+                                    <button onclick="filterCategory('rak-storage')" id="cat-rak-storage" class="w-full flex items-center justify-between text-left text-xs font-bold px-3 py-2 rounded-xl transition-all text-slate-500 hover:text-[#00bcd4] hover:bg-slate-50 dark:hover:bg-slate-800/50"><span>Rak & Storage</span><i class="fa-solid fa-chevron-right text-[10px] opacity-40"></i></button>
+                                    <button onclick="filterCategory('sink')" id="cat-sink" class="w-full flex items-center justify-between text-left text-xs font-bold px-3 py-2 rounded-xl transition-all text-slate-500 hover:text-[#00bcd4] hover:bg-slate-50 dark:hover:bg-slate-800/50"><span>Sink & Cuci Piring</span><i class="fa-solid fa-chevron-right text-[10px] opacity-40"></i></button>
+                                    <button onclick="filterCategory('beverage')" id="cat-beverage" class="w-full flex items-center justify-between text-left text-xs font-bold px-3 py-2 rounded-xl transition-all text-slate-500 hover:text-[#00bcd4] hover:bg-slate-50 dark:hover:bg-slate-800/50"><span>Bar & Beverage Station</span><i class="fa-solid fa-chevron-right text-[10px] opacity-40"></i></button>
+                                    <button onclick="filterCategory('kompor-grill')" id="cat-kompor-grill" class="w-full flex items-center justify-between text-left text-xs font-bold px-3 py-2 rounded-xl transition-all text-slate-500 hover:text-[#00bcd4] hover:bg-slate-50 dark:hover:bg-slate-800/50"><span>Kompor & Grill</span><i class="fa-solid fa-chevron-right text-[10px] opacity-40"></i></button>
+                                    <button onclick="filterCategory('fryer-cooker')" id="cat-fryer-cooker" class="w-full flex items-center justify-between text-left text-xs font-bold px-3 py-2 rounded-xl transition-all text-slate-500 hover:text-[#00bcd4] hover:bg-slate-50 dark:hover:bg-slate-800/50"><span>Fryer & Cooker</span><i class="fa-solid fa-chevron-right text-[10px] opacity-40"></i></button>
+                                    <button onclick="filterCategory('pemanas-bain-marie')" id="cat-pemanas-bain-marie" class="w-full flex items-center justify-between text-left text-xs font-bold px-3 py-2 rounded-xl transition-all text-slate-500 hover:text-[#00bcd4] hover:bg-slate-50 dark:hover:bg-slate-800/50"><span>Pemanas & Bain Marie</span><i class="fa-solid fa-chevron-right text-[10px] opacity-40"></i></button>
+                                    <button onclick="filterCategory('mixer-oven')" id="cat-mixer-oven" class="w-full flex items-center justify-between text-left text-xs font-bold px-3 py-2 rounded-xl transition-all text-slate-500 hover:text-[#00bcd4] hover:bg-slate-50 dark:hover:bg-slate-800/50"><span>Mixer & Oven</span><i class="fa-solid fa-chevron-right text-[10px] opacity-40"></i></button>
+                                    <button onclick="filterCategory('mesin-cuci-piring')" id="cat-mesin-cuci-piring" class="w-full flex items-center justify-between text-left text-xs font-bold px-3 py-2 rounded-xl transition-all text-slate-500 hover:text-[#00bcd4] hover:bg-slate-50 dark:hover:bg-slate-800/50"><span>Mesin Cuci Piring</span><i class="fa-solid fa-chevron-right text-[10px] opacity-40"></i></button>
+                                    <button onclick="filterCategory('preparasi')" id="cat-preparasi" class="w-full flex items-center justify-between text-left text-xs font-bold px-3 py-2 rounded-xl transition-all text-slate-500 hover:text-[#00bcd4] hover:bg-slate-50 dark:hover:bg-slate-800/50"><span>Preparasi</span><i class="fa-solid fa-chevron-right text-[10px] opacity-40"></i></button>
+                                    <button onclick="filterCategory('trolley-transport')" id="cat-trolley-transport" class="w-full flex items-center justify-between text-left text-xs font-bold px-3 py-2 rounded-xl transition-all text-slate-500 hover:text-[#00bcd4] hover:bg-slate-50 dark:hover:bg-slate-800/50"><span>Trolley & Transport</span><i class="fa-solid fa-chevron-right text-[10px] opacity-40"></i></button>
+                                    <button onclick="filterCategory('ventilasi-dapur')" id="cat-ventilasi-dapur" class="w-full flex items-center justify-between text-left text-xs font-bold px-3 py-2 rounded-xl transition-all text-slate-500 hover:text-[#00bcd4] hover:bg-slate-50 dark:hover:bg-slate-800/50"><span>Ventilasi Dapur</span><i class="fa-solid fa-chevron-right text-[10px] opacity-40"></i></button>
+                                    <button onclick="filterCategory('upright-chiller')" id="cat-upright-chiller" class="w-full flex items-center justify-between text-left text-xs font-bold px-3 py-2 rounded-xl transition-all text-slate-500 hover:text-[#00bcd4] hover:bg-slate-50 dark:hover:bg-slate-800/50"><span>Upright Chiller</span><i class="fa-solid fa-chevron-right text-[10px] opacity-40"></i></button>
+                                    <button onclick="filterCategory('upright-freezer')" id="cat-upright-freezer" class="w-full flex items-center justify-between text-left text-xs font-bold px-3 py-2 rounded-xl transition-all text-slate-500 hover:text-[#00bcd4] hover:bg-slate-50 dark:hover:bg-slate-800/50"><span>Upright Freezer</span><i class="fa-solid fa-chevron-right text-[10px] opacity-40"></i></button>
+                                    <button onclick="filterCategory('under-counter')" id="cat-under-counter" class="w-full flex items-center justify-between text-left text-xs font-bold px-3 py-2 rounded-xl transition-all text-slate-500 hover:text-[#00bcd4] hover:bg-slate-50 dark:hover:bg-slate-800/50"><span>Under Counter</span><i class="fa-solid fa-chevron-right text-[10px] opacity-40"></i></button>
+                                    <button onclick="filterCategory('showcase-cooler')" id="cat-showcase-cooler" class="w-full flex items-center justify-between text-left text-xs font-bold px-3 py-2 rounded-xl transition-all text-slate-500 hover:text-[#00bcd4] hover:bg-slate-50 dark:hover:bg-slate-800/50"><span>Showcase Cooler</span><i class="fa-solid fa-chevron-right text-[10px] opacity-40"></i></button>
+                                    <button onclick="filterCategory('chest-freezer')" id="cat-chest-freezer" class="w-full flex items-center justify-between text-left text-xs font-bold px-3 py-2 rounded-xl transition-all text-slate-500 hover:text-[#00bcd4] hover:bg-slate-50 dark:hover:bg-slate-800/50"><span>Chest Freezer</span><i class="fa-solid fa-chevron-right text-[10px] opacity-40"></i></button>
+                                    <button onclick="filterCategory('blast-chiller')" id="cat-blast-chiller" class="w-full flex items-center justify-between text-left text-xs font-bold px-3 py-2 rounded-xl transition-all text-slate-500 hover:text-[#00bcd4] hover:bg-slate-50 dark:hover:bg-slate-800/50"><span>Blast Chiller</span><i class="fa-solid fa-chevron-right text-[10px] opacity-40"></i></button>
+                                </div>
 
                             <div class="space-y-3 border-t border-slate-100 dark:border-slate-800 pt-4">
                                 <h4 class="text-[10px] font-extrabold text-slate-400 uppercase tracking-widest">KEUNTUNGAN BELANJA</h4>
@@ -547,13 +541,14 @@
                 <h4 class="text-[13px] font-black text-slate-800 dark:text-white uppercase tracking-wider border-b border-slate-100 dark:border-slate-800 pb-3 mb-4">KATEGORI UTAMA</h4>
                 <ul class="space-y-3 text-[13px] font-medium text-slate-500 dark:text-slate-400">
                     <li><a href="javascript:void(0)" onclick="filterCategory('upright-chiller'); switchView('home')" class="hover:text-[#00bcd4] transition-colors">Upright Chiller</a></li>
-                    <li><a href="javascript:void(0)" onclick="filterCategory('undercounter'); switchView('home')" class="hover:text-[#00bcd4] transition-colors">Under Counter Table</a></li>
-                    <li><a href="javascript:void(0)" onclick="filterCategory('showcase'); switchView('home')" class="hover:text-[#00bcd4] transition-colors">Showcase Cabinet</a></li>
-                    <li><a href="javascript:void(0)" onclick="filterCategory('freezer'); switchView('home')" class="hover:text-[#00bcd4] transition-colors">Chest Freezer Box</a></li>
-                    <li><a href="javascript:void(0)" onclick="filterCategory('cooking'); switchView('home')" class="hover:text-[#00bcd4] transition-colors">Kompor & Kwali Range</a></li>
-                    <li><a href="javascript:void(0)" onclick="filterCategory('table'); switchView('home')" class="hover:text-[#00bcd4] transition-colors">Meja Stainless Steel</a></li>
+                    <li><a href="javascript:void(0)" onclick="filterCategory('under-counter'); switchView('home')" class="hover:text-[#00bcd4] transition-colors">Under Counter</a></li>
+                    <li><a href="javascript:void(0)" onclick="filterCategory('showcase-cooler'); switchView('home')" class="hover:text-[#00bcd4] transition-colors">Showcase Cooler</a></li>
+                    <li><a href="javascript:void(0)" onclick="filterCategory('chest-freezer'); switchView('home')" class="hover:text-[#00bcd4] transition-colors">Chest Freezer</a></li>
+                    <li><a href="javascript:void(0)" onclick="filterCategory('kompor-grill'); switchView('home')" class="hover:text-[#00bcd4] transition-colors">Kompor & Grill</a></li>
+                    <li><a href="javascript:void(0)" onclick="filterCategory('fryer-cooker'); switchView('home')" class="hover:text-[#00bcd4] transition-colors">Fryer & Cooker</a></li>
+                    <li><a href="javascript:void(0)" onclick="filterCategory('table'); switchView('home')" class="hover:text-[#00bcd4] transition-colors">Meja Stainless</a></li>
                     <li><a href="javascript:void(0)" onclick="filterCategory('sink'); switchView('home')" class="hover:text-[#00bcd4] transition-colors">Sink & Cuci Piring</a></li>
-                    <li><a href="javascript:void(0)" onclick="filterCategory('blast'); switchView('home')" class="hover:text-[#00bcd4] transition-colors">Blast Chiller</a></li>
+                    <li><a href="javascript:void(0)" onclick="filterCategory('blast-chiller'); switchView('home')" class="hover:text-[#00bcd4] transition-colors">Blast Chiller</a></li>
                 </ul>
             </div>
             <div>
@@ -578,11 +573,11 @@
     </footer>
 
     <!-- PRODUCT DETAIL MODAL (Layout Samping + Image Zoom) -->
-    <div id="product-modal" class="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm transition-all duration-300 opacity-0 pointer-events-none">
-        <div class="bg-white dark:bg-slate-900 rounded-[2rem] w-full max-w-4xl p-6 md:p-8 shadow-2xl relative transform scale-95 transition-transform duration-300 modal-content-box flex flex-col md:flex-row gap-8 max-h-[95vh] overflow-y-auto no-scrollbar border border-slate-200/50 dark:border-slate-800">
+    <div id="product-modal" onclick="handleModalBackdropClick(event)" class="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm transition-all duration-300 opacity-0 pointer-events-none cursor-pointer">
+        <div onclick="event.stopPropagation()" class="bg-white dark:bg-slate-900 rounded-[2rem] w-full max-w-4xl p-6 md:p-8 shadow-2xl relative transform scale-95 transition-transform duration-300 modal-content-box flex flex-col md:flex-row gap-8 max-h-[95vh] overflow-y-auto no-scrollbar border border-slate-200/50 dark:border-slate-800 cursor-default">
             
             <!-- Close Button -->
-            <button onclick="closeModal()" class="absolute top-4 right-4 md:top-6 md:right-6 w-8 h-8 flex items-center justify-center bg-slate-100 dark:bg-slate-800 hover:bg-red-100 hover:text-red-500 dark:hover:bg-red-900/50 text-slate-500 rounded-full transition-colors z-20">
+            <button type="button" onclick="closeModal()" aria-label="Tutup detail produk" class="absolute top-4 right-4 md:top-5 md:right-5 w-9 h-9 flex items-center justify-center bg-slate-100 dark:bg-slate-800 hover:bg-red-100 hover:text-red-500 dark:hover:bg-red-900/50 text-slate-500 rounded-full transition-colors z-50 shadow-md border border-slate-200 dark:border-slate-700 shrink-0">
                 <i class="fa-solid fa-xmark text-sm"></i>
             </button>
 
@@ -591,13 +586,13 @@
                 <div class="bg-[#e0f2fe] text-[#0369a1] dark:bg-[#0c4a6e] dark:text-[#bae6fd] text-[10px] font-black uppercase px-3 py-1 rounded-full w-max mb-4 tracking-wider" id="modal-category">CATEGORY</div>
                 
                 <div class="w-3/4 md:w-full aspect-square rounded-2xl bg-[#f8fafc] dark:bg-slate-800 overflow-hidden img-zoom-container border border-slate-100 dark:border-slate-700">
-                    <img id="modal-image" src="" class="w-full h-full object-cover">
+                    <img id="modal-image" src="" alt="Detail produk TokoKitchen" class="w-full h-full object-cover">
                 </div>
                 <p class="text-center text-[10px] text-slate-400 mt-3"><i class="fa-solid fa-magnifying-glass-plus mr-1"></i> Arahkan kursor untuk memperbesar gambar</p>
             </div>
 
             <!-- Kanan: Detail & Varian -->
-            <div class="w-full md:w-1/2 flex flex-col">
+            <div class="w-full md:w-1/2 flex flex-col md:pr-4">
                 <h2 class="text-xl md:text-3xl font-black text-slate-900 dark:text-white leading-tight" id="modal-title">Nama Produk</h2>
                 <p class="text-[10px] md:text-xs font-bold text-[#00bcd4] mt-1 md:mt-2 mb-2 md:mb-4 uppercase tracking-widest" id="modal-brand">BRAND</p>
                 
@@ -606,13 +601,15 @@
                 </div>
                 
                 <div class="border-t border-slate-100 dark:border-slate-800 pt-4 md:pt-5 mt-auto">
-                        <select id="modal-variant-select" onchange="handleModalVariantChange()" class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-xs md:text-sm text-slate-700 dark:text-slate-200 outline-none cursor-pointer appearance-none font-semibold focus:border-[#00bcd4] transition-colors">
+                    <div class="relative">
+                        <select id="modal-variant-select" onchange="handleModalVariantChange()" class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl pl-4 pr-10 py-3 text-xs md:text-sm text-slate-700 dark:text-slate-200 outline-none cursor-pointer appearance-none font-semibold focus:border-[#00bcd4] transition-colors safe-ellipsis">
                             <!-- Options filled dynamically -->
                         </select>
                         <div class="absolute inset-y-0 right-4 flex items-center pointer-events-none text-slate-400">
                             <i class="fa-solid fa-chevron-down text-xs"></i>
                         </div>
                     </div>
+                </div>
 
                     <div class="bg-slate-50 dark:bg-slate-800/50 rounded-xl p-4 border border-slate-100 dark:border-slate-800 text-xs space-y-3 mb-6">
                         <div class="flex justify-between items-start">
@@ -827,7 +824,7 @@
     // KATEGORI: 3. RAK & STORAGE STAINLESS
     // ==========================================
     {
-        id: 13, name: "Single Over Shelf", brand: "HKAOS", category: "rak", tempRange: "Suhu Ruang", description: "Hygienic Surface, Thick pipe",
+        id: 13, name: "Single Over Shelf", brand: "HKAOS", category: "rak-storage", tempRange: "Suhu Ruang", description: "Hygienic Surface, Thick pipe",
         variants: [
             { model: "HKAOS-800", kapasitas: "-", daya: "-", dimensi: "P 800 x L 300 x T 750 mm", harga: 1100000, image: "https://placehold.co/400x400/1e293b/00bcd4?text=HKAOS-800" },
             { model: "HKAOS-1000", kapasitas: "-", daya: "-", dimensi: "P 1000 x L 300 x T 750 mm", harga: 1200000, image: "https://placehold.co/400x400/1e293b/00bcd4?text=HKAOS-1000" },
@@ -838,7 +835,7 @@
         ]
     },
     {
-        id: 14, name: "Double Over Shelf", brand: "HKAO2S", category: "rak", tempRange: "Suhu Ruang", description: "Hygienic Surface, Thick pipe",
+        id: 14, name: "Double Over Shelf", brand: "HKAO2S", category: "rak-storage", tempRange: "Suhu Ruang", description: "Hygienic Surface, Thick pipe",
         variants: [
             { model: "HKAO2S-800", kapasitas: "-", daya: "-", dimensi: "P 800 x L 300 x T 750 mm", harga: 1500000, image: "https://placehold.co/400x400/1e293b/00bcd4?text=HKAO2S-800" },
             { model: "HKAO2S-1000", kapasitas: "-", daya: "-", dimensi: "P 1000 x L 300 x T 750 mm", harga: 1700000, image: "https://placehold.co/400x400/1e293b/00bcd4?text=HKAO2S-1000" },
@@ -849,7 +846,7 @@
         ]
     },
     {
-        id: 15, name: "Hanging Shelf", brand: "HKAWS", category: "rak", tempRange: "Suhu Ruang", description: "Wall Mounted, Hygienic Surface",
+        id: 15, name: "Hanging Shelf", brand: "HKAWS", category: "rak-storage", tempRange: "Suhu Ruang", description: "Wall Mounted, Hygienic Surface",
         variants: [
             { model: "HKAWS-800", kapasitas: "-", daya: "-", dimensi: "P 800 x L 300 x T 250 mm", harga: 800000, image: "https://placehold.co/400x400/1e293b/00bcd4?text=HKAWS-800" },
             { model: "HKAWS-1000", kapasitas: "-", daya: "-", dimensi: "P 1000 x L 300 x T 250 mm", harga: 1000000, image: "https://placehold.co/400x400/1e293b/00bcd4?text=HKAWS-1000" },
@@ -860,13 +857,13 @@
         ]
     },
     {
-        id: 16, name: "Hanging Pipe Shelf", brand: "HKARP", category: "rak", tempRange: "Suhu Ruang", description: "Wall Mounted, Thick pipe",
+        id: 16, name: "Hanging Pipe Shelf", brand: "HKARP", category: "rak-storage", tempRange: "Suhu Ruang", description: "Wall Mounted, Thick pipe",
         variants: [
             { model: "HKARP-1000", kapasitas: "-", daya: "-", dimensi: "P 1000 x L 300 x T 250 mm", harga: 1000000, image: "https://placehold.co/400x400/1e293b/00bcd4?text=HKARP-1000" }
         ]
     },
     {
-        id: 17, name: "Punch Storage Rack 4 Tiers", brand: "HKAPFD", category: "rak", tempRange: "Suhu Ruang", description: "Adjustable feet, Knock down, Hygienic Surface",
+        id: 17, name: "Punch Storage Rack 4 Tiers", brand: "HKAPFD", category: "rak-storage", tempRange: "Suhu Ruang", description: "Adjustable feet, Knock down, Hygienic Surface",
         variants: [
             { model: "HKAPFD-1000", kapasitas: "-", daya: "-", dimensi: "P 1000 x L 500 x T 1550 mm", harga: 3400000, image: "https://placehold.co/400x400/1e293b/00bcd4?text=HKAPFD-1000" },
             { model: "HKAPFD-1150", kapasitas: "-", daya: "-", dimensi: "P 1150 x L 500 x T 1550 mm", harga: 4000000, image: "https://placehold.co/400x400/1e293b/00bcd4?text=HKAPFD-1150" },
@@ -874,7 +871,7 @@
         ]
     },
     {
-        id: 18, name: "Solid Storage Rack Shelf", brand: "HKASRD", category: "rak", tempRange: "Suhu Ruang", description: "Adjustable feet, Knock down, Hygienic Surface",
+        id: 18, name: "Solid Storage Rack Shelf", brand: "HKASRD", category: "rak-storage", tempRange: "Suhu Ruang", description: "Adjustable feet, Knock down, Hygienic Surface",
         variants: [
             { model: "HKASRD-1000", kapasitas: "-", daya: "-", dimensi: "P 1000 x L 500 x T 1550 mm", harga: 3200000, image: "https://placehold.co/400x400/1e293b/00bcd4?text=HKASRD-1000" },
             { model: "HKASRD-1150", kapasitas: "-", daya: "-", dimensi: "P 1150 x L 500 x T 1550 mm", harga: 3800000, image: "https://placehold.co/400x400/1e293b/00bcd4?text=HKASRD-1150" },
@@ -882,7 +879,7 @@
         ]
     },
     {
-        id: 19, name: "Sneeze Guard", brand: "HKASGD", category: "rak", tempRange: "Suhu Ruang", description: "Durable S/s, Food Protection, Clear Visibility",
+        id: 19, name: "Sneeze Guard", brand: "HKASGD", category: "rak-storage", tempRange: "Suhu Ruang", description: "Durable S/s, Food Protection, Clear Visibility",
         variants: [
             { model: "HKASGD-1000-400", kapasitas: "-", daya: "-", dimensi: "P 1000 x L 400/600 x T 400 mm", harga: 4500000, image: "https://placehold.co/400x400/1e293b/00bcd4?text=HKASGD-400" },
             { model: "HKASGD-1000-750", kapasitas: "-", daya: "-", dimensi: "P 1000 x L 400/600 x T 750 mm", harga: 5500000, image: "https://placehold.co/400x400/1e293b/00bcd4?text=HKASGD-750" }
@@ -951,7 +948,7 @@
     // KATEGORI: BAR & BEVERAGE STATION
     // ==========================================
     {
-        id: 26, name: "Cocktail Station", brand: "HKACOS", category: "BAR & BEVERAGE STATION", tempRange: "Suhu Ruang", description: "Adjustable feet, Knock down, Thick pipe",
+        id: 26, name: "Cocktail Station", brand: "HKACOS", category: "beverage", tempRange: "Suhu Ruang", description: "Adjustable feet, Knock down, Thick pipe",
         variants: [
             { model: "HKACOS-1000", kapasitas: "-", daya: "-", dimensi: "P 1000 x L 600/720 x T 850 mm", harga: 6800000, image: "https://placehold.co/400x400/1e293b/0ea5e9?text=HKACOS-1000" },
             { model: "HKACOS-1200", kapasitas: "-", daya: "-", dimensi: "P 1200 x L 600/720 x T 850 mm", harga: 7700000, image: "https://placehold.co/400x400/1e293b/0ea5e9?text=HKACOS-1200" },
@@ -959,7 +956,7 @@
         ]
     },
     {
-        id: 27, name: "Ice Bin", brand: "HKAIBN", category: "BAR & BEVERAGE STATION", tempRange: "Suhu Ruang", description: "Durable S/s, Good Insulation, Easy Drain",
+        id: 27, name: "Ice Bin", brand: "HKAIBN", category: "beverage", tempRange: "Suhu Ruang", description: "Durable S/s, Good Insulation, Easy Drain",
         variants: [
             { model: "HKAIBN-500", kapasitas: "-", daya: "-", dimensi: "P 500 x L 700 x T 850 mm", harga: 6800000, image: "https://placehold.co/400x400/1e293b/0ea5e9?text=HKAIBN-500" },
             { model: "HKAIBN-600", kapasitas: "-", daya: "-", dimensi: "P 600 x L 700 x T 850 mm", harga: 7500000, image: "https://placehold.co/400x400/1e293b/0ea5e9?text=HKAIBN-600" },
@@ -972,13 +969,13 @@
     // KATEGORI: 6. KOMPOR & GRILL
     // ==========================================
     {
-        id: 28, name: "Teppanyaki Cabinet", brand: "HKA-TROSV", category: "KOMPOR & GRILL", tempRange: "Suhu Api", description: "Gas Low Pressure, Adjustable feet, Integrated backsplash, Durable Stainless Steel",
+        id: 28, name: "Teppanyaki Cabinet", brand: "HKA-TROSV", category: "kompor-grill", tempRange: "Suhu Api", description: "Gas Low Pressure, Adjustable feet, Integrated backsplash, Durable Stainless Steel",
         variants: [
             { model: "HKA-TROSV", kapasitas: "-", daya: "Gas Low Press", dimensi: "P 1000 x L 700 x T 850 mm", harga: 15125000, image: "https://placehold.co/400x400/1e293b/ef4444?text=HKA-TROSV" }
         ]
     },
     {
-        id: 29, name: "Gas Stock Pot Range", brand: "HKA-SP", category: "KOMPOR & GRILL", tempRange: "Suhu Api", description: "Gas Low Pressure, Heavy duty construction",
+        id: 29, name: "Gas Stock Pot Range", brand: "HKA-SP", category: "kompor-grill", tempRange: "Suhu Api", description: "Gas Low Pressure, Heavy duty construction",
         variants: [
             { model: "HKA-SP", kapasitas: "-", daya: "Gas Low Press", dimensi: "P 500 x L 500 x T 500 mm", harga: 3500000, image: "https://placehold.co/400x400/1e293b/ef4444?text=HKA-SP" },
             { model: "HKA-SP40", kapasitas: "-", daya: "Gas Low Press", dimensi: "P 500 x L 600 x T 400 mm", harga: 3800000, image: "https://placehold.co/400x400/1e293b/ef4444?text=HKA-SP40" },
@@ -986,7 +983,7 @@
         ]
     },
     {
-        id: 30, name: "Gas Kwali Range Series (Low / High Pressure)", brand: "HKAKW", category: "KOMPOR & GRILL", tempRange: "Suhu Api", description: "Adjustable feet, Heat Fire Distribute, Stable Wok Support",
+        id: 30, name: "Gas Kwali Range Series (Low / High Pressure)", brand: "HKAKW", category: "kompor-grill", tempRange: "Suhu Api", description: "Adjustable feet, Heat Fire Distribute, Stable Wok Support",
         variants: [
             { model: "HKAKW-BL-1BR (With blower + 1 burner)", kapasitas: "-", daya: "Low Press", dimensi: "P 800 x L 900 x T 800+400 mm", harga: 14000000, image: "https://placehold.co/400x400/1e293b/ef4444?text=HKAKW-BL-1BR" },
             { model: "HKAKW-BL-2BR (With blower + 2 burner)", kapasitas: "-", daya: "Low Press", dimensi: "P 1500 x L 900 x T 800+400 mm", harga: 28000000, image: "https://placehold.co/400x400/1e293b/ef4444?text=HKAKW-BL-2BR" },
@@ -995,7 +992,7 @@
         ]
     },
     {
-        id: 31, name: "Stove Open Cabinet", brand: "HKAOC-S", category: "KOMPOR & GRILL", tempRange: "Suhu Api", description: "Gas High Pressure, Stable flame",
+        id: 31, name: "Stove Open Cabinet", brand: "HKAOC-S", category: "kompor-grill", tempRange: "Suhu Api", description: "Gas High Pressure, Stable flame",
         variants: [
             { model: "HKAOC-S-2B (2 Burner)", kapasitas: "-", daya: "Gas High Press", dimensi: "P 450 x L 750 x T 850+150 mm", harga: 9000000, image: "https://placehold.co/400x400/1e293b/ef4444?text=HKAOC-S-2B" },
             { model: "HKAOC-S-4B (4 Burner)", kapasitas: "-", daya: "Gas High Press", dimensi: "P 700 x L 750 x T 850+150 mm", harga: 14000000, image: "https://placehold.co/400x400/1e293b/ef4444?text=HKAOC-S-4B" },
@@ -1003,7 +1000,7 @@
         ]
     },
     {
-        id: 32, name: "Stove Burner Series", brand: "HKA-S", category: "KOMPOR & GRILL", tempRange: "Suhu Api", description: "Gas High Pressure, Dudukan kompor stainless steel terbuka",
+        id: 32, name: "Stove Burner Series", brand: "HKA-S", category: "kompor-grill", tempRange: "Suhu Api", description: "Gas High Pressure, Dudukan kompor stainless steel terbuka",
         variants: [
             { model: "HKA-S-2B (2 Burner)", kapasitas: "-", daya: "Gas High Press", dimensi: "P 450 x L 750 x T 350+100 mm", harga: 4500000, image: "https://placehold.co/400x400/1e293b/ef4444?text=HKA-S-2B" },
             { model: "HKA-S-4B (4 Burner)", kapasitas: "-", daya: "Gas High Press", dimensi: "P 700 x L 750 x T 350+100 mm", harga: 8500000, image: "https://placehold.co/400x400/1e293b/ef4444?text=HKA-S-4B" },
@@ -1011,14 +1008,14 @@
         ]
     },
     {
-        id: 33, name: "Grill and Griddle", brand: "HKAG-FG", category: "KOMPOR & GRILL", tempRange: "Suhu Api", description: "Gas Low Pressure, Gas Grill Shelf + Flat Griddle",
+        id: 33, name: "Grill and Griddle", brand: "HKAG-FG", category: "kompor-grill", tempRange: "Suhu Api", description: "Gas Low Pressure, Gas Grill Shelf + Flat Griddle",
         variants: [
             { model: "HKAG-FG", kapasitas: "-", daya: "Gas Low Press", dimensi: "P 800 x L 750 x T 850+100 mm", harga: 12000000, image: "https://placehold.co/400x400/1e293b/ef4444?text=HKAG-FG" },
             { model: "HKAG-FGS", kapasitas: "-", daya: "Gas Low Press", dimensi: "P 1200 x L 750 x T 350+100 mm", harga: 18000000, image: "https://placehold.co/400x400/1e293b/ef4444?text=HKAG-FGS" }
         ]
     },
     {
-        id: 34, name: "Gas Standing Open Burner Grill Shelf", brand: "HKAG-UGS", category: "KOMPOR & GRILL", tempRange: "Suhu Api", description: "Gas Low Pressure, Pemanggang komersial berdiri",
+        id: 34, name: "Gas Standing Open Burner Grill Shelf", brand: "HKAG-UGS", category: "kompor-grill", tempRange: "Suhu Api", description: "Gas Low Pressure, Pemanggang komersial berdiri",
         variants: [
             { model: "2 Burner", kapasitas: "-", daya: "Gas Low Press", dimensi: "P 400 x L 750 x T 850+150 mm", harga: 6050000, image: "https://placehold.co/400x400/1e293b/ef4444?text=UGS-2B" },
             { model: "4 Burner", kapasitas: "-", daya: "Gas Low Press", dimensi: "P 700 x L 750 x T 850+150 mm", harga: 11500000, image: "https://placehold.co/400x400/1e293b/ef4444?text=UGS-4B" },
@@ -1026,25 +1023,25 @@
         ]
     },
     {
-        id: 35, name: "Gas Lava Stone Grill", brand: "HKAGLV", category: "KOMPOR & GRILL", tempRange: "Suhu Api", description: "Gas Low Pressure, Pemanggang batu lava meja",
+        id: 35, name: "Gas Lava Stone Grill", brand: "HKAGLV", category: "kompor-grill", tempRange: "Suhu Api", description: "Gas Low Pressure, Pemanggang batu lava meja",
         variants: [
             { model: "HKAGLV", kapasitas: "-", daya: "Gas Low Press", dimensi: "P 400 x L 700 x T 410 mm", harga: 8500000, image: "https://placehold.co/400x400/1e293b/ef4444?text=HKAGLV" }
         ]
     },
     {
-        id: 36, name: "Standing Combi Flat, Lava Stone Grill", brand: "HKAG-HB", category: "KOMPOR & GRILL", tempRange: "Suhu Api", description: "Gas Low Pressure, Kombinasi wajan datar & pemanggang batu lava",
+        id: 36, name: "Standing Combi Flat, Lava Stone Grill", brand: "HKAG-HB", category: "kompor-grill", tempRange: "Suhu Api", description: "Gas Low Pressure, Kombinasi wajan datar & pemanggang batu lava",
         variants: [
             { model: "HKACHB-COMBI", kapasitas: "-", daya: "Gas Low Press", dimensi: "P 600 x L 700 x T 850+100 mm", harga: 12000000, image: "https://placehold.co/400x400/1e293b/ef4444?text=HKACHB-COMBI" }
         ]
     },
     {
-        id: 37, name: "Flat Griddle", brand: "HKAG-FLAT", category: "KOMPOR & GRILL", tempRange: "Suhu Api", description: "Gas Low Pressure, Wajan pemanggang datar",
+        id: 37, name: "Flat Griddle", brand: "HKAG-FLAT", category: "kompor-grill", tempRange: "Suhu Api", description: "Gas Low Pressure, Wajan pemanggang datar",
         variants: [
             { model: "HKACHB-FLAT", kapasitas: "-", daya: "Gas Low Press", dimensi: "P 600 x L 700 x T 850+100 mm", harga: 9500000, image: "https://placehold.co/400x400/1e293b/ef4444?text=HKACHB-FLAT" }
         ]
     },
     {
-        id: 38, name: "Flat Griddle Open Cabinet", brand: "HKAGFOCB", category: "KOMPOR & GRILL", tempRange: "Suhu Api", description: "Gas Low Pressure, Wajan datar dengan kabinet terbuka di bawah",
+        id: 38, name: "Flat Griddle Open Cabinet", brand: "HKAGFOCB", category: "kompor-grill", tempRange: "Suhu Api", description: "Gas Low Pressure, Wajan datar dengan kabinet terbuka di bawah",
         variants: [
             { model: "HKAGFOCB", kapasitas: "-", daya: "Gas Low Press", dimensi: "P 600 x L 700 x T 850 mm", harga: 12000000, image: "https://placehold.co/400x400/1e293b/ef4444?text=HKAGFOCB" }
         ]
@@ -1054,35 +1051,35 @@
     // KATEGORI: 7. FRYER & COOKER
     // ==========================================
     {
-        id: 39, name: "Gas Deep Fryer 20 L with Thermostat", brand: "HKAG-FR", category: "FRYER & COOKER", tempRange: "Suhu Api", description: "Gas Low Pressure, Penggorengan bak tunggal/ganda kapasitas besar",
+        id: 39, name: "Gas Deep Fryer 20 L with Thermostat", brand: "HKAG-FR", category: "fryer-cooker", tempRange: "Suhu Api", description: "Gas Low Pressure, Penggorengan bak tunggal/ganda kapasitas besar",
         variants: [
             { model: "HKAG-FR-SINGLE", kapasitas: "20 L", daya: "Gas Low Press", dimensi: "P 400 x L 750 x T 850+100 mm", harga: 12000000, image: "https://placehold.co/400x400/1e293b/ef4444?text=HKAG-FR-SINGLE" },
             { model: "HKAG-FR-DOUBLE", kapasitas: "40 L", daya: "Gas Low Press", dimensi: "P 800 x L 750 x T 850+100 mm", harga: 21000000, image: "https://placehold.co/400x400/1e293b/ef4444?text=HKAG-FR-DOUBLE" }
         ]
     },
     {
-        id: 40, name: "Deep Fryer + Flat Griddle", brand: "HKAG-FR-FG", category: "FRYER & COOKER", tempRange: "Suhu Api", description: "Gas Low Pressure, Kombinasi penggorengan & wajan datar",
+        id: 40, name: "Deep Fryer + Flat Griddle", brand: "HKAG-FR-FG", category: "fryer-cooker", tempRange: "Suhu Api", description: "Gas Low Pressure, Kombinasi penggorengan & wajan datar",
         variants: [
             { model: "HKAG-FR-FG-600", kapasitas: "-", daya: "Gas Low Press", dimensi: "P 600 x L 750 x T 850+100 mm", harga: 12000000, image: "https://placehold.co/400x400/1e293b/ef4444?text=FR-FG-600" },
             { model: "HKAG-FR-FG-800", kapasitas: "-", daya: "Gas Low Press", dimensi: "P 800 x L 750 x T 850+100 mm", harga: 14000000, image: "https://placehold.co/400x400/1e293b/ef4444?text=FR-FG-800" }
         ]
     },
     {
-        id: 41, name: "Gas Noodle Cooker", brand: "HKA-GN", category: "FRYER & COOKER", tempRange: "Suhu Api", description: "Gas Low Pressure, Alat memasak mi multi lubang",
+        id: 41, name: "Gas Noodle Cooker", brand: "HKA-GN", category: "fryer-cooker", tempRange: "Suhu Api", description: "Gas Low Pressure, Alat memasak mi multi lubang",
         variants: [
             { model: "HKA-GN-400", kapasitas: "-", daya: "Gas Low Press", dimensi: "P 400 x L 750 x T 850+100 mm", harga: 10500000, image: "https://placehold.co/400x400/1e293b/ef4444?text=HKA-GN-400" },
             { model: "HKA-GN-800", kapasitas: "-", daya: "Gas Low Press", dimensi: "P 800 x L 750 x T 850+100 mm", harga: 12000000, image: "https://placehold.co/400x400/1e293b/ef4444?text=HKA-GN-800" }
         ]
     },
     {
-        id: 42, name: "Rice Steamer", brand: "HKA-RS", category: "FRYER & COOKER", tempRange: "Suhu Api", description: "Gas Low Pressure, Lemari pengukus nasi kapasitas besar",
+        id: 42, name: "Rice Steamer", brand: "HKA-RS", category: "fryer-cooker", tempRange: "Suhu Api", description: "Gas Low Pressure, Lemari pengukus nasi kapasitas besar",
         variants: [
             { model: "HKA-CD-12 TRAY", kapasitas: "12 Tray", daya: "Gas Low Press", dimensi: "P 700 x L 650 x T 1600 mm", harga: 11500000, image: "https://placehold.co/400x400/1e293b/ef4444?text=HKA-CD-12" },
             { model: "HKA-CD-24 TRAY", kapasitas: "24 Tray", daya: "Gas Low Press", dimensi: "P 1400 x L 650 x T 1600 mm", harga: 21500000, image: "https://placehold.co/400x400/1e293b/ef4444?text=HKA-CD-24" }
         ]
     },
     {
-        id: 43, name: "Dimsum Steamer", brand: "HKA-DS", category: "FRYER & COOKER", tempRange: "Suhu Api", description: "Gas High Pressure, Pengukus dimsum komersial",
+        id: 43, name: "Dimsum Steamer", brand: "HKA-DS", category: "fryer-cooker", tempRange: "Suhu Api", description: "Gas High Pressure, Pengukus dimsum komersial",
         variants: [
             { model: "HKA-DS", kapasitas: "-", daya: "Gas High Press", dimensi: "P 1050 x L 900 x T 800+400 mm", harga: 18500000, image: "https://placehold.co/400x400/1e293b/ef4444?text=HKA-DS" }
         ]
@@ -1092,27 +1089,27 @@
     // KATEGORI: 8. PEMANAS & BAIN MARIE
     // ==========================================
     {
-        id: 44, name: "Heated Cabinet", brand: "HKAFWT", category: "PEMANAS & BAIN MARIE", tempRange: "30~+85°C", description: "Temp. 30~+85°C, Tegangan 220V/1P/50Hz, Adjustable feet, Integrated backsplash, Durable Stainless Steel, Large Capacity, Heat Distribute, Food Grade",
+        id: 44, name: "Heated Cabinet", brand: "HKAFWT", category: "pemanas-bain-marie", tempRange: "30~+85°C", description: "Temp. 30~+85°C, Tegangan 220V/1P/50Hz, Adjustable feet, Integrated backsplash, Durable Stainless Steel, Large Capacity, Heat Distribute, Food Grade",
         variants: [
             { model: "HKAFWT-800", kapasitas: "-", daya: "220V", dimensi: "P 800 x L 750 x T 1800 mm", harga: 23000000, image: "https://placehold.co/400x400/451a03/f97316?text=HKAFWT-800" }
         ]
     },
     {
-        id: 45, name: "Warmer Trolley", brand: "HKA-TPB", category: "PEMANAS & BAIN MARIE", tempRange: "30~+85°C", description: "Temp. 30-+85°C, Tegangan 220V/1P/50Hz, Castor, Large Capacity, Heat Distribute, Food Grade",
+        id: 45, name: "Warmer Trolley", brand: "HKA-TPB", category: "pemanas-bain-marie", tempRange: "30~+85°C", description: "Temp. 30-+85°C, Tegangan 220V/1P/50Hz, Castor, Large Capacity, Heat Distribute, Food Grade",
         variants: [
             { model: "HKA-TPB-900", kapasitas: "-", daya: "220V", dimensi: "P 900 x L 600 x T 1400+80 mm", harga: 7600000, image: "https://placehold.co/400x400/451a03/f97316?text=HKA-TPB-900" },
             { model: "HKA-TPB-1300", kapasitas: "-", daya: "220V", dimensi: "P 1300 x L 600 x T 1200+80 mm", harga: 10800000, image: "https://placehold.co/400x400/451a03/f97316?text=HKA-TPB-1300" }
         ]
     },
     {
-        id: 46, name: "Banquet Cabinet Series", brand: "HKA-YH/YHO", category: "PEMANAS & BAIN MARIE", tempRange: "30~+85°C", description: "Cabinet penghangat berkapasitas besar, Tegangan 220V/1P/50Hz",
+        id: 46, name: "Banquet Cabinet Series", brand: "HKA-YH/YHO", category: "pemanas-bain-marie", tempRange: "30~+85°C", description: "Cabinet penghangat berkapasitas besar, Tegangan 220V/1P/50Hz",
         variants: [
             { model: "HKA-YH-DBW", kapasitas: "510L, 11 TRAY", daya: "1.8 KW", dimensi: "P 730/790 x L 950 x T 1860 mm", harga: 23000000, image: "https://placehold.co/400x400/451a03/f97316?text=HKA-YH-DBW" },
             { model: "HKA-YHO-DBW", kapasitas: "1100L, 22 TRAY", daya: "2.6 KW", dimensi: "P 1400/1500 x L 950 x T 1860 mm", harga: 38000000, image: "https://placehold.co/400x400/451a03/f97316?text=HKA-YHO-DBW" }
         ]
     },
     {
-        id: 47, name: "Bain Marie with Shelf", brand: "HKA-TPB", category: "PEMANAS & BAIN MARIE", tempRange: "30~+85°C", description: "Adjustable Feet, Large Capacity, Heat Distribute, Food Grade, Tegangan 220V/1P/50Hz",
+        id: 47, name: "Bain Marie with Shelf", brand: "HKA-TPB", category: "pemanas-bain-marie", tempRange: "30~+85°C", description: "Adjustable Feet, Large Capacity, Heat Distribute, Food Grade, Tegangan 220V/1P/50Hz",
         variants: [
             { model: "HKA-TPB-800", kapasitas: "-", daya: "220V", dimensi: "P 800 x L 750 x T 850 mm", harga: 7500000, image: "https://placehold.co/400x400/451a03/f97316?text=HKA-TPB-800" },
             { model: "HKA-TPB-1000", kapasitas: "-", daya: "220V", dimensi: "P 1000 x L 750 x T 850 mm", harga: 8900000, image: "https://placehold.co/400x400/451a03/f97316?text=HKA-TPB-1000" },
@@ -1123,7 +1120,7 @@
         ]
     },
     {
-        id: 48, name: "Bain Marie Cabinet", brand: "HKA-TPB-CAB", category: "PEMANAS & BAIN MARIE", tempRange: "30~+85°C", description: "Castor, Large Capacity, Heat Distribute, Food Grade, Tegangan 220V/1P/50Hz",
+        id: 48, name: "Bain Marie Cabinet", brand: "HKA-TPB-CAB", category: "pemanas-bain-marie", tempRange: "30~+85°C", description: "Castor, Large Capacity, Heat Distribute, Food Grade, Tegangan 220V/1P/50Hz",
         variants: [
             { model: "HKA-TPB-CAB-800", kapasitas: "-", daya: "220V", dimensi: "P 800 x L 750 x T 850 mm", harga: 10800000, image: "https://placehold.co/400x400/451a03/f97316?text=TPB-CAB-800" },
             { model: "HKA-TPB-CAB-1000", kapasitas: "-", daya: "220V", dimensi: "P 1000 x L 750 x T 850 mm", harga: 12000000, image: "https://placehold.co/400x400/451a03/f97316?text=TPB-CAB-1000" },
@@ -1134,7 +1131,7 @@
         ]
     },
     {
-        id: 49, name: "Warmer Cabinet", brand: "HKAPWC", category: "PEMANAS & BAIN MARIE", tempRange: "30~+85°C", description: "Temp. 30~+85°C, Castor, Large Capacity, Heat Distribute, Food Grade, Tegangan 220V/1P/50Hz",
+        id: 49, name: "Warmer Cabinet", brand: "HKAPWC", category: "pemanas-bain-marie", tempRange: "30~+85°C", description: "Temp. 30~+85°C, Castor, Large Capacity, Heat Distribute, Food Grade, Tegangan 220V/1P/50Hz",
         variants: [
             { model: "HKAPWC-WARMER", kapasitas: "-", daya: "220V", dimensi: "P 1400 x L 700 x T 850 mm", harga: 16000000, image: "https://placehold.co/400x400/451a03/f97316?text=HKAPWC-WARMER" }
         ]
@@ -1144,21 +1141,21 @@
     // KATEGORI: 9. MIXER & OVEN
     // ==========================================
     {
-        id: 50, name: "Planetary Mixer (Gear Turning)", brand: "FM Series", category: "MIXER & OVEN", tempRange: "Suhu Ruang / Oven", description: "Mesin pengaduk adonan multi fungsi",
+        id: 50, name: "Planetary Mixer (Gear Turning)", brand: "FM Series", category: "mixer-oven", tempRange: "Suhu Ruang / Oven", description: "Mesin pengaduk adonan multi fungsi",
         variants: [
             { model: "FM 20", kapasitas: "20 L", daya: "-", dimensi: "P 450 x L 390 x T 810 mm", harga: 10500000, image: "https://placehold.co/400x400/4a044e/d946ef?text=FM-20" },
             { model: "FM 30", kapasitas: "30 L", daya: "-", dimensi: "P 450 x L 430 x T 880 mm", harga: 13500000, image: "https://placehold.co/400x400/4a044e/d946ef?text=FM-30" }
         ]
     },
     {
-        id: 51, name: "Spiral Mixer", brand: "DM Series", category: "MIXER & OVEN", tempRange: "Suhu Ruang / Oven", description: "Mesin pengaduk adonan roti kental heavy duty",
+        id: 51, name: "Spiral Mixer", brand: "DM Series", category: "mixer-oven", tempRange: "Suhu Ruang / Oven", description: "Mesin pengaduk adonan roti kental heavy duty",
         variants: [
             { model: "DM 20", kapasitas: "20 L", daya: "-", dimensi: "P 670 x L 390 x T 810 mm", harga: 12000000, image: "https://placehold.co/400x400/4a044e/d946ef?text=DM-20" },
             { model: "DM 30", kapasitas: "30 L", daya: "-", dimensi: "P 710 x L 430 x T 810 mm", harga: 13200000, image: "https://placehold.co/400x400/4a044e/d946ef?text=DM-30" }
         ]
     },
     {
-        id: 52, name: "Gas Baking Oven (Low Pressure)", brand: "GO Series", category: "MIXER & OVEN", tempRange: "Suhu Ruang / Oven", description: "Oven pemanggang roti/kue bertenaga gas komersial",
+        id: 52, name: "Gas Baking Oven (Low Pressure)", brand: "GO Series", category: "mixer-oven", tempRange: "Suhu Ruang / Oven", description: "Oven pemanggang roti/kue bertenaga gas komersial",
         variants: [
             { model: "GO 02 (1 deck)", kapasitas: "2 Tray", daya: "Gas Low Press", dimensi: "P 1320 x L 870 x T 640 mm", harga: 11000000, image: "https://placehold.co/400x400/4a044e/d946ef?text=GO-02" },
             { model: "GO 04 (2 deck)", kapasitas: "4 Tray", daya: "Gas Low Press", dimensi: "P 1320 x L 870 x T 1250 mm", harga: 21000000, image: "https://placehold.co/400x400/4a044e/d946ef?text=GO-04" },
@@ -1170,25 +1167,25 @@
     // KATEGORI: 10. MESIN CUCI PIRING
     // ==========================================
     {
-        id: 53, name: "Under Counter Dishwasher", brand: "HKAHTT2", category: "MESIN CUCI PIRING", tempRange: "Hot Wash", description: "Double-Layer Outer Cabinet, High-Efficiency 360° Rotary Cleaning, Ultra-Fast Quick Wash Cycles, Water & Cost Savings, With 2 Basket+Dispenser, Electrical Heating (3 Phase), Daya: 9.6kW/380V, Kapasitas: 50 rack/hour",
+        id: 53, name: "Under Counter Dishwasher", brand: "HKAHTT2", category: "mesin-cuci-piring", tempRange: "Hot Wash", description: "Double-Layer Outer Cabinet, High-Efficiency 360° Rotary Cleaning, Ultra-Fast Quick Wash Cycles, Water & Cost Savings, With 2 Basket+Dispenser, Electrical Heating (3 Phase), Daya: 9.6kW/380V, Kapasitas: 50 rack/hour",
         variants: [
             { model: "HKAHTT2", kapasitas: "50 rack/hour", daya: "9.6kW/380V", dimensi: "P 600 x L 600 x T 800 mm", harga: 30000000, image: "https://placehold.co/400x400/292524/14b8a6?text=HKAHTT2" }
         ]
     },
     {
-        id: 54, name: "Hood Type Commercial Dishwasher", brand: "HKAPWC", category: "MESIN CUCI PIRING", tempRange: "Hot Wash", description: "Washing System: High-pressure system designed for maximum cleanliness, Performance: Fast washing cycle to accommodate high work volumes, Efficiency: Designed for efficient water and energy consumption, Build Quality: Constructed with a food-grade stainless steel 304 body, easy to operate, with 2 Basket+Dispenser, Electric heating (3 Phase), Daya: 15.6 kW/380V",
+        id: 54, name: "Hood Type Commercial Dishwasher", brand: "HKAPWC", category: "mesin-cuci-piring", tempRange: "Hot Wash", description: "Washing System: High-pressure system designed for maximum cleanliness, Performance: Fast washing cycle to accommodate high work volumes, Efficiency: Designed for efficient water and energy consumption, Build Quality: Constructed with a food-grade stainless steel 304 body, easy to operate, with 2 Basket+Dispenser, Electric heating (3 Phase), Daya: 15.6 kW/380V",
         variants: [
             { model: "HKAHT-L18 (atau HT-T2)", kapasitas: "-", daya: "15.6 kW/380V", dimensi: "P 690 x L 780 x T 1475 mm", harga: 45000000, image: "https://placehold.co/400x400/292524/14b8a6?text=HKAHT-L18" }
         ]
     },
     {
-        id: 55, name: "Conveyor Type Dishwasher", brand: "HT-L18", category: "MESIN CUCI PIRING", tempRange: "Hot Wash", description: "Water Consumption: 260~300 L/hour, Electric heating (3 Phase), Dual-Zone Thermal Sanitation, Powerful Dual-Pump System, Built-In Booster, Max Passing Height: 420 mm, Lebar Maksimal: 505 mm, Daya: 38 kW/380V, Kapasitas: 200 rack/hour",
+        id: 55, name: "Conveyor Type Dishwasher", brand: "HT-L18", category: "mesin-cuci-piring", tempRange: "Hot Wash", description: "Water Consumption: 260~300 L/hour, Electric heating (3 Phase), Dual-Zone Thermal Sanitation, Powerful Dual-Pump System, Built-In Booster, Max Passing Height: 420 mm, Lebar Maksimal: 505 mm, Daya: 38 kW/380V, Kapasitas: 200 rack/hour",
         variants: [
             { model: "HT-L18", kapasitas: "200 rack/hour", daya: "38 kW/380V", dimensi: "P 1100 x L 750 x T 1650 mm", harga: 120000000, image: "https://placehold.co/400x400/292524/14b8a6?text=HT-L18" }
         ]
     },
     {
-        id: 56, name: "Pengering Ompreng (Food Pan Dryer)", brand: "HKAPO", category: "MESIN CUCI PIRING", tempRange: "Hot Wash", description: "Kabinet pengering rak stainless steel, Tegangan: 220V/1P/50Hz",
+        id: 56, name: "Pengering Ompreng (Food Pan Dryer)", brand: "HKAPO", category: "mesin-cuci-piring", tempRange: "Hot Wash", description: "Kabinet pengering rak stainless steel, Tegangan: 220V/1P/50Hz",
         variants: [
             { model: "HKAPO-4T", kapasitas: "4 Tray", daya: "220V", dimensi: "P 700 x L 650 x T 1600 mm", harga: 12500000, image: "https://placehold.co/400x400/292524/14b8a6?text=HKAPO-4T" },
             { model: "HKAPO-8T", kapasitas: "8 Tray", daya: "220V", dimensi: "P 1400 x L 650 x T 1600 mm", harga: 24000000, image: "https://placehold.co/400x400/292524/14b8a6?text=HKAPO-8T" }
@@ -1199,19 +1196,19 @@
     // KATEGORI: 11. PREPARASI
     // ==========================================
     {
-        id: 57, name: "Fruit & Vegetable Cutter", brand: "HKAQC250A", category: "PREPARASI", tempRange: "Suhu Ruang", description: "Made from high-quality food-grade stainless steel, Circular design for stable flow, Smooth surface, Kapasitas: 200Kg/hour, Daya: 750W/220V",
+        id: 57, name: "Fruit & Vegetable Cutter", brand: "HKAQC250A", category: "preparasi", tempRange: "Suhu Ruang", description: "Made from high-quality food-grade stainless steel, Circular design for stable flow, Smooth surface, Kapasitas: 200Kg/hour, Daya: 750W/220V",
         variants: [
             { model: "HKAQC250A", kapasitas: "200Kg/hour", daya: "750W/220V", dimensi: "P 410 x L 270 x T 530 mm", harga: 12000000, image: "https://placehold.co/400x400/1e293b/00bcd4?text=HKAQC250A" }
         ]
     },
     {
-        id: 58, name: "Meat Mincer", brand: "MM12", category: "PREPARASI", tempRange: "Suhu Ruang", description: "Mesin giling daging professional, Kapasitas: 180 Kg/jam, Daya: 800W/220V",
+        id: 58, name: "Meat Mincer", brand: "MM12", category: "preparasi", tempRange: "Suhu Ruang", description: "Mesin giling daging professional, Kapasitas: 180 Kg/jam, Daya: 800W/220V",
         variants: [
             { model: "MM12", kapasitas: "180 Kg/jam", daya: "800W/220V", dimensi: "P 410 x L 270 x T 440 mm", harga: 5700000, image: "https://placehold.co/400x400/1e293b/00bcd4?text=MM12" }
         ]
     },
     {
-        id: 59, name: "Salad Counter", brand: "HKASLD", category: "PREPARASI", tempRange: "Suhu Ruang", description: "Temp. +2~+8°C, Voltage 220V/1P/50HZ, With cooling system, Fresh display, Durable stainless steel, Stable cooling system to keep ingredients fresh longer, Compatible with standard food pans",
+        id: 59, name: "Salad Counter", brand: "HKASLD", category: "preparasi", tempRange: "Suhu Ruang", description: "Temp. +2~+8°C, Voltage 220V/1P/50HZ, With cooling system, Fresh display, Durable stainless steel, Stable cooling system to keep ingredients fresh longer, Compatible with standard food pans",
         variants: [
             { model: "HKASLD-3000", kapasitas: "-", daya: "220V", dimensi: "P 3000 x L 1000 x T 800+700 mm", harga: 63000000, image: "https://placehold.co/400x400/1e293b/00bcd4?text=HKASLD-3000" }
         ]
@@ -1221,19 +1218,19 @@
     // KATEGORI: 12. TROLLEY & TRANSPORT
     // ==========================================
     {
-        id: 60, name: "Pan Trolley", brand: "HKABTR", category: "TROLLEY & TRANSPORT", tempRange: "Suhu Ruang", description: "Castor, Knock down, Thick pipe",
+        id: 60, name: "Pan Trolley", brand: "HKABTR", category: "trolley-transport", tempRange: "Suhu Ruang", description: "Castor, Knock down, Thick pipe",
         variants: [
             { model: "HKABTR-1600", kapasitas: "-", daya: "-", dimensi: "P 600 x L 400 x T 1600 mm", harga: 2800000, image: "https://placehold.co/400x400/1e293b/00bcd4?text=HKABTR-1600" }
         ]
     },
     {
-        id: 61, name: "Groceries Trolley", brand: "HKAGTR", category: "TROLLEY & TRANSPORT", tempRange: "Suhu Ruang", description: "Trolley barang/sembako",
+        id: 61, name: "Groceries Trolley", brand: "HKAGTR", category: "trolley-transport", tempRange: "Suhu Ruang", description: "Trolley barang/sembako",
         variants: [
             { model: "HKAGTR-TROLLEY", kapasitas: "-", daya: "-", dimensi: "P 1000 x L 400/600 x T 400 mm", harga: 4500000, image: "https://placehold.co/400x400/1e293b/00bcd4?text=HKAGTR-TROLLEY" }
         ]
     },
     {
-        id: 62, name: "Food Serving Trolley", brand: "HKATR", category: "TROLLEY & TRANSPORT", tempRange: "Suhu Ruang", description: "Castor, Knock down",
+        id: 62, name: "Food Serving Trolley", brand: "HKATR", category: "trolley-transport", tempRange: "Suhu Ruang", description: "Castor, Knock down",
         variants: [
             { model: "HKATR-2S (2 SHELVES)", kapasitas: "-", daya: "-", dimensi: "P 700 x L 500 x T 1000 mm", harga: 2500000, image: "https://placehold.co/400x400/1e293b/00bcd4?text=HKATR-2S" },
             { model: "HKATR-3S (3 SHELVES)", kapasitas: "-", daya: "-", dimensi: "P 900 x L 500 x T 1000 mm", harga: 2900000, image: "https://placehold.co/400x400/1e293b/00bcd4?text=HKATR-3S" }
@@ -1244,7 +1241,7 @@
     // KATEGORI: 13. VENTILASI DAPUR
     // ==========================================
     {
-        id: 63, name: "Exhaust Hood", brand: "EXHAUST HOOD", category: "VENTILASI DAPUR", tempRange: "Suhu Ruang", description: "Exhaust hood untuk dapur komersial",
+        id: 63, name: "Exhaust Hood", brand: "EXHAUST HOOD", category: "ventilasi-dapur", tempRange: "Suhu Ruang", description: "Exhaust hood untuk dapur komersial",
         variants: [
             { model: "ISLAND", kapasitas: "-", daya: "-", dimensi: "P 1000 x L 2000 x T 300/500 mm", harga: 8000000, image: "https://placehold.co/400x400/1e293b/00bcd4?text=HOOD-ISLAND" },
             { model: "WALL TYPE", kapasitas: "-", daya: "-", dimensi: "P 1000 x L 900 x T 500 mm", harga: 4000000, image: "https://placehold.co/400x400/1e293b/00bcd4?text=HOOD-WALL" },
@@ -1256,7 +1253,7 @@
     // KATEGORI: 14. UPRIGHT CHILLER
     // ==========================================
     {
-        id: 64, name: "Upright Chiller", brand: "HKA-QC Series", category: "UPRIGHT CHILLER", tempRange: "+2°C s.d +8°C", description: "Temp. +2~+8°C, Lemari pendingin vertikal stainless steel, Import, Daya: 220V",
+        id: 64, name: "Upright Chiller", brand: "HKA-QC Series", category: "upright-chiller", tempRange: "+2°C s.d +8°C", description: "Temp. +2~+8°C, Lemari pendingin vertikal stainless steel, Import, Daya: 220V",
         variants: [
             { model: "QC-0.5-L2F", kapasitas: "500 L", daya: "360W", dimensi: "P 600 x L 730 x T 1955 mm", harga: 20000000, image: "https://placehold.co/400x400/1f2937/0ea5e9?text=QC-0.5" },
             { model: "QC-1.0-L4F", kapasitas: "1000 L", daya: "490W", dimensi: "P 1200 x L 730 x T 1955 mm", harga: 25500000, image: "https://placehold.co/400x400/1f2937/0ea5e9?text=QC-1.0" },
@@ -1264,7 +1261,7 @@
         ]
     },
     {
-        id: 65, name: "Glass Door Up Right Chiller", brand: "NTGO Series", category: "UPRIGHT CHILLER", tempRange: "+2°C s.d +8°C", description: "Temp.: +2~+8°C, Pintu kaca vertikal standing, Import, Daya: 220V",
+        id: 65, name: "Glass Door Up Right Chiller", brand: "NTGO Series", category: "upright-chiller", tempRange: "+2°C s.d +8°C", description: "Temp.: +2~+8°C, Pintu kaca vertikal standing, Import, Daya: 220V",
         variants: [
             { model: "NTGO-0.5-L2F (2 DOOR)", kapasitas: "500 L", daya: "490W", dimensi: "P 600 x L 730 x T 1955 mm", harga: 24500000, image: "https://placehold.co/400x400/1f2937/0ea5e9?text=NTGO-0.5" },
             { model: "NTGO-1.0-L4F (4 DOOR)", kapasitas: "1000 L", daya: "590W", dimensi: "P 1200 x L 730 x T 1955 mm", harga: 31000000, image: "https://placehold.co/400x400/1f2937/0ea5e9?text=NTGO-1.0" }
@@ -1275,7 +1272,7 @@
     // KATEGORI: 15. UPRIGHT FREEZER
     // ==========================================
     {
-        id: 66, name: "Upright Freezer", brand: "HKA-QD Series", category: "UPRIGHT FREEZER", tempRange: "-18°C s.d -20°C", description: "Temp. -18~-20°C, Lemari pembeku vertikal stainless steel, Import, Daya: 220V",
+        id: 66, name: "Upright Freezer", brand: "HKA-QD Series", category: "upright-freezer", tempRange: "-18°C s.d -20°C", description: "Temp. -18~-20°C, Lemari pembeku vertikal stainless steel, Import, Daya: 220V",
         variants: [
             { model: "QD-0.5-L2F", kapasitas: "500 L", daya: "400W", dimensi: "P 600 x L 730 x T 1955 mm", harga: 23200000, image: "https://placehold.co/400x400/111827/38bdf8?text=QD-0.5" },
             { model: "QD-1.0-L2F", kapasitas: "1000 L", daya: "800W", dimensi: "P 1200 x L 730 x T 1955 mm", harga: 28000000, image: "https://placehold.co/400x400/111827/38bdf8?text=QD-1.0" },
@@ -1287,7 +1284,7 @@
     // KATEGORI: 16. UNDER COUNTER
     // ==========================================
     {
-        id: 67, name: "Glass Door Stainless Steel Under Counter Chiller", brand: "NTGO Series", category: "UNDER COUNTER", tempRange: "+2°C s.d +8°C", description: "Temp. Chiller: +2~+8°C, Lebar Kaki/Unit 75 cm, Import, Daya: 220V",
+        id: 67, name: "Glass Door Stainless Steel Under Counter Chiller", brand: "NTGO Series", category: "under-counter", tempRange: "+2°C s.d +8°C", description: "Temp. Chiller: +2~+8°C, Lebar Kaki/Unit 75 cm, Import, Daya: 220V",
         variants: [
             { model: "NTGO-12-2L", kapasitas: "310 L", daya: "350W", dimensi: "P 1200 x L 750 x T 850 mm", harga: 18000000, image: "https://placehold.co/400x400/111827/00bcd4?text=NTGO-12" },
             { model: "NTGO-15-2L", kapasitas: "360 L", daya: "420W", dimensi: "P 1500 x L 750 x T 850 mm", harga: 20000000, image: "https://placehold.co/400x400/111827/00bcd4?text=NTGO-15" },
@@ -1295,14 +1292,14 @@
         ]
     },
     {
-        id: 68, name: "Under Counter Chiller + Drawer", brand: "EC-LGD Series", category: "UNDER COUNTER", tempRange: "+2°C s.d +8°C", description: "Temp.: +2~+8°C, Model laci stainless, Lebar Unit 75 cm, Import, Daya: 220V",
+        id: 68, name: "Under Counter Chiller + Drawer", brand: "EC-LGD Series", category: "under-counter", tempRange: "+2°C s.d +8°C", description: "Temp.: +2~+8°C, Model laci stainless, Lebar Unit 75 cm, Import, Daya: 220V",
         variants: [
             { model: "EC-15-2LGD (6 drawer)", kapasitas: "350 L", daya: "460W", dimensi: "P 1500 x L 750 x T 850 mm", harga: 35800000, image: "https://placehold.co/400x400/111827/00bcd4?text=EC-15-LGD" },
             { model: "EC-18-2LGD (9 drawer)", kapasitas: "450 L", daya: "480W", dimensi: "P 1800 x L 750 x T 850 mm", harga: 46000000, image: "https://placehold.co/400x400/111827/00bcd4?text=EC-18-LGD" }
         ]
     },
     {
-        id: 69, name: "Under Counter Chiller (Lebar 60 cm)", brand: "HKA-ELL Series", category: "UNDER COUNTER", tempRange: "+2°C s.d +8°C", description: "Temp. +2~+8°C, Meja pendingin meja dapur stainless ramping, Daya: 220V",
+        id: 69, name: "Under Counter Chiller (Lebar 60 cm)", brand: "HKA-ELL Series", category: "under-counter", tempRange: "+2°C s.d +8°C", description: "Temp. +2~+8°C, Meja pendingin meja dapur stainless ramping, Daya: 220V",
         variants: [
             { model: "EL-12-2L", kapasitas: "250 L", daya: "450W", dimensi: "P 1200 x L 600 x T 850 mm", harga: 17500000, image: "https://placehold.co/400x400/111827/00bcd4?text=EL-12-2L" },
             { model: "EL-15-2L", kapasitas: "310 L", daya: "470W", dimensi: "P 1500 x L 600 x T 850 mm", harga: 18500000, image: "https://placehold.co/400x400/111827/00bcd4?text=EL-15-2L" },
@@ -1310,7 +1307,7 @@
         ]
     },
     {
-        id: 70, name: "Under Counter Chiller (Lebar 75 cm)", brand: "HKA-ECL Series", category: "UNDER COUNTER", tempRange: "+2°C s.d +8°C", description: "Temp. +2~+8°C, Meja pendingin ukuran standard, Daya: 220V",
+        id: 70, name: "Under Counter Chiller (Lebar 75 cm)", brand: "HKA-ECL Series", category: "under-counter", tempRange: "+2°C s.d +8°C", description: "Temp. +2~+8°C, Meja pendingin ukuran standard, Daya: 220V",
         variants: [
             { model: "EC-12-2L", kapasitas: "310 L", daya: "450W", dimensi: "P 1200 x L 750 x T 850 mm", harga: 17200000, image: "https://placehold.co/400x400/111827/00bcd4?text=EC-12-2L" },
             { model: "EC-15-2L", kapasitas: "360 L", daya: "470W", dimensi: "P 1500 x L 750 x T 850 mm", harga: 18500000, image: "https://placehold.co/400x400/111827/00bcd4?text=EC-15-2L" },
@@ -1318,7 +1315,7 @@
         ]
     },
     {
-        id: 71, name: "Under Counter Freezer (Lebar 75 cm)", brand: "HKA-EDL Series", category: "UNDER COUNTER", tempRange: "-18°C s.d -20°C", description: "Temp. -18°C, Meja pembeku dpur stainless, Daya: 220V",
+        id: 71, name: "Under Counter Freezer (Lebar 75 cm)", brand: "HKA-EDL Series", category: "under-counter", tempRange: "-18°C s.d -20°C", description: "Temp. -18°C, Meja pembeku dpur stainless, Daya: 220V",
         variants: [
             { model: "ED-12-2L", kapasitas: "310 L", daya: "540W", dimensi: "P 1200 x L 750 x T 850 mm", harga: 18500000, image: "https://placehold.co/400x400/111827/00bcd4?text=ED-12-2L" },
             { model: "ED-15-2L", kapasitas: "360 L", daya: "670W", dimensi: "P 1500 x L 750 x T 850 mm", harga: 20000000, image: "https://placehold.co/400x400/111827/00bcd4?text=ED-15-2L" },
@@ -1330,7 +1327,7 @@
     // KATEGORI: 17. SHOWCASE COOLER
     // ==========================================
     {
-        id: 72, name: "Display Cooler / Showcase", brand: "FRESCA Series", category: "SHOWCASE COOLER", tempRange: "+2°C s.d +8°C", description: "Temp. +2~+8°C, Lemari kaca pendingin minuman vertical, Daya: 220V",
+        id: 72, name: "Display Cooler / Showcase", brand: "FRESCA Series", category: "showcase-cooler", tempRange: "+2°C s.d +8°C", description: "Temp. +2~+8°C, Lemari kaca pendingin minuman vertical, Daya: 220V",
         variants: [
             { model: "FRESCA 195 CS", kapasitas: "195 L", daya: "170W", dimensi: "P 530 x L 510 x T 1135 mm", harga: 4500000, image: "https://placehold.co/400x400/1e1b4b/38bdf8?text=FRESCA-195" },
             { model: "FRESCA 225 CS", kapasitas: "225 L", daya: "185W", dimensi: "P 530 x L 510 x T 1547 mm", harga: 4900000, image: "https://placehold.co/400x400/1e1b4b/38bdf8?text=FRESCA-225" },
@@ -1338,7 +1335,7 @@
         ]
     },
     {
-        id: 73, name: "Display Cooler Series (Premium Swing Door)", brand: "HKAPWC", category: "SHOWCASE COOLER", tempRange: "+2°C s.d +8°C", description: "Temp. +2~+8°C, Pintu Kaca Premium Swing, Import, Daya: 220V",
+        id: 73, name: "Display Cooler Series (Premium Swing Door)", brand: "HKAPWC", category: "showcase-cooler", tempRange: "+2°C s.d +8°C", description: "Temp. +2~+8°C, Pintu Kaca Premium Swing, Import, Daya: 220V",
         variants: [
             { model: "DC-110", kapasitas: "420 L", daya: "450W", dimensi: "P 600 x L 620 x T 1910 mm", harga: 7900000, image: "https://placehold.co/400x400/1e1b4b/38bdf8?text=DC-110" },
             { model: "DC-120", kapasitas: "835 L", daya: "600W", dimensi: "P 1200 x L 620 x T 1910 mm", harga: 15700000, image: "https://placehold.co/400x400/1e1b4b/38bdf8?text=DC-120" },
@@ -1346,7 +1343,7 @@
         ]
     },
     {
-        id: 74, name: "Display Cooler Alternate", brand: "HKA Display Cooler", category: "SHOWCASE COOLER", tempRange: "+2°C s.d +8°C", description: "Temp. +2~+8°C, Dimensi tinggi berbeda tipis (T 1920 mm), Import, Daya: 220V",
+        id: 74, name: "Display Cooler Alternate", brand: "HKA Display Cooler", category: "showcase-cooler", tempRange: "+2°C s.d +8°C", description: "Temp. +2~+8°C, Dimensi tinggi berbeda tipis (T 1920 mm), Import, Daya: 220V",
         variants: [
             { model: "DC-Alt-600", kapasitas: "420 L", daya: "450W", dimensi: "P 600 x L 620 x T 1920 mm", harga: 8800000, image: "https://placehold.co/400x400/1e1b4b/38bdf8?text=DC-Alt-600" },
             { model: "DC-Alt-1200", kapasitas: "835 L", daya: "600W", dimensi: "P 1200 x L 620 x T 1920 mm", harga: 12500000, image: "https://placehold.co/400x400/1e1b4b/38bdf8?text=DC-Alt-1200" },
@@ -1354,7 +1351,7 @@
         ]
     },
     {
-        id: 75, name: "Cake Showcase RLB Series", brand: "HKARLB", category: "SHOWCASE COOLER", tempRange: "+2°C s.d +8°C", description: "Temp. +2~+8°C, High-quality stainless steel body, Stable and uniform cooling, Hygienic interior, User-friendly temperature control, Daya: 220V",
+        id: 75, name: "Cake Showcase RLB Series", brand: "HKARLB", category: "showcase-cooler", tempRange: "+2°C s.d +8°C", description: "Temp. +2~+8°C, High-quality stainless steel body, Stable and uniform cooling, Hygienic interior, User-friendly temperature control, Daya: 220V",
         variants: [
             { model: "RLB-900", kapasitas: "360 L", daya: "487W", dimensi: "P 900 x L 680 x T 1200 mm", harga: 30000000, image: "https://placehold.co/400x400/1e1b4b/38bdf8?text=RLB-900" },
             { model: "RLB-1200", kapasitas: "462 L", daya: "668W", dimensi: "P 1200 x L 680 x T 1200 mm", harga: 33000000, image: "https://placehold.co/400x400/1e1b4b/38bdf8?text=RLB-1200" },
@@ -1366,7 +1363,7 @@
     // KATEGORI: 18. CHEST FREEZER
     // ==========================================
     {
-        id: 76, name: "Sliding Curve Glass Freezer", brand: "HKA-FLV Series", category: "CHEST FREEZER", tempRange: "-10°C s.d -20°C", description: "Temp. -10~-20°C, Low Watt, Pintu Kaca Lengkung Geser, Made in Indonesia, Daya: 220V",
+        id: 76, name: "Sliding Curve Glass Freezer", brand: "HKA-FLV Series", category: "chest-freezer", tempRange: "-10°C s.d -20°C", description: "Temp. -10~-20°C, Low Watt, Pintu Kaca Lengkung Geser, Made in Indonesia, Daya: 220V",
         variants: [
             { model: "F-120SD LV", kapasitas: "120 L", daya: "110W", dimensi: "P 611 x L 539 x T 873 mm", harga: 3650000, image: "https://placehold.co/400x400/0f172a/db2777?text=F-120SD" },
             { model: "F-210SD LV", kapasitas: "210 L", daya: "140W", dimensi: "P 925 x L 539 x T 873 mm", harga: 4400000, image: "https://placehold.co/400x400/0f172a/db2777?text=F-210SD" },
@@ -1374,7 +1371,7 @@
         ]
     },
     {
-        id: 77, name: "Chest Freezer (Suhu Beku)", brand: "FRESCA Series", category: "CHEST FREEZER", tempRange: "-10°C s.d -20°C", description: "Temp. -10~-20°C (Standard Chest Freezer), Made in Indonesia, Daya: 220V",
+        id: 77, name: "Chest Freezer (Suhu Beku)", brand: "FRESCA Series", category: "chest-freezer", tempRange: "-10°C s.d -20°C", description: "Temp. -10~-20°C (Standard Chest Freezer), Made in Indonesia, Daya: 220V",
         variants: [
             { model: "F-200 LV", kapasitas: "200 L", daya: "90W", dimensi: "P 925 x L 539 x T 873 mm", harga: 3450000, image: "https://placehold.co/400x400/0f172a/db2777?text=F-200" },
             { model: "F-300 LV", kapasitas: "300 L", daya: "140W", dimensi: "P 1105 x L 539 x T 873 mm", harga: 4100000, image: "https://placehold.co/400x400/0f172a/db2777?text=F-300" },
@@ -1382,7 +1379,7 @@
         ]
     },
     {
-        id: 78, name: "Sliding Flat Glass Freezer", brand: "HKA-F Series", category: "CHEST FREEZER", tempRange: "-10°C s.d -20°C", description: "Temp. -10~-20°C, Freezer kaca datar geser, Import, Daya: 220V",
+        id: 78, name: "Sliding Flat Glass Freezer", brand: "HKA-F Series", category: "chest-freezer", tempRange: "-10°C s.d -20°C", description: "Temp. -10~-20°C, Freezer kaca datar geser, Import, Daya: 220V",
         variants: [
             { model: "HKA-F-Flat-1200", kapasitas: "434 L", daya: "165W", dimensi: "P 1200 x L 670 x T 880 mm", harga: 6800000, image: "https://placehold.co/400x400/0f172a/db2777?text=F-Flat-1200" },
             { model: "HKA-F-Flat-1400", kapasitas: "519 L", daya: "260W", dimensi: "P 1400 x L 670 x T 880 mm", harga: 7200000, image: "https://placehold.co/400x400/0f172a/db2777?text=F-Flat-1400" },
@@ -1391,7 +1388,7 @@
         ]
     },
     {
-        id: 79, name: "Chest Freezer (Solid Top)", brand: "HKA-F Series", category: "CHEST FREEZER", tempRange: "-10°C s.d -20°C", description: "Temp. -10~-20°C, Pembeku tutup S/S / putih kokoh, Import, Daya: 220V",
+        id: 79, name: "Chest Freezer (Solid Top)", brand: "HKA-F Series", category: "chest-freezer", tempRange: "-10°C s.d -20°C", description: "Temp. -10~-20°C, Pembeku tutup S/S / putih kokoh, Import, Daya: 220V",
         variants: [
             { model: "HKA-F-Solid-1200", kapasitas: "420 L", daya: "165W", dimensi: "P 1200 x L 780 x T 880 mm", harga: 6450000, image: "https://placehold.co/400x400/0f172a/db2777?text=F-Solid-1200" },
             { model: "HKA-F-Solid-1500", kapasitas: "490 L", daya: "260W", dimensi: "P 1500 x L 780 x T 880 mm", harga: 7150000, image: "https://placehold.co/400x400/0f172a/db2777?text=F-Solid-1500" },
@@ -1404,7 +1401,7 @@
     // KATEGORI: 19. BLAST CHILLER
     // ==========================================
     {
-        id: 80, name: "Blast Chiller & Shock Freezer", brand: "ALISA Series", category: "BLAST CHILLER", tempRange: "-18°C s.d -39°C", description: "Kisaran temperatur -18 ~ -39°C, unit pendingin cepat impor",
+        id: 80, name: "Blast Chiller & Shock Freezer", brand: "ALISA Series", category: "blast-chiller", tempRange: "-18°C s.d -39°C", description: "Kisaran temperatur -18 ~ -39°C, unit pendingin cepat impor",
         variants: [
             { model: "ALISA 3", kapasitas: "3 tray", daya: "1300W/1P", dimensi: "P 820 x L 900 x T 930 mm", harga: 49000000, image: "https://placehold.co/400x400/0f172a/00bcd4?text=ALISA+3" },
             { model: "ALISA 5", kapasitas: "5 tray", daya: "1600W/3P", dimensi: "P 820 x L 900 x T 1030 mm", harga: 53000000, image: "https://placehold.co/400x400/0f172a/00bcd4?text=ALISA+5" },
@@ -1506,7 +1503,34 @@
         setInterval(() => { moveSlide(1); }, 6000);
 
         function formatRupiah(angka) {
-            return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(angka);
+            return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(Math.round(angka));
+        }
+
+        const categoryLabels = {
+            all: "Semua Lini Unit",
+            table: "Meja Stainless",
+            kabinet: "Kabinet Stainless",
+            "rak-storage": "Rak & Storage",
+            sink: "Sink & Cuci Piring",
+            beverage: "Bar & Beverage Station",
+            "kompor-grill": "Kompor & Grill",
+            "fryer-cooker": "Fryer & Cooker",
+            "pemanas-bain-marie": "Pemanas & Bain Marie",
+            "mixer-oven": "Mixer & Oven",
+            "mesin-cuci-piring": "Mesin Cuci Piring",
+            preparasi: "Preparasi",
+            "trolley-transport": "Trolley & Transport",
+            "ventilasi-dapur": "Ventilasi Dapur",
+            "upright-chiller": "Upright Chiller",
+            "upright-freezer": "Upright Freezer",
+            "under-counter": "Under Counter",
+            "showcase-cooler": "Showcase Cooler",
+            "chest-freezer": "Chest Freezer",
+            "blast-chiller": "Blast Chiller"
+        };
+
+        function getCategoryLabel(category) {
+            return categoryLabels[category] || category;
         }
 
         function showToast(msg) {
@@ -1521,18 +1545,20 @@
         }
 
         function toggleMobileSearch() {
-            document.getElementById('mobile-search-bar').classList.toggle('hidden');
+            const mobileSearchBar = document.getElementById('mobile-search-bar');
+            if (mobileSearchBar) mobileSearchBar.classList.toggle('hidden');
         }
 
         // Thermal Simulator Logic (-40 to 400)
+        // Rekomendasi disesuaikan dengan kategori produk asli di database productsData.
         const thermalRanges = [
-            { min: -40, max: -19, title: "Zona Pembekuan Kilat (Shock Freeze)", desc: "Suhu super dingin untuk membekukan makanan dalam hitungan menit. Ideal untuk Blast Chiller.", cats: ['blast'], theme: 'text-blue-600' },
-            { min: -18, max: -1, title: "Zona Freezer Dalam (Deep Freeze)", desc: "Suhu standar untuk pengawetan daging, es krim, dan makanan beku jangka panjang.", cats: ['freezer', 'upright-freezer'], theme: 'text-cyan-600' },
-            { min: 0, max: 8, title: "Zona Kulkas Segar (Chiller)", desc: "Suhu pas untuk menjaga sayur, buah, minuman, dan kue tetap segar tanpa membeku.", cats: ['upright-chiller', 'showcase', 'undercounter'], theme: 'text-emerald-500' },
-            { min: 9, max: 30, title: "Suhu Ruangan Dapur (Ambient)", desc: "Area preparasi standar dapur. Peralatan harus terbuat dari material yang mudah dibersihkan.", cats: ['table', 'sink'], theme: 'text-slate-600' },
-            { min: 31, max: 85, title: "Zona Warmer & Bain Marie", desc: "Menjaga makanan matang tetap hangat, higienis, dan siap disajikan.", cats: ['warmer'], theme: 'text-orange-500' },
-            { min: 86, max: 150, title: "Zona Pencucian & Baking Rendah", desc: "Suhu air panas untuk dishwasher komersial atau proofing/baking ringan di oven.", cats: ['dishwasher', 'bakery'], theme: 'text-red-400' },
-            { min: 151, max: 400, title: "Zona Panas Ekstrem (Cooking/Oven)", desc: "Suhu tinggi untuk oven baking, kwali range, dan deep fryer.", cats: ['cooking', 'bakery'], theme: 'text-red-600' }
+            { min: -40, max: -19, title: "Zona Pembekuan Kilat (Shock Freeze)", desc: "Cocok untuk proses pendinginan cepat, shock freezer, dan penyimpanan beku yang perlu turun suhu secara agresif.", cats: ['blast-chiller', 'chest-freezer', 'upright-freezer', 'under-counter'], theme: 'text-blue-600' },
+            { min: -18, max: -1, title: "Zona Freezer Dalam (Deep Freeze)", desc: "Cocok untuk daging, seafood, es krim, frozen food, dan stok bahan beku harian.", cats: ['chest-freezer', 'upright-freezer', 'under-counter', 'blast-chiller'], theme: 'text-cyan-600' },
+            { min: 0, max: 8, title: "Zona Kulkas Segar (Chiller)", desc: "Cocok untuk sayur, buah, minuman, dairy, kue, dan bahan siap olah yang harus tetap segar tanpa membeku.", cats: ['upright-chiller', 'under-counter', 'showcase-cooler', 'beverage', 'preparasi'], theme: 'text-emerald-500' },
+            { min: 9, max: 30, title: "Suhu Ruangan Dapur (Ambient)", desc: "Cocok untuk area kerja, penyimpanan kering, rak, kabinet, sink, dan trolley operasional dapur.", cats: ['table', 'kabinet', 'rak-storage', 'sink', 'trolley-transport', 'ventilasi-dapur'], theme: 'text-slate-600' },
+            { min: 31, max: 85, title: "Zona Warmer & Bain Marie", desc: "Cocok untuk menjaga makanan matang tetap hangat, aman disajikan, dan mudah dipindahkan saat service.", cats: ['pemanas-bain-marie', 'trolley-transport', 'mesin-cuci-piring'], theme: 'text-orange-500' },
+            { min: 86, max: 150, title: "Zona Pencucian & Baking Rendah", desc: "Cocok untuk dishwasher komersial, pengering ompreng, warmer tinggi, dan kebutuhan oven awal.", cats: ['mesin-cuci-piring', 'mixer-oven', 'pemanas-bain-marie'], theme: 'text-red-400' },
+            { min: 151, max: 400, title: "Zona Panas Ekstrem (Cooking/Oven)", desc: "Cocok untuk kompor, grill, fryer, steamer, noodle cooker, dan oven baking suhu tinggi.", cats: ['kompor-grill', 'fryer-cooker', 'mixer-oven'], theme: 'text-red-600' }
         ];
 
         function handleThermalSimulator(val) {
@@ -1549,7 +1575,13 @@
                 document.getElementById('sim-output-desc').textContent = range.desc;
                 display.className = `text-4xl font-black transition-colors duration-300 ${range.theme}`;
                 
-                const recommended = productsData.filter(p => range.cats.includes(p.category)).slice(0, 10); // Max 10 items
+                const recommended = productsData
+                    .filter(p => range.cats.includes(p.category))
+                    .sort((a, b) => {
+                        const catOrder = range.cats.indexOf(a.category) - range.cats.indexOf(b.category);
+                        return catOrder !== 0 ? catOrder : a.id - b.id;
+                    })
+                    .slice(0, 4); // Tampilkan 3-4 rekomendasi paling relevan
                 const grid = document.getElementById('sim-recommendations-grid');
                 const badge = document.getElementById('sim-count-badge');
                 grid.innerHTML = '';
@@ -1565,7 +1597,7 @@
                                 </div>
                                 <div class="flex-1 min-w-0">
                                     <h5 class="text-[11px] font-black text-slate-800 dark:text-white truncate">${prod.name}</h5>
-                                    <p class="text-[9px] text-slate-400 font-bold uppercase truncate mb-1">${prod.brand}</p>
+                                    <p class="text-[9px] text-slate-400 font-bold uppercase truncate mb-1">${prod.brand} • ${getCategoryLabel(prod.category)}</p>
                                     <span class="text-xs font-black text-[#00a884]">${formatRupiah(vari.harga * 0.8)}</span>
                                 </div>
                             </div>
@@ -1590,15 +1622,17 @@
         }
 
         function clearSearch() {
-            document.getElementById('search-input').value = '';
+            const input = document.getElementById('search-input');
+            input.value = '';
             document.getElementById('clear-search-btn').classList.add('hidden');
             handleSearch('');
+            input.focus();
         }
 
         function handleSearch(val) { 
-            currentSearchQuery = val; 
+            currentSearchQuery = (val || '').trim(); 
             const clearBtn = document.getElementById('clear-search-btn');
-            if(val.length > 0) clearBtn.classList.remove('hidden');
+            if(currentSearchQuery.length > 0) clearBtn.classList.remove('hidden');
             else clearBtn.classList.add('hidden');
             renderCatalog(); 
         }
@@ -1606,32 +1640,33 @@
         function handleSorting(val) { currentSort = val; renderCatalog(); }
 
         function filterCategory(cat) { 
-            currentFilter = cat; 
-            renderCatalog();
-             
-            // Sync visual active class for Desktop Sidebar
-            document.querySelectorAll('#sidebar-categories button').forEach(btn => {
-                const icon = btn.querySelector('i');
-                if (btn.id === `cat-${cat}`) {
-                    btn.className = "w-full flex items-center justify-between text-left text-xs font-bold px-3 py-2 rounded-xl transition-all text-[#00bcd4] bg-[#00bcd4]/10";
-                    if(icon) icon.className = "fa-solid fa-chevron-right text-[10px]";
-                } else {
-                    btn.className = "w-full flex items-center justify-between text-left text-xs font-bold px-3 py-2 rounded-xl transition-all text-slate-500 hover:text-[#00bcd4] hover:bg-slate-50 dark:hover:bg-slate-800/50";
-                    if(icon) icon.className = "fa-solid fa-chevron-right text-[10px] opacity-40";
-                }
-            });
-
-            // Sync visual active class for Mobile Pills
-            document.querySelectorAll('#katalog-section section div button').forEach(btn => {
-                if(btn.id && btn.id.startsWith('mobile-cat-')){
-                    if (btn.id === `mobile-cat-${cat}`) {
-                        btn.className = "shrink-0 px-4 py-2 rounded-full text-xs font-bold transition-all bg-[#00bcd4] text-white shadow-sm";
-                    } else {
-                        btn.className = "shrink-0 px-4 py-2 rounded-full text-xs font-semibold transition-all bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200/60 dark:border-slate-700";
-                    }
-                }
-            });
+    currentFilter = cat; 
+    renderCatalog();
+     
+    // Sync visual active class for Desktop Sidebar
+    document.querySelectorAll('#sidebar-categories button').forEach(btn => {
+        const icon = btn.querySelector('i');
+        if (btn.id === `cat-${cat}`) {
+            btn.className = "w-full flex items-center justify-between text-left text-xs font-bold px-3 py-2 rounded-xl transition-all text-[#00bcd4] bg-[#00bcd4]/10";
+            if(icon) icon.className = "fa-solid fa-chevron-right text-[10px]";
+        } else {
+            btn.className = "w-full flex items-center justify-between text-left text-xs font-bold px-3 py-2 rounded-xl transition-all text-slate-500 hover:text-[#00bcd4] hover:bg-slate-50 dark:hover:bg-slate-800/50";
+            if(icon) icon.className = "fa-solid fa-chevron-right text-[10px] opacity-40";
         }
+    });
+
+    // Sync visual active class for Mobile Pills (Versi Aman & Pasti Kena)
+    // Mencari semua tombol di halaman yang ID-nya mulai dengan "mobile-cat-"
+    document.querySelectorAll('[id^="mobile-cat-"]').forEach(btn => {
+        if (btn.id === `mobile-cat-${cat}`) {
+            // Tombol yang dipilih jadi biru
+            btn.className = "shrink-0 px-4 py-2 rounded-full text-xs font-bold transition-all bg-[#00bcd4] text-white shadow-sm";
+        } else {
+            // Tombol lain balik ke abu-abu / putih bawaan
+            btn.className = "shrink-0 px-4 py-2 rounded-full text-xs font-semibold transition-all bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200/60 dark:border-slate-700";
+        }
+    });
+}
 
         function changeCardVariant(productId, variantIndex) {
             const p = productsData.find(item => item.id === productId);
@@ -1647,10 +1682,19 @@
         //Buat memunculkan banyak kategori dalam satu filter kategori
 
         const categoryGroups = {
-            rak: ['rak', 'kabinet'],
-            sink: ['sink', 'dishwasher'],
-            kompor: ['grill', 'kompor'],
-            mixer: ['oven', 'mixer']
+            rak: ['rak-storage'],
+            shelf: ['rak-storage'],
+            cooking: ['kompor-grill', 'fryer-cooker'],
+            kompor: ['kompor-grill'],
+            grill: ['kompor-grill'],
+            warmer: ['pemanas-bain-marie'],
+            bakery: ['mixer-oven'],
+            dishwasher: ['mesin-cuci-piring'],
+            prep: ['preparasi'],
+            undercounter: ['under-counter'],
+            showcase: ['showcase-cooler'],
+            freezer: ['chest-freezer'],
+            blast: ['blast-chiller']
         };
 
                 function renderCatalog() {
@@ -1667,11 +1711,16 @@
                 categories.includes(p.category);
 
             const query = currentSearchQuery.toLowerCase();
+            const productSearchText = [
+                p.name,
+                p.brand,
+                p.description,
+                p.tempRange,
+                getCategoryLabel(p.category),
+                ...p.variants.flatMap(v => [v.model, v.kapasitas, v.daya, v.dimensi])
+            ].filter(Boolean).join(' ').toLowerCase();
 
-            const matchesSearch =
-                p.name.toLowerCase().includes(query) ||
-                p.brand.toLowerCase().includes(query) ||
-                p.variants.some(v => v.model.toLowerCase().includes(query));
+            const matchesSearch = productSearchText.includes(query);
 
             return matchesTab && matchesSearch;
         });
@@ -1700,9 +1749,9 @@
 
                 card.innerHTML = `
                     <div class="relative w-full aspect-square rounded-2xl bg-[#f8fafc] dark:bg-slate-800 mb-4 overflow-hidden cursor-pointer" onclick="openModal(${p.id})">
-                        <span class="absolute top-3 left-3 bg-[#cffafe] text-[#164e63] text-[9px] font-black px-2.5 py-1 rounded uppercase tracking-wider z-10">${p.category}</span>
+                        <span class="absolute top-3 left-3 bg-[#cffafe] text-[#164e63] text-[9px] font-black px-2.5 py-1 rounded uppercase tracking-wider z-10">${getCategoryLabel(p.category)}</span>
                         <span class="absolute top-3 right-3 bg-[#ef4444] text-white text-[9px] font-black px-2.5 py-1 rounded z-10">-20%</span>
-                        <img id="img-card-${p.id}" src="${v.image}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                        <img id="img-card-${p.id}" src="${v.image}" alt="${p.name} ${v.model} - ${getCategoryLabel(p.category)}" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
                     </div>
                     
                     <div class="flex-1 flex flex-col">
@@ -1710,10 +1759,12 @@
                         <h3 class="text-xs md:text-sm font-black text-slate-800 dark:text-white leading-snug line-clamp-2 hover:text-[#00bcd4] transition-colors cursor-pointer" onclick="openModal(${p.id})">${p.name}</h3>
                         
                         <div class="mt-3 relative">
-                            <select onchange="changeCardVariant(${p.id}, this.value)" id="select-card-${p.id}" class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-2.5 py-2 text-[10px] md:text-xs text-slate-700 dark:text-slate-200 outline-none cursor-pointer font-bold focus:border-[#00bcd4] transition-all">
+                            <select onchange="changeCardVariant(${p.id}, this.value)" id="select-card-${p.id}" class="appearance-none w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg pl-3 pr-9 py-2.5 text-[10px] md:text-xs text-slate-700 dark:text-slate-200 outline-none cursor-pointer font-bold focus:border-[#00bcd4] transition-all leading-tight safe-ellipsis">
                                 ${variantOptions}
                             </select>
-                            <div class="absolute inset-y-0 right-2 flex items-center pointer-events-none text-slate-400"><i class="fa-solid fa-chevron-down text-[10px]"></i></div>
+                            <div class="absolute inset-y-0 right-3 flex items-center pointer-events-none text-slate-400">
+                                <i class="fa-solid fa-chevron-down text-[10px]"></i>
+                            </div>
                         </div>
                     </div>
 
@@ -1723,10 +1774,10 @@
                             <span class="text-sm md:text-lg font-black text-[#00a884] block leading-none truncate" id="price-new-card-${p.id}">${formatRupiah(discPrice)}</span>
                         </div>
                         <div class="flex gap-1.5 shrink-0">
-                             <button onclick="chatWaDirect(${p.id})" class="w-8 h-8 rounded-full bg-emerald-50 text-emerald-500 hover:bg-emerald-500 hover:text-white flex items-center justify-center transition-all hover:scale-110" title="Tanya WA">
+                             <button type="button" onclick="chatWaDirect(${p.id})" class="w-8 h-8 rounded-full bg-emerald-50 text-emerald-500 hover:bg-emerald-500 hover:text-white flex items-center justify-center transition-all hover:scale-110" title="Tanya WA">
                                 <i class="fa-brands fa-whatsapp"></i>
                             </button>
-                            <button onclick="let sel = document.getElementById('select-card-${p.id}'); addToCart(${p.id}, parseInt(sel.value));" class="w-8 h-8 rounded-full bg-[#00bcd4] hover:bg-cyan-500 text-white flex items-center justify-center transition-all shadow-md shadow-cyan-500/20 hover:scale-110" title="Pilih Varian & Beli">
+                            <button type="button" onclick="let sel = document.getElementById('select-card-${p.id}'); addToCart(${p.id}, parseInt(sel.value));" class="w-8 h-8 rounded-full bg-[#00bcd4] hover:bg-cyan-500 text-white flex items-center justify-center transition-all shadow-md shadow-cyan-500/20 hover:scale-110" title="Pilih Varian & Beli">
                                 <i class="fa-solid fa-cart-plus text-xs"></i>
                             </button>
                         </div>
@@ -1741,7 +1792,7 @@
             if (!p) return;
             activeModalProduct = p;
 
-            document.getElementById('modal-category').textContent = p.category;
+            document.getElementById('modal-category').textContent = getCategoryLabel(p.category);
             document.getElementById('modal-title').textContent = p.name;
             document.getElementById('modal-brand').textContent = p.brand;
             document.getElementById('modal-desc').textContent = p.description;
@@ -1781,6 +1832,7 @@
             const v = activeModalProduct.variants[index];
 
             document.getElementById('modal-image').src = v.image;
+            document.getElementById('modal-image').alt = `${activeModalProduct.name} ${v.model} - ${getCategoryLabel(activeModalProduct.category)}`;
             document.getElementById('modal-spec-dim').textContent = v.dimensi;
             document.getElementById('modal-spec-daya').textContent = v.daya !== "-" ? v.daya : v.kapasitas;
             
@@ -1796,7 +1848,7 @@
 
         function chatWaDirect(id) {
             const p = productsData.find(item => item.id === id);
-            const textWa = `Halo TokoKitchen, saya mau tanya soal unit:\n*${p.name}*\nKategori: ${p.category}\n\nMohon info ketersediaan stoknya ya!`;
+            const textWa = `Halo TokoKitchen, saya mau tanya soal unit:\n*${p.name}*\nKategori: ${getCategoryLabel(p.category)}\n\nMohon info ketersediaan stoknya ya!`;
             window.open(`https://wa.me/6282111506069?text=${encodeURIComponent(textWa)}`, '_blank');
         }
 
@@ -1832,13 +1884,34 @@
             }
         }
 
+        function changeCartQty(index, delta) {
+            if (!cart[index]) return;
+            cart[index].qty += delta;
+            if (cart[index].qty <= 0) cart.splice(index, 1);
+            updateCartCount();
+            renderCartPage();
+        }
+
+        function removeCartItem(index) {
+            if (!cart[index]) return;
+            cart.splice(index, 1);
+            updateCartCount();
+            renderCartPage();
+        }
+
         function renderCartPage() {
             const container = document.getElementById('cart-items-container');
+            cart = cart.filter(item => {
+                const prod = productsData.find(p => p.id === item.productId);
+                return prod && prod.variants[item.variantIndex];
+            });
+
             if (cart.length === 0) {
                 container.innerHTML = `<div class="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-3xl p-10 text-center text-slate-400">Keranjang Anda Kosong.</div>`;
                 document.getElementById('cart-summary-subtotal').textContent = "Rp 0";
                 document.getElementById('cart-summary-discount').textContent = "-Rp 0";
                 document.getElementById('cart-summary-total').textContent = "Rp 0";
+                updateCartCount();
                 return;
             }
 
@@ -1851,14 +1924,21 @@
                 rawTotal += vari.harga * item.qty;
                 
                 container.innerHTML += `
-                    <div class="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl p-4 flex flex-col md:flex-row items-center gap-4 shadow-sm">
-                        <img src="${vari.image}" class="w-16 h-16 rounded-xl object-cover border border-slate-100 dark:border-slate-700">
-                        <div class="flex-1 text-left w-full md:w-auto">
-                            <h4 class="text-sm font-bold text-slate-800 dark:text-white line-clamp-1">${prod.name}</h4>
-                            <p class="text-[10px] text-slate-400">${vari.model} | ${vari.kapasitas}</p>
-                            <p class="text-xs font-black text-[#00a884] mt-1">${formatRupiah(vari.harga * 0.8)} x ${item.qty}</p>
+                    <div class="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl p-3 md:p-4 flex flex-row items-center gap-3 md:gap-4 shadow-sm">
+                        <img src="${vari.image}" class="w-16 h-16 md:w-20 md:h-20 rounded-xl object-cover border border-slate-100 dark:border-slate-700 shrink-0">
+                        <div class="flex-1 min-w-0 text-left">
+                            <h4 class="text-sm md:text-base font-black text-slate-800 dark:text-white truncate">${prod.name}</h4>
+                            <p class="text-[10px] md:text-xs text-slate-400 font-semibold truncate">${vari.model} • ${getCategoryLabel(prod.category)}</p>
+                            <p class="text-xs md:text-sm font-black text-[#00a884] mt-1">${formatRupiah(vari.harga * 0.8)} x ${item.qty}</p>
                         </div>
-                        <button onclick="cart.splice(${index}, 1); updateCartCount(); renderCartPage();" class="w-8 h-8 rounded-lg bg-red-50 text-red-500 hover:bg-red-500 hover:text-white transition-colors flex items-center justify-center shrink-0 self-end md:self-center"><i class="fa-solid fa-trash"></i></button>
+                        <div class="flex items-center gap-2 shrink-0">
+                            <div class="hidden sm:flex items-center rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden">
+                                <button type="button" onclick="changeCartQty(${index}, -1)" class="w-8 h-8 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">−</button>
+                                <span class="w-8 text-center text-xs font-black text-slate-700 dark:text-slate-200">${item.qty}</span>
+                                <button type="button" onclick="changeCartQty(${index}, 1)" class="w-8 h-8 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">+</button>
+                            </div>
+                            <button type="button" onclick="removeCartItem(${index})" class="w-9 h-9 rounded-xl bg-red-50 text-red-500 hover:bg-red-500 hover:text-white transition-colors flex items-center justify-center shrink-0"><i class="fa-solid fa-trash"></i></button>
+                        </div>
                     </div>
                 `;
             });
@@ -1939,8 +2019,97 @@
             document.getElementById('countdown-timer').textContent = `Sisa waktu promo: ${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
         }, 1000);
 
+        function handleModalBackdropClick(event) {
+            if (event.target && event.target.id === 'product-modal') {
+                closeModal();
+            }
+        }
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                const modal = document.getElementById('product-modal');
+                if (modal && !modal.classList.contains('pointer-events-none')) closeModal();
+            }
+        });
+
+        function upsertMeta(selector, attrName, attrValue, content) {
+            let tag = document.head.querySelector(selector);
+            if (!tag) {
+                tag = document.createElement('meta');
+                tag.setAttribute(attrName, attrValue);
+                document.head.appendChild(tag);
+            }
+            tag.setAttribute('content', content);
+        }
+
+        function injectAutomaticSEO() {
+            const baseUrl = window.location.protocol.startsWith('http') ? window.location.origin + window.location.pathname : 'https://tokokitchen.store/';
+            const totalProducts = productsData.length;
+            const categoryNames = [...new Set(productsData.map(p => getCategoryLabel(p.category)))];
+            const brands = [...new Set(productsData.map(p => p.brand))].slice(0, 20);
+            const sampleProducts = productsData.slice(0, 35).map((p, index) => {
+                const firstVariant = p.variants[0] || {};
+                return {
+                    "@type": "ListItem",
+                    "position": index + 1,
+                    "item": {
+                        "@type": "Product",
+                        "name": `${p.name} ${firstVariant.model || ''}`.trim(),
+                        "brand": { "@type": "Brand", "name": p.brand },
+                        "category": getCategoryLabel(p.category),
+                        "description": p.description || `Peralatan dapur komersial kategori ${getCategoryLabel(p.category)} di TokoKitchen Store.`,
+                        "image": firstVariant.image || '',
+                        "sku": firstVariant.model || p.brand,
+                        "offers": {
+                            "@type": "Offer",
+                            "priceCurrency": "IDR",
+                            "price": firstVariant.harga ? Math.round(firstVariant.harga * 0.8) : undefined,
+                            "availability": "https://schema.org/InStock",
+                            "url": baseUrl
+                        }
+                    }
+                };
+            });
+
+            document.title = `TokoKitchen Store | ${totalProducts} Produk Kitchen Equipment Komersial`;
+            upsertMeta('meta[name="description"]', 'name', 'description', `Belanja ${totalProducts} produk peralatan dapur komersial TokoKitchen untuk Horeka, restoran, hotel, cafe, bakery, catering, chiller, freezer, stainless table, sink, kompor, oven, dan mixer.`);
+            upsertMeta('meta[name="keywords"]', 'name', 'keywords', ['TokoKitchen', 'peralatan dapur komersial', 'kitchen equipment', 'horeca equipment', ...categoryNames, ...brands].join(', '));
+            upsertMeta('meta[property="og:url"]', 'property', 'og:url', baseUrl);
+            upsertMeta('meta[property="og:title"]', 'property', 'og:title', 'TokoKitchen Store | Peralatan Dapur Komersial Horeka');
+            upsertMeta('meta[property="og:description"]', 'property', 'og:description', `Katalog ${totalProducts} produk dapur komersial untuk restoran, hotel, cafe, bakery, dan catering.`);
+            upsertMeta('meta[name="twitter:title"]', 'name', 'twitter:title', 'TokoKitchen Store | Peralatan Dapur Komersial Horeka');
+            upsertMeta('meta[name="twitter:description"]', 'name', 'twitter:description', `Katalog ${totalProducts} produk dapur komersial untuk restoran, hotel, cafe, bakery, dan catering.`);
+
+            let canonical = document.head.querySelector('link[rel="canonical"]');
+            if (!canonical) {
+                canonical = document.createElement('link');
+                canonical.setAttribute('rel', 'canonical');
+                document.head.appendChild(canonical);
+            }
+            canonical.setAttribute('href', baseUrl);
+
+            const itemListSchema = {
+                "@context": "https://schema.org",
+                "@type": "ItemList",
+                "name": "Katalog Produk TokoKitchen Store",
+                "description": "Daftar peralatan dapur komersial TokoKitchen Store untuk kebutuhan Horeka.",
+                "numberOfItems": totalProducts,
+                "itemListElement": sampleProducts
+            };
+
+            let schemaTag = document.getElementById('seo-product-schema');
+            if (!schemaTag) {
+                schemaTag = document.createElement('script');
+                schemaTag.type = 'application/ld+json';
+                schemaTag.id = 'seo-product-schema';
+                document.head.appendChild(schemaTag);
+            }
+            schemaTag.textContent = JSON.stringify(itemListSchema, null, 2);
+        }
+
         // Inisialisasi
         document.addEventListener('DOMContentLoaded', () => {
+            injectAutomaticSEO();
             renderCatalog();
             handleThermalSimulator(0); // Simulator mulai di 0
         });
