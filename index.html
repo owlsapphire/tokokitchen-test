@@ -169,6 +169,117 @@
         .modal-content-box {
             overscroll-behavior: contain;
         }
+
+
+        /* Mobile responsive polish */
+        html, body {
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+        #product-grid > div {
+            min-width: 0;
+        }
+        .product-card-badge {
+            max-width: calc(100% - 58px);
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .product-price-new {
+            white-space: nowrap;
+            overflow: visible;
+            text-overflow: clip;
+            letter-spacing: -0.02em;
+        }
+        @media (max-width: 640px) {
+            body {
+                -webkit-text-size-adjust: 100%;
+                text-size-adjust: 100%;
+            }
+            #product-grid {
+                gap: 0.875rem !important;
+            }
+            .product-card-mobile {
+                border-radius: 1.35rem !important;
+                padding: 0.75rem !important;
+            }
+            .product-card-img {
+                border-radius: 1rem !important;
+                margin-bottom: 0.875rem !important;
+            }
+            .product-card-badge {
+                font-size: 8px !important;
+                padding: 0.25rem 0.45rem !important;
+                letter-spacing: 0.06em !important;
+                max-width: calc(100% - 56px);
+            }
+            .product-card-discount {
+                font-size: 8px !important;
+                padding: 0.25rem 0.5rem !important;
+                border-radius: 0.35rem !important;
+            }
+            .product-card-footer {
+                flex-direction: column !important;
+                align-items: stretch !important;
+                gap: 0.65rem !important;
+            }
+            .product-card-actions {
+                justify-content: flex-end !important;
+            }
+            .product-card-actions button {
+                width: 2rem !important;
+                height: 2rem !important;
+            }
+            .product-price-new {
+                font-size: 1rem !important;
+                line-height: 1.05 !important;
+                display: block;
+            }
+            #sim-temp-display {
+                font-size: 2rem !important;
+                line-height: 1 !important;
+            }
+            .thermal-head {
+                align-items: flex-start !important;
+                gap: 0.35rem !important;
+            }
+            .sim-status-card {
+                min-height: auto !important;
+                padding: 1rem !important;
+                overflow: hidden;
+            }
+            #sim-output-title {
+                font-size: 1rem !important;
+                line-height: 1.25 !important;
+                overflow-wrap: anywhere;
+            }
+            #sim-output-desc {
+                font-size: 0.75rem !important;
+                line-height: 1.55 !important;
+            }
+            .sim-slider-ticks {
+                height: 1.5rem !important;
+                margin-top: 0.75rem !important;
+            }
+            .sim-slider-ticks .tick-zero,
+            .sim-slider-ticks .tick-hot {
+                display: none !important;
+            }
+            #sim-recommendations-grid {
+                max-height: none !important;
+                overflow: visible !important;
+                padding-right: 0 !important;
+            }
+            #product-modal {
+                padding: 0.75rem !important;
+            }
+            .modal-content-box {
+                border-radius: 1.5rem !important;
+                padding: 1rem !important;
+                gap: 1rem !important;
+                max-height: 92vh !important;
+            }
+        }
     </style>
 </head>
 <body class="bg-[#f4f6f9] dark:bg-slate-950 text-slate-800 dark:text-slate-100 font-sans transition-colors duration-300">
@@ -301,11 +412,11 @@
 
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start relative z-10">
                     <!-- Kiri: Kontrol Slider & Copywriting -->
-                    <div class="lg:col-span-5 flex flex-col space-y-6 sticky top-24">
+                    <div class="lg:col-span-5 flex flex-col space-y-6 lg:sticky lg:top-24">
                         <div class="space-y-4">
-                            <div class="flex justify-between items-center">
+                            <div class="thermal-head flex flex-col sm:flex-row sm:justify-between sm:items-center items-start">
                                 <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">Suhu Terpilih:</span>
-                                <span id="sim-temp-display" class="text-4xl font-black text-[#00bcd4] transition-colors duration-300">0°C</span>
+                                <span id="sim-temp-display" class="text-3xl sm:text-4xl font-black text-[#00bcd4] transition-colors duration-300">0°C</span>
                             </div>
                             
                             <!-- Slider Container -->
@@ -313,17 +424,17 @@
                                 <input type="range" id="sim-temp-slider" min="-40" max="400" value="0" step="1" class="w-full h-3 thermal-track rounded-lg appearance-none cursor-pointer outline-none shadow-inner" oninput="handleThermalSimulator(this.value)">
                                 
                                 <!-- Slider Ticks Alignments (Overlap Fixed) -->
-                                <div class="flex justify-between w-full text-[10px] font-bold text-slate-400 mt-3 h-5 relative">
+                                <div class="sim-slider-ticks flex justify-between w-full text-[10px] font-bold text-slate-400 mt-3 h-5 relative">
                                     <span class="absolute left-0">-40°C</span>
-                                    <span class="absolute left-[9.09%] -translate-x-1/2 text-slate-800 dark:text-white font-black">0°C</span>
-                                    <span class="absolute right-[35%] hidden sm:block">100°C</span>
+                                    <span class="tick-zero absolute left-[9.09%] -translate-x-1/2 text-slate-800 dark:text-white font-black">0°C</span>
+                                    <span class="tick-hot absolute right-[35%] hidden sm:block">100°C</span>
                                     <span class="absolute right-0">400°C</span>
                                 </div>
                             </div>
                         </div>
 
                         <!-- Status Box -->
-                        <div class="p-5 bg-slate-50 dark:bg-slate-950 rounded-2xl border border-slate-200/50 dark:border-slate-800 flex flex-col justify-center min-h-[120px]">
+                        <div class="sim-status-card p-5 bg-slate-50 dark:bg-slate-950 rounded-2xl border border-slate-200/50 dark:border-slate-800 flex flex-col justify-center min-h-[120px]">
                             <span class="text-[9px] text-slate-400 font-bold uppercase tracking-widest mb-1">Status Area Suhu</span>
                             <div id="sim-output-title" class="text-base font-black text-slate-800 dark:text-white leading-tight">Zona Kulkas Segar (Chiller)</div>
                             <p id="sim-output-desc" class="text-xs text-slate-500 mt-2 leading-relaxed">
@@ -1533,6 +1644,32 @@
             return categoryLabels[category] || category;
         }
 
+        const categoryBadgeLabels = {
+            table: "TABLE",
+            kabinet: "CABINET",
+            "rak-storage": "RACK",
+            sink: "SINK",
+            beverage: "BAR",
+            "kompor-grill": "COOKING",
+            "fryer-cooker": "FRYER",
+            "pemanas-bain-marie": "WARMER",
+            "mixer-oven": "OVEN",
+            "mesin-cuci-piring": "DISHWASH",
+            preparasi: "PREP",
+            "trolley-transport": "TROLLEY",
+            "ventilasi-dapur": "VENT",
+            "upright-chiller": "CHILLER",
+            "upright-freezer": "FREEZER",
+            "under-counter": "COUNTER",
+            "showcase-cooler": "SHOWCASE",
+            "chest-freezer": "CHEST",
+            "blast-chiller": "BLAST"
+        };
+
+        function getCategoryBadgeLabel(category) {
+            return categoryBadgeLabels[category] || getCategoryLabel(category);
+        }
+
         function showToast(msg) {
             const toast = document.getElementById('toast-notif');
             document.getElementById('toast-msg').textContent = msg;
@@ -1573,7 +1710,7 @@
             if(range) {
                 document.getElementById('sim-output-title').textContent = range.title;
                 document.getElementById('sim-output-desc').textContent = range.desc;
-                display.className = `text-4xl font-black transition-colors duration-300 ${range.theme}`;
+                display.className = `text-3xl sm:text-4xl font-black transition-colors duration-300 ${range.theme}`;
                 
                 const recommended = productsData
                     .filter(p => range.cats.includes(p.category))
@@ -1743,14 +1880,14 @@
                 const v = p.variants[0];
                 const discPrice = v.harga * 0.8;
                 const card = document.createElement('div');
-                card.className = "bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-3xl p-3 md:p-4 shadow-[0_2px_10px_-3px_rgba(6,81,237,0.1)] hover:shadow-lg hover:border-[#00bcd4] transition-all flex flex-col h-full group cursor-default";
+                card.className = "product-card-mobile bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-3xl p-3 md:p-4 shadow-[0_2px_10px_-3px_rgba(6,81,237,0.1)] hover:shadow-lg hover:border-[#00bcd4] transition-all flex flex-col h-full group cursor-default";
                 
                 let variantOptions = p.variants.map((varItem, idx) => `<option value="${idx}">${varItem.model}</option>`).join('');
 
                 card.innerHTML = `
-                    <div class="relative w-full aspect-square rounded-2xl bg-[#f8fafc] dark:bg-slate-800 mb-4 overflow-hidden cursor-pointer" onclick="openModal(${p.id})">
-                        <span class="absolute top-3 left-3 bg-[#cffafe] text-[#164e63] text-[9px] font-black px-2.5 py-1 rounded uppercase tracking-wider z-10">${getCategoryLabel(p.category)}</span>
-                        <span class="absolute top-3 right-3 bg-[#ef4444] text-white text-[9px] font-black px-2.5 py-1 rounded z-10">-20%</span>
+                    <div class="product-card-img relative w-full aspect-square rounded-2xl bg-[#f8fafc] dark:bg-slate-800 mb-4 overflow-hidden cursor-pointer" onclick="openModal(${p.id})">
+                        <span class="product-card-badge absolute top-3 left-3 bg-[#cffafe] text-[#164e63] text-[9px] font-black px-2.5 py-1 rounded uppercase tracking-wider z-10">${getCategoryBadgeLabel(p.category)}</span>
+                        <span class="product-card-discount absolute top-3 right-3 bg-[#ef4444] text-white text-[9px] font-black px-2.5 py-1 rounded z-10">-20%</span>
                         <img id="img-card-${p.id}" src="${v.image}" alt="${p.name} ${v.model} - ${getCategoryLabel(p.category)}" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
                     </div>
                     
@@ -1768,12 +1905,12 @@
                         </div>
                     </div>
 
-                    <div class="mt-4 pt-4 border-t border-slate-50 dark:border-slate-800/50 flex items-end justify-between gap-2">
+                    <div class="product-card-footer mt-4 pt-4 border-t border-slate-50 dark:border-slate-800/50 flex items-end justify-between gap-2">
                         <div class="min-w-0 flex-1 cursor-pointer" onclick="openModal(${p.id})">
                             <span class="text-[10px] text-slate-400 line-through block leading-none mb-1 truncate" id="price-old-card-${p.id}">${formatRupiah(v.harga)}</span>
-                            <span class="text-sm md:text-lg font-black text-[#00a884] block leading-none truncate" id="price-new-card-${p.id}">${formatRupiah(discPrice)}</span>
+                            <span class="product-price-new text-sm md:text-lg font-black text-[#00a884] block leading-none" id="price-new-card-${p.id}">${formatRupiah(discPrice)}</span>
                         </div>
-                        <div class="flex gap-1.5 shrink-0">
+                        <div class="product-card-actions flex gap-1.5 shrink-0">
                              <button type="button" onclick="chatWaDirect(${p.id})" class="w-8 h-8 rounded-full bg-emerald-50 text-emerald-500 hover:bg-emerald-500 hover:text-white flex items-center justify-center transition-all hover:scale-110" title="Tanya WA">
                                 <i class="fa-brands fa-whatsapp"></i>
                             </button>
@@ -1868,21 +2005,54 @@
             document.getElementById('cart-count').textContent = count;
         }
 
-        function switchView(view) {
-            document.querySelectorAll('.view-panel').forEach(el => el.classList.add('hidden'));
-            document.getElementById(`${view}-view`).classList.remove('hidden');
-            window.scrollTo({top: 0, behavior: 'smooth'});
-            
-            if(view === 'cart') renderCartPage();
-            if(view === 'checkout') {
-                if(cart.length === 0){
-                    showToast("Keranjang Anda kosong!");
-                    switchView('home');
-                    return;
+        let currentView = 'home';
+
+        function getViewFromHash() {
+            const hashView = (window.location.hash || '').replace('#', '').trim();
+            return ['home', 'cart', 'checkout'].includes(hashView) ? hashView : 'home';
+        }
+
+        function syncBrowserHistory(view, replace = false) {
+            if (!window.history || !window.history.pushState) return;
+            const baseUrl = window.location.href.split('#')[0];
+            const targetUrl = view === 'home' ? baseUrl : `${baseUrl}#${view}`;
+            try {
+                if (replace) {
+                    window.history.replaceState({ view }, '', targetUrl);
+                } else if (!window.history.state || window.history.state.view !== view) {
+                    window.history.pushState({ view }, '', targetUrl);
                 }
-                renderCheckoutPage();
+            } catch (err) {
+                // Browser lama tetap bisa jalan tanpa history SPA.
             }
         }
+
+        function switchView(view, options = {}) {
+            const pushHistory = options.pushHistory !== false;
+            const replaceHistory = options.replaceHistory === true;
+            if (!['home', 'cart', 'checkout'].includes(view)) view = 'home';
+
+            if(view === 'checkout' && cart.length === 0){
+                showToast("Keranjang Anda kosong!");
+                view = cart.length > 0 ? 'cart' : 'home';
+            }
+
+            document.querySelectorAll('.view-panel').forEach(el => el.classList.add('hidden'));
+            const activePanel = document.getElementById(`${view}-view`);
+            if (activePanel) activePanel.classList.remove('hidden');
+            window.scrollTo({top: 0, behavior: 'smooth'});
+            currentView = view;
+            
+            if(view === 'cart') renderCartPage();
+            if(view === 'checkout') renderCheckoutPage();
+
+            if (pushHistory) syncBrowserHistory(view, replaceHistory);
+        }
+
+        window.addEventListener('popstate', (event) => {
+            const view = event.state && event.state.view ? event.state.view : getViewFromHash();
+            switchView(view, { pushHistory: false });
+        });
 
         function changeCartQty(index, delta) {
             if (!cart[index]) return;
@@ -2112,6 +2282,9 @@
             injectAutomaticSEO();
             renderCatalog();
             handleThermalSimulator(0); // Simulator mulai di 0
+            const initialView = getViewFromHash();
+            syncBrowserHistory(initialView, true);
+            switchView(initialView, { pushHistory: false });
         });
     </script>
 </body>
